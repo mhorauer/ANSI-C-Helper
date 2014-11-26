@@ -1,0 +1,56 @@
+[[cos]]
+cos
+---
+
+NAME::
+cos - cosine function.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double cos(double x);
+---------------------
+
+DESCRIPTION::
+
+The +cos()+ function returns the cosine of +x+, where +x+ is
+given in radians.
+
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+The +cos()+ function returns a value between [-1, 1].
+
+SEE ALSO::
+
++sin+, +tan+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/cos.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cos.c
+$ ./a.out 
+cos(0.000000) = 1.000000
+cos(1.000000) = 0.540302
+cos(2.000000) = -0.416147
+cos(3.000000) = -0.989992
+cos(4.000000) = -0.653644
+cos(5.000000) = 0.283662
+cos(6.000000) = 0.960170
+.....
+
+

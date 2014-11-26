@@ -1,0 +1,54 @@
+[[atexit]]
+atexit
+------
+
+NAME::
+atexit - Specifies a function to be executed at exit.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+int atexit ( void (* function) (void) ); 
+---------------------
+
+DESCRIPTION::
+
+The function pointed by function parameter is called
+when the program terminates normally. If more than one +atexit+
+function is specified calling this, they are all executed in
+reverse order, that is, the last function specified is the first to
+be executed at exit. ANSI standard specifies that up to 32
+functions can be prefixed for a single process. These functions
+will not receive any parameter when called.
+
+PARAMETERS::
+function - Function to be called.
+
+RETURN VALUE::
+0 is returned if successful, or a non-zero value if an error occurs.
+
+SEE ALSO::
++abort+, +exit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/atexit.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall atexit.c
+$ ./a.out
+Main function.
+Exit function 2.
+Exit function 1.
+.....
+
+

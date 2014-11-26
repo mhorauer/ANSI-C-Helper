@@ -1,0 +1,57 @@
+[[fputs]]
+fputs
+-----
+
+NAME::
+fputs - Write string to a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fputs (const char *string , FILE *stream); 
+---------------------
+
+DESCRIPTION::
+
+Writes string to the current position of the given
+stream. The function begins copying from the address specified (string) until it reaches a null character (+'\0'+) that ends the string. The final null-character is not copied to the stream.
+
+PARAMETERS::
+
+* string - Null-terminated string to be written.
+* stream - pointer to an open file.
+
+RETURN VALUE::
+
+On success, a non-negative value is returned. On error the function returns EOF.
+
+SEE ALSO::
+
++fgets+, +gets+, +puts+, +fprintf+, +fscanf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fputs.c[]
+---------------------
+
+This program allows to append a line to a given file each time you run it.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fputs.c
+$ cat src.txt 
+Hello World!
+$ ./a.out src.txt 
+Enter sentence to append> !dlroW olleH
+$ cat src.txt 
+Hello World!
+!dlroW olleH
+.....
+
+

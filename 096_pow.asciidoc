@@ -1,0 +1,55 @@
+[[pow]]
+pow
+---
+
+NAME::
+pow - The +pow()+ function returns the value of +x+ raised to the power of +y+.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double pow(double x, double y);
+---------------------
+
+DESCRIPTION::
+Returns +x+ raised to the power of +y+: `x^y`
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
++x+ raised to the power of +y+.
+
+ERRORS::
+
+* EDOM - The argument +x+ is negative and +y+ is not an integral value. This would result in a complex number.
+* ERANGE - When +x+ is zero and +y+ is nagetive a divide, by zero exception is raised. This error is also raised when the result overflows or underflows.
+
+SEE ALSO::
+
++exp+, +log+, +sqrt+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/pow.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall pow.c
+$ ./a.out 
+7 ^ 3 = 343.000000
+4.73 ^ 12 = 125410439.217423
+32.01 ^ 1.54 = 208.036691
+.....
+
+
+

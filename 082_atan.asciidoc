@@ -1,0 +1,68 @@
+[[atan]]
+atan
+----
+
+NAME::
+atan - arc tangent function.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double atan(double x);
+---------------------
+
+DESCRIPTION::
+The +atan()+ function calculates the arc tangent of +x+;
+that is the value whose tangent is +x+.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+The +atan()+ function returns the arc tangent
+in radians and the value is mathematically defined to be between -PI/2 and
+PI/2 (inclusive).
+
+SEE ALSO::
++acos+, +asin+, +atan2+, +cos+, +sin+, +tan+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/atan.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm atan.c
+$ ./a.out
+ATAN(-10.000000) = -1.471128
+ATAN(-9.000000) = -1.460139
+ATAN(-8.000000) = -1.446441
+ATAN(-7.000000) = -1.428899
+ATAN(-6.000000) = -1.405648
+ATAN(-5.000000) = -1.373401
+ATAN(-4.000000) = -1.325818
+ATAN(-3.000000) = -1.249046
+ATAN(-2.000000) = -1.107149
+ATAN(-1.000000) = -0.785398
+ATAN(0.000000) = 0.000000
+ATAN(1.000000) = 0.785398
+ATAN(2.000000) = 1.107149
+ATAN(3.000000) = 1.249046
+ATAN(4.000000) = 1.325818
+ATAN(5.000000) = 1.373401
+ATAN(6.000000) = 1.405648
+ATAN(7.000000) = 1.428899
+ATAN(8.000000) = 1.446441
+ATAN(9.000000) = 1.460139
+ATAN(10.000000) = 1.471128
+.....
+

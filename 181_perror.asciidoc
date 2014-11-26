@@ -1,0 +1,62 @@
+[[perror]]
+perror
+------
+
+NAME::
+perror - Print error message.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+void perror(const char *string); 
+---------------------
+
+DESCRIPTION::
+
+Transcribes the the value of the global variable +errno+
+into a string and prints that string to +stderr+ (standard error
+output, generally the screen). +errno+ describes the last error
+produced by a call to a library routine. It is an index for the
+global variable +sys_errlist+ that contains an array of strings
+describing library routine errors. These error strings do not
+include the ending newline character (`\n`). The number of entries is
+defined by the global variable +sys_nerr+. If the parameter string is
+not NULL, string is printed followed by a colon (:) and the error
+description. After the error description a newline character (`\n`)
+is appended. The standard convention is to pass the program name as
+the string parameter. `perror` should be called right after a library
+routine returns an error or it can be overwritten by further
+calls.
+
+PARAMETERS::
+
+* string - Message to be printed before the error message.
+
+RETURN VALUE::
+
+None
+
+SEE ALSO::
+
++clearerr+, +ferror+, +feof+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/perror.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall perror.c
+$ ./a.out nonexist.txt
+fopen error: No such file or directory
+$ ./a.out perror.c
+.....
+
+

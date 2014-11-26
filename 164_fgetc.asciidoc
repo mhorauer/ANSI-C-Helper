@@ -1,0 +1,82 @@
+[[fgetc]]
+fgetc
+-----
+
+NAME::
+fgetc - Get the next character from a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fgetc(FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+Returns the next character of the stream and increases
+the file pointer to point to the following one.
+
+RETURN VALUE::
+
+The character read is returned as an +int+ value. If the
+End Of File has been reached or there has been an error reading,
+the function returns +EOF+. You can use +ferror()+ or +feof()+ to
+determine whether an error happened or the End-Of-File was
+reached.
+
+SEE ALSO::
+
++fputc+, +fread+, +fwrite+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fgetc.c[]
+---------------------
+
+The above program reads a file whose file name is provided as command-line argument
+character by character and uses the variable +n+ to count how many
+'a' characters are found.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fgetc.c
+$ ./a.out fgetc.c
+File contains 11 'a' characters.
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fgetc2.c[]
+---------------------
+
+This example simply reads character after character from a file and prints it to the screen.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fgetc2.c
+$ ./a.out fgetc2.c
+#include <stdio.h>
+
+int main(int argc, char *argv[1])
+{
+  int c;
+  FILE *ptr;
+
+  ptr = fopen(argv[1],"r");
+  while ((c = fgetc(ptr)) != EOF)  {
+    printf("%c",c);
+  }
+  fclose(ptr);
+  return 0;
+}
+.....
+

@@ -1,0 +1,47 @@
+[[raise]]
+raise
+-----
+
+NAME::
+raise - send a signal.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <signal.h>
+
+int raise (int sig);
+---------------------
+
+DESCRIPTION::
++raise()+ sends a signal to the current process. It is equivalent to +kill(getpid(),sig)+.
+
+RETURN VALUE::
+Zero for success, nonzero for failure.
+
+SEE ALSO::
++signal+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/raise.c[]
+---------------------
+
+The above example uses a +wait()+ function to delay for approximately 60 seconds. During this time -- whenever a CTRL+C signal is caught -- the respective signal handler +catch_function+ gets invoked.
+
+OUTPUT::
+
+.....
+$ gcc -Wall raise.c
+$ ./a.out 
+Raising the interactive attention signal.
+Interactive attention signal caught.
+^CInteractive attention signal caught.
+^CInteractive attention signal caught.
+^CInteractive attention signal caught.
+Exiting.
+.....
+

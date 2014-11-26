@@ -1,0 +1,73 @@
+[[qsort]]
+qsort
+-----
+
+NAME::
+qsort - Sort using quicksort algorithm.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void qsort ( void * base, size_t num, size_t width, \
+             int (*fncompare)(const void *, const void *) ); 
+---------------------
+
+DESCRIPTION::
+
+This function uses an implementation of the quicksort
+algorithm to sort the +num+ elements of an array pointed by base,
+each element has the specified width in bytes. The method used to
+compare each pair of elements is provided by the caller to this
+function with +fncompare+ parameter, that is a function called one or
+more times during the sort process.
+
+PARAMETERS::
+
+* base - Pointer to the first element of the array where the sorting process has to be performed.
+* num - Number of elements in the array pointed by base.
+* width - Width of each element in the array.
+* fncompare - Function that compares two elements. This should be provided by the caller to this function and must follow or be cast to a declaration like: + 
+`int fncompare (const void * elem1, const void * elem2);`
+
+
+The function should receive two parameters (+elem1+ and +elem2+) that
+are pointers to elements, and should return an int value with the
+result of comparing them:
+
+[options="header",frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|======================================
+| return value | description
+| < 0          |  *elem1 goes before *elem2
+| 0            | *elem1 == *elem2
+| > 0          | *elem1 goes after *elem2
+|======================================
+
+
+RETURN VALUE::
+
+None.
+
+SEE ALSO::
+
++bsearch+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/qsort.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall qsort.c
+$ ./a.out 
+40 10 100 90 20 25 
+10 20 25 40 90 100 
+.....
+
+

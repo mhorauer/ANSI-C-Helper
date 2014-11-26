@@ -1,0 +1,57 @@
+[[fmod]]
+fmod
+----
+
+NAME::
+fmod - floating-point remainder function.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double fmod(double x, double y);
+---------------------
+
+DESCRIPTION::
+
+The +fmod()+ function computes the remainder of
+dividing +x+ by +y+. The return value is `x - n * y`, where +n+ is the quotient of
+`x / y`, rounded towards zero to an integer.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+The +fmod()+ function returns the remainder, unless +y+ is
+zero --- in this case the function fails and +errno+ is set.
+
+ERRORS::
+
+EDOM - The denominator +y+ is zero.
+
+SEE ALSO::
+
++ceil+, +fabs+, +floor+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fmod.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm fmod.c
+$ ./a.out 
+Enter two floating point numbers separated by a space > 12.0 -3.45
+FMOD(12.000000/-3.450000) = 1.650000
+.....
+
+

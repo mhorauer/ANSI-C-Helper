@@ -1,0 +1,63 @@
+[[clock]]
+clock
+-----
+
+NAME::
+clock - Return number of clock ticks since process start.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+clock_t clock ( void ); 
+---------------------
+
+DESCRIPTION::
+
+Returns the number of clock ticks elapsed. A macro
+constant called +CLK_TCK+ defines the relation between clock tick and
+second (clock ticks per second).
+
+PARAMETERS::
+
+None.
+
+RETURN VALUE::
+
+The number of clock ticks elapsed since start. +clock_t+
+type is defined by default as +long int+ by most compilers.
+
+SEE ALSO::
+
++time+, +difftime+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/clock.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall clock.c
+$ ./a.out 
+Starting countdown...
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+FIRE!!!
+.....
+
+
+

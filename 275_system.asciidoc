@@ -1,0 +1,84 @@
+[[system]]
+system
+------
+
+NAME::
+system - Execute command.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+int system(const char * command); 
+---------------------
+
+DESCRIPTION::
+
+Invokes command interpreter to execute a command. Once terminated, the interpreter gives back control to the program returning an int value.
+
+["NOTE",voffset="0mm"]
+The system function is used to issue a DOS/Unix command. Execution of your program will not continue until the command has completed. You will not be able to get the return code from the command or have access to the command output via system. If you need access to the output consider using +popen+ command found in many Unix variants to execute the command. Note: +popen+ is not
+defined in the ANSI standard.
+
+
+PARAMETERS::
+
+* command - Null-terminated string containing the system command to be executed.
+
+RETURN VALUE::
+
+If a command was successfully executed the command interpreter returns an adequate value; generally 0 indicates that the action performed by the command interpreter terminated with no errors. A return value of -1 indicates an error, and global variable +errno+ is set to one of the following errors:
+
+[options="header",frame="all",colspecs="cl",cols="^2,10",caption_voffset="0mm"]
+|=======================================================
+| value    | description
+| ENOENT   | Command interpreter not found
+| ENOEXEC  | Command interpreter is not executable
+| ENOMEM   | Error allocating memory for the process
+| E2BIG    | Argument list too big
+|=======================================================
+
+
+SEE ALSO::
+
+-
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/system.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall system.c
+$ ./a.out "cat system.c"
+Trying to execute command 'cat system.c'.
+#include <stdlib.h>
+#include <stdio.h>
+
+int main (int argc, char *argv[])
+{
+  int i;
+
+  printf("Trying to execute command '%s'.\n", argv[1]);
+  i = system (argv[1]);
+  if (i==-1)
+    printf("Error executing '%s'.\n", argv[1]);
+  else
+    printf("Command '%s' successfully executed.\n", argv[1]);
+  return 0;
+}
+Command 'cat system.c' successfully executed.
+$ ./a.out moin
+Trying to execute command 'moin'.
+sh: moin: command not found
+Command 'moin' successfully executed.
+.....
+
+
+
+

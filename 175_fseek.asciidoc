@@ -1,0 +1,69 @@
+[[fseek]]
+fseek
+-----
+
+NAME::
+fseek - Reposition stream's position indicator.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fseek( FILE *stream , long offset , int origin ); 
+---------------------
+
+DESCRIPTION::
+
+Sets the position indicator associated with the stream
+to a new position defined by an offset from the location given by
+the origin parameter. The End-Of-File indicator of this stream is
+cleared after a call to +fseek+.
+
+When using +fseek+ on files opened in text mode consider that you can
+only be sure of the results if an offset of 0 or an offset equal to
+a value returned from +ftell+ is specified, any other offset value
+makes result unpredictable because of carriage-return translations
+under this mode.
+
+The next operation with the stream after a call to +fseek+ can be
+either for input or output.
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+* offset - Number of bytes from origin.
+* origin - Initial position from where offset is applied. It can be any of these constants defined in +stdio.h+: 
+- SEEK_SET (0) Beginning of file. 
+- SEEK_CUR (1) Current position of the file pointer. 
+- SEEK_END (2) End of file.
+
+RETURN VALUE::
+
+If successful the function returns 0. Otherwise it returns nonzero.
+
+SEE ALSO::
+
++fopen+, +fsetpos+, +ftell+, +rewind+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fseek.c[]
+---------------------
+
+The above example first writes `This is an apple.` to a file. Next, the file pointer is re-positioned and part of the text gets overwritten.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fseek.c
+$ ./a.out test.txt
+$ cat test.txt
+This is a sample.
+.....
+
+
+

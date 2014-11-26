@@ -1,0 +1,57 @@
+[[floor]]
+floor
+-----
+
+NAME::
+
+floor - largest integer value not greater than x.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double floor(double x);
+---------------------
+
+DESCRIPTION::
+
+These function returns the largest integral value that is not greater than +x+.
+For example, +floor(0.5)+ is +0.0+, and +floor(-0.5)+ is +-1.0+.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+The floor function returns a floating point number
+that contains the largest integer value that is not greater than +x+.
+
+SEE ALSO::
+
++ceil+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/floor.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm floor.c 
+$ ./a.out
+Enter a floating point number > 45.98
+FLOOR(45.980000) = 45.000000
+$ ./a.out
+Enter a floating point number > -45.98
+FLOOR(-45.980000) = -46.000000
+.....
+
+
+

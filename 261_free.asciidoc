@@ -1,0 +1,64 @@
+[[free]]
+free
+----
+
+NAME::
+free - Deallocate dynamically allocated memory.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void free(void * memblock); 
+---------------------
+
+DESCRIPTION::
+
+A block of memory previously allocated by a call to
++malloc+, +calloc+ or +realloc+ is freed. The memblock parameter must
+point to a previously allocated memory block. If an invalid pointer is
+passed to the function the behavior is undefined. This function
+only frees memory allocated from the specified functions. Memory
+obtained from other methods (like C++'s new operator) should not be
+freed with this function.
+
+PARAMETERS::
+
+* memblock - pointer to the memory block to be freed.
+
+RETURN VALUE::
+
+NONE.
+
+SEE ALSO::
+
++malloc+, +calloc+, +realloc+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fread.c[]
+---------------------
+
+The above program allocates dynamically 100 bytes to store up to 100 characters. Next, using +fgets()+ up to 100 characters are read from stdin. Afterwards, the terminating +\n+ is overwritten bei a +\0+. 
+Next, the program uses a loop to output the contents of the buffer in reverse order. Finally , the buffer is freed and the respective pointer is set back to NULL.
+
+OUTPUT::
+
+.....
+$ gcc -Wall free.c
+$ ./a.out 
+Enter some text> 1234567890
+0987654321
+$ ./a.out 
+Enter some text> 1 2 3 4 5 6 7 8 9 0
+0 9 8 7 6 5 4 3 2 1
+$ ./a.out 
+Enter some text> mana mana oh mana mana mana ma oh mana mana mananana oh ho mananah manananah nahnah
+hanhan hanananam hananam oh ho anananam anam anam ho am anam anam anam ho anam anam
+.....
+
+

@@ -1,0 +1,49 @@
+[[difftime]]
+difftime
+--------
+
+NAME::
+difftime - Return difference between two times.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+double difftime(time_t timer2, time_t timer1); 
+---------------------
+
+DESCRIPTION::
+
+Calculates the time difference between +timer1+ and +timer2+ in seconds.
+
+PARAMETERS::
+* timer2 - Later time.
+* timer1 - Former time.
+
+RETURN VALUE::
+
+The difference in seconds between the two times specified.
+
+SEE ALSO::
++asctime+, +gmtime+, +localtime+, +time+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/difftime.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall difftime.c
+$ ./a.out 
+Please, enter your name: Tom
+Hi Tom.
+You have taken 3.00 seconds to type your name.
+.....
+
+

@@ -1,0 +1,88 @@
+[[fclose]]
+fclose
+------
+
+NAME::
+fclose - Close a stream.
+
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fclose(FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+
+Close the file associated with the specified stream
+after flushing all buffers associated with it.
+
+
+RETURN VALUE::
+
+If the stream is successfully closed 0 is returned. In case of an error +EOF+ is returned.
+
+
+SEE ALSO::
+
++fopen+, +freopen+, +fflush+
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fclose.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fclose.c
+$ ./a.out hello
+$ more hello
+fclose example
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fclose2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fclose2.c
+$ ./a.out fclose2.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  int c;
+  FILE *pFile;
+
+  pFile = fopen(argv[1],"r");
+  if (pFile==NULL) {
+    printf("Error opening file.\n");
+    exit(EXIT_FAILURE);
+  }
+
+  while ((c = fgetc(pFile)) != EOF) {
+    printf("%c",c);
+  }
+  fclose(pFile);
+  return 0;
+}
+.....
+
+
+
+
+

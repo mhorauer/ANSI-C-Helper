@@ -1,0 +1,59 @@
+[[asctime]]
+asctime
+-------
+
+NAME::
+asctime - Convert tm structure to string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+char *asctime ( const struct tm * tmptr ); 
+---------------------
+
+DESCRIPTION::
+
+Converts data pointed by +tmptr+ to a string containing
+time and date in a readable format. +tmptr+ is a pointer to a _tm
+structure_ as the ones returned by +gmtime+ and +localtime+. The
+returned string has the following format: +Www Mmm dd hh:mm:ss yyyy+ where +Www+ is the weekday, +Mmm+ the month in letters, +dd+ the day of the month, +hh:mm:ss+ the time, and +yyyy+ the
+year. The string is followed by a new-line character (+\n+) and a terminating null-character, conforming a total of 26 characters.
+
+PARAMETERS::
+
++tmptr+ - Pointer to _tm structure_ containing time and date information to be converted.
+
+RETURN VALUE::
+
+A pointer to the string containing the date and time
+information in readable format. The string pointed is statically
+allocated and shared by ctime and asctime functions. Each time one
+of these functions is called the content of the string is
+overwritten.
+
+SEE ALSO::
+
++ctime+, +gmtime+, +localtime+, +time+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/asctime.c[]
+---------------------
+
+
+OUTPUT::
+
+.........
+$ gcc -Wall asctime.c
+$ ./a.out
+Current date and time are: Thu Sep  6 10:40:57 2012
+.........
+
+
+
+

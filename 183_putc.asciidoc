@@ -1,0 +1,53 @@
+[[putc]]
+putc
+----
+
+NAME::
+putc - Write character to stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int putc (int character, FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+Writes character to the current position in the
+specified stream and increase the file pointer to point to next
+character. This routine is normally implemented as a macro with the
+same result as +fputc+.
+
+PARAMETERS::
+
+* character - Character to be written. The function casts the +int+ parameter to an +unsigned char+
+equivalent before writing it.
+* stream - Pointer to an open file.
+
+RETURN VALUE::
+
+In case there are no errors the written character is returned. If an error occurs, EOF is returned.
+
+SEE ALSO::
+
++fgetc+, +fputc+, +fwrite+, +getchar+, +putchar+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/putc.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall putc.c
+$ ./a.out test.txt
+$ cat test.txt 
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+.....
+

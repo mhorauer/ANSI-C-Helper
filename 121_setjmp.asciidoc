@@ -1,0 +1,45 @@
+[[setjmp]]
+setjmp
+------
+
+NAME::
+setjmp - save stack context for non-local goto.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <setjmp.h>
+
+int setjmp(jmp_buf envbuf);
+---------------------
+
+DESCRIPTION::
+
++setjmp()+ and +longjmp()+ are useful for dealing with errors and interrupts encountered in a low-level subroutine of a program. +setjmp()+ saves the stack context/environment in +env+ for later use by +longjmp()+. The stack context will be invalidated if the function which called +setjmp()+ returns.
+
+RETURN VALUE::
+
+It returns the value 0 if returning directly and non-zero when returning from +longjmp()+ using the saved context.
+
+SEE ALSO::
+
++longjmp+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/setjmp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall setjmp.c
+$ ./a.out 
+Calling function.
+Reached this point from a longjmp with value=5.
+.....
+
+

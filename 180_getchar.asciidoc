@@ -1,0 +1,49 @@
+[[getchar]]
+getchar
+-------
+
+NAME::
+getchar - Get the next character from STDIN.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int getchar( void );
+---------------------
+
+DESCRIPTION::
+
+Returns the next character from the standard input (stdin). It corresponds to: +getc(stdin)+
+
+RETURN VALUE::
+
+The character read is returned as int. If the End-of-File is reached or there has been an error reading, the function returns +EOF+. +EOF+ can indicate either the End-of-File or an error
+while reading. You can use +ferror()+ and +feof()+ to determine which
+happened.
+
+SEE ALSO::
+
++getc+, +putchar+, +fgetc+, +fopen+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/getc.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall getchar.c
+$ ./a.out 
+Enter some text ...
+hello
+hello
+.....
+
+
+

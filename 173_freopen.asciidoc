@@ -1,0 +1,81 @@
+[[freopen]]
+freopen
+-------
+
+NAME::
+freopen - Reopen a stream with a different file and mode.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+FILE *freopen (const char *filename , const char *mode , FILE *stream); 
+---------------------
+
+DESCRIPTION::
+
++freopen+ first tries to close any file already open
+associated with the given stream. Then, whether the stream was
+closed or not, +freopen+ opens the file which name is pointed by
++filename+ string and associates it with the specified stream.
+
+PARAMETERS::
+
+* filename - name of the file to be opened. This parameter must follow operating system's specifications and can include a path if the system supports it.
+* stream - pointer to open file that has to be reopened.
+* mode - type of access requested. It can be:
+
+
+[frame="all",colspecs="cl",cols="^1,10",caption_voffset="0mm"]
+|=========================================================
+| "r"  | Open a file for reading. The file must exist.
+| "w"  | Create an empty file for writing. If a file with the same name already exists its content is erased.
+| "a"  | Append to a file. Writing operations append data at the end of the file. The file is created if it doesn't exist.
+| "r+" | Open a file for reading and writing. The file must exist.
+| "w+" | Create an empty file for reading and writing. If a file with the same name already exists its content is erased before it is opened.
+| "a+" | Open a file for reading and appending. All writing operations are done at the end of the file protecting the previous content to be overwritten. You can reposition (+fseek+, +rewind+) the pointer to anywhere in the file for reading, but writing operations will move back to the end of file. The file is created if it doesn't exist.
+|=========================================================
+
+
+The mode parameter serves also to specify whether we want to open the file as text or binary, adding +t+ or +b+ characters to this access mode string.
+
+
+[frame="all",colspecs="cl",cols="^1,10",caption_voffset="0mm"]
+|=========================================================
+| t  | Text mode. In text mode the end of file is assumed to be at first `Ctrl-Z` character. Some conversions can occur reading and writing with End Of Line / Feedback characters depending on your
+compiler and your Operating System.
+| b  | Binary mode. End of file is reached at last byte of the file. No conversions.
+|=========================================================
+
+This additional +t+ or +b+ characters can be appended to the read/write mode at the end of the string (like `"rb"`, `"wt"`, `"r+t"`, `"w+b"` ...) or can be inserted between the letter and the `+`
+character (like `"rt+"`, `"wb+"`). If +t+ nor +b+ are given the default method (commonly +t+) is used. In most compilers this default method is specified by the global variable `_fmode` defined in +stdio.h+.
+
+RETURN VALUE::
+
+If the file has been successfully reopened the function returns a pointer to the file. Otherwise a NULL pointer is returned.
+
+SEE ALSO::
+
++fopen+, +fclose+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/freopen.c[]
+---------------------
+
+This sample code redirects the output that normally would go to standard output to a file, that after
+this program is executed contains: `This sentence is redirected to a file.`
+
+OUTPUT::
+
+.....
+$ gcc -Wall freopen.c
+$ ./a.out test.txt
+$ cat test.txt
+This sentence is redirected to a file.
+.....
+

@@ -1,0 +1,50 @@
+[[mblen]]
+mblen
+-----
+
+NAME::
+mblen - Returns the length of a multibyte character.
+
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+int mblen(const char *c, size_t num); 
+---------------------
+
+
+DESCRIPTION::
+
+The function calculates the length of the multibyte character +c+. At most, the multibyte character may consist of +num+ bytes.
+
+PARAMETERS::
+* c - Pointer to the first byte of a multibyte character. Alternatively, the function may be called with a null pointer, in which case the function resets its internal shift state to the initial value and returns whether multibyte characters have state-dependent encodings or not.
+* num - Maximum number of bytes to be checked for character length. No more than MB_CUR_MAX characters are examined in any case.
+
+RETURN VALUE::
+If the argument passed as +c+ is not a null pointer, the size in bytes of the character pointed by +c+ is returned when it forms a valid multibyte character and is not the terminating null character. If it is the terminating null character, the function returns zero, and in the case they do not form a valid multibyte character, -1 is returned. +
+If the argument passed as +c+ is a null pointer, the function returns a nonzero value if multibyte character encodings are state-dependent, and zero otherwise.
+
+
+SEE ALSO::
++mbstowcs+, +mbstowcs+, +mbtowc+, +wcstombs+, +wctomb+
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/mblen.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall mblen.c
+$ ./a.out 
+wide character string: w
+.....
+

@@ -1,0 +1,45 @@
+[[isalnum]]
+isalnum
+-------
+
+[source,c]
+---------------------
+#include <ctype.h> 
+
+int isalnum (char c);
+---------------------
+
+DESCRIPTION::
+
+The +isalnum+ function tests +c+ to determine if it is an alphanumeric character (`'A'-'Z', 'a'-'z', '0'-'9'`).
+
+RETURN VALUE::
+
+The isalnum function returns a value of 1 if +c+ is an alphanumeric character or a value of 0 if it is not.
+
+
+SEE ALSO::
+
++isalpha+, +iscntrl+, +isdigit+, +isgraph+, +islower+, +isprint+, +ispunct+, +isspace+, +isupper+, +isxdigit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isalnum.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isalnum.c
+$ ./a.out 
+isalnum (-) NO
+isalnum (.) NO
+isalnum (/) NO
+isalnum (0) YES
+isalnum (1) YES
+.....
+
+
+

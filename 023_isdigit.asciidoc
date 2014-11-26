@@ -1,0 +1,43 @@
+[[isdigit]]
+isdigit
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isdigit (char c);
+---------------------
+
+DESCRIPTION::
+
+The +isdigit+ function tests +c+ to determine if it is a decimal digit (`'0'-'9'`).
+
+RETURN VALUE::
+
+The +isdigit+ function returns a value of 1 if +c+ is a decimal digit and a value of 0 if it is not.
+
+
+SEE ALSO::
+
++isalnum+, +isalpha+, +iscntrl+, +isgraph+, +islower+, +isprint+, +ispunct+, +isspace+, +isupper+, +isxdigit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isdigit.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isdigit.c
+$ ./a.out 
+isdigit (.) NO
+isdigit (/) NO
+isdigit (0) YES
+isdigit (1) YES
+.....
+
+

@@ -1,0 +1,57 @@
+[[vprintf]]
+vprintf
+-------
+
+NAME::
+vprintf - Sends formatted output to +stdout+ using an argument list.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int vprintf(const char *fmtstr, va_list arg); 
+---------------------
+
+DESCRIPTION::
+
+The +vprintf+ function formats a series of strings and numeric values and builds a string to write to the output stream using the +putchar+ function. The function is similar to the counterpart +printf+, but it accepts a pointer to a list of arguments instead of an argument list. +
+The +fmtstr+ argument is a pointer to a format string and has the same form and function as the +fmtstr+ argument for the +printf+ function. Refer to +printf+ for a description of the format string. The +va_list+ points to a list of arguments that are converted and output according to the corresponding format specifications in the format.
+
+PARAMETERS::
+
+See printf
+for a description
+of the allowable parameters and arguments.
+
+RETURN VALUE::
+
+The +vprintf+ function returns the number of characters actually written to the output stream.
+
+SEE ALSO::
+
++printf+, +vfprintf+, +vsprintf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/vprintf.c[]
+---------------------
+
+The above example demonstrates how +vprintf()+ can be used to write an error routine.
+
+
+OUTPUT::
+.....
+$ gcc -Wall vprintf.c
+$ ./a.out 
+Error: '1000' number too large
+Syntax Error
+.....
+
+
+
+
+

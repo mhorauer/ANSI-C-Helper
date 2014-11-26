@@ -1,0 +1,55 @@
+[[rewind]]
+rewind
+------
+
+NAME::
+rewind - Repositions the file pointer to the beginning of a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+void rewind ( FILE *stream ); 
+---------------------
+
+DESCRIPTION::
+
+Sets the file pointer associated with the stream to the beginning of the file. A call to +rewind+ is equivalent to: +fseek(stream , 0L , SEEK_SET);+ except that unlike +fseek+, using +rewind+ the error indicator is cleared. The next operation with the stream after a call to +fseek+ can be either for input or output. This function is also useful for clearing the keyboard buffer (normally associated with stdin).
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+
+RETURN VALUE::
+
+None.
+
+SEE ALSO::
+
++fseek+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/rewind.c[]
+---------------------
+
+
+A file is created for reading and writing and filled with the alphabet. The file is rewinded, read
+and its content is stored in a buffer. Finally, the read content is written to the standard output (screen).
+
+OUTPUT::
+
+.....
+$ gcc -Wall rewind.c
+$ ./a.out file.txt 
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+$ cat file.txt 
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+.....
+
+
+

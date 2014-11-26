@@ -1,0 +1,76 @@
+[[fputc]]
+fputc
+-----
+
+NAME::
+fputc - Write character to stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fputc(int character, FILE *stream); 
+---------------------
+
+DESCRIPTION::
+
+Writes character to the current position in the
+specified stream and increases the file position pointer to the
+next character.
+
+PARAMETERS::
+
+* character - Character to be written. Although it is declared as +int+, the function converts it to
++unsigned char+ before writing it.
+* stream - pointer to an open file.
+
+RETURN VALUE::
+
+If there are no errors the written character is
+returned. If an error occurs, EOF is returned.
+
+SEE ALSO::
+
++fgetc+, +fread+, +fwrite+, +fopen+, +putc+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fputc.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fputc.c
+$ ./a.out test.txt
+$ cat test.txt
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+.....
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fputc2.c[]
+---------------------
+
+
+This program can be used to copy a file (e.g. similar to the Unix 'cp' command, although without parameters).
+
+OUTPUT::
+
+.....
+$ gcc -Wall fputc2.c
+$ echo 'Hello World!' > src.txt
+$ cat src.txt 
+Hello World!
+$ ./a.out src.txt dest.txt
+$ cat dest.txt 
+Hello World!
+.....
+

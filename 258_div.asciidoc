@@ -1,0 +1,55 @@
+[[div]]
+div
+---
+
+NAME::
+div - Divide two integer values.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+div_t div (int numerator, int denominator); 
+---------------------
+
+DESCRIPTION::
+
++numerator+ is divided by +denominator+. Quotient and remainder are
+returned in a +div_t+ structure.
+
+PARAMETERS::
+
+* numerator - Numerator.
+* denominator - Denominator.
+
+RETURN VALUE::
+A +div_t+ structure is returned:
+
+.....
+typedef struct { int quot; int rem;} div_t;
+.....
+
+The +div_t+ structure is defined in +stdlib.h+ and has two
+members of type int +quot+ representing the quotient, and +rem+
+representing the remainder.
+
+SEE ALSO::
++ldiv+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/div.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall div.c
+$ ./a.out 
+Enter two integers separated by a space > 38 5
+38 / 5 = 7 ( 3
+.....
+

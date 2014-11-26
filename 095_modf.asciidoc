@@ -1,0 +1,52 @@
+[[modf]]
+modf
+----
+
+NAME::
+modf - extract signed integral and fractional values from floating-point number.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double modf(double x, double *iptr);
+---------------------
+
+DESCRIPTION::
+
+The +modf()+ function breaks the argument +x+ into an
+integral part and a fractional part, each of which has the same
+sign as +x+. The integral part is stored in +iptr+.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+The +modf()+ function returns the fractional part of +x+.
+
+SEE ALSO::
+
++ldexp+, +frexp+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/modf.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm modf.c
+$ ./a.out 
+3.141593 = 3.000000 + 0.141593 
+.....
+
+
+

@@ -1,0 +1,61 @@
+[[ctime]]
+ctime
+-----
+
+NAME::
+ctime - Convert time_t value to string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+char *ctime ( const time_t * timer ); 
+---------------------
+
+DESCRIPTION::
+
+Converts timer to a string containing time and date
+adjusted to local time zone in readable format. timer is an integer
+value of type time_t defined as long int by default in most
+compilers, and usually returned by a call to time function. The
+returned string has the following format: +Www Mmm dd
+hh:mm:ss yyyy+ where +Www+ is the weekday, +Mmm+ the month in
+letters, +dd+ the day of the month, +hh:mm:ss+ the time, and +yyyy+ the
+year. The string is followed by a new-line character (+\n+) and a
+terminating null-character, conforming a total of 26
+characters.
+
+PARAMETERS::
+
+* tmptr - Pointer to a time_t value, usually returned by time function.
+
+RETURN VALUE::
+
+A pointer to the string containing the date and time
+information in readable format. The string pointed is statically
+allocated and shared by +ctime+ and +asctime+ functions. Each time one
+of these functions is called the content of the string is
+overwritten. +ctime+ also uses internally the buffer used by +gmtime+
+and +localtime+ as return value, so a call to this function will
+overwrite this.
+
+SEE ALSO::
+
++asctime+, +gmtime+, +localtime+, +time+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/ctime.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall ctime.c
+$ ./a.out 
+Current date and time are: Thu Sep  6 13:31:33 2012
+.....
+

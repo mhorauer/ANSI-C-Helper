@@ -1,0 +1,49 @@
+[[time]]
+time
+----
+
+NAME::
+time - Get current time.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+time_t time ( time_t * timer ); 
+---------------------
+
+DESCRIPTION::
+
+Get the number of seconds elapsed since 00:00 hours, Jan 1, 1970 UTC from the system clock
+
+PARAMETERS::
+
+* timer - Location where to store the retrieved value. If this is NULL the value is not stored. But it is
+still returned by the function. time_t is generally defined by default to long.
+
+RETURN VALUE::
+
+Elapsed time in seconds, as described.
+
+SEE ALSO::
+
++asctime+, +gmtime+, +localtime+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/time.c[]
+---------------------
+
+
+OUTPUT::
+.....
+$ gcc -Wall time.c
+$ ./a.out 
+374241 hours since January 1, 1970
+.....
+
+

@@ -1,0 +1,65 @@
+[[calloc]]
+calloc
+------
+
+NAME::
+calloc - Allocate array in memory.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void * calloc ( size_t num, size_t size ); 
+---------------------
+
+DESCRIPTION::
+
+Dynamically allocates a block of memory for an array
+of +num+ elements of size bytes each one. The block is initialized
+with zeros. The effective result is the allocation of an
+initialized memory block of `num * size` bytes.
+
+PARAMETERS::
+
+* num - number of elements to be allocated.
+* size - size of elements.
+
+RETURN VALUE::
+
+A pointer to the allocated space. The type of this
+pointer is void*. A type cast to the desired type of data pointer
+should be performed on this returned pointer in order to be used as
+an ordinary array of a concrete type. If the system could not
+allocate the requested block of memory or if any of the parameters
+was 0 a NULL pointer is returned.
+
+SEE ALSO::
+
++free+, +malloc+, +realloc+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/calloc.c[]
+---------------------
+
+
+This program only stores strings and then prints them
+out. The number of items it can remember is not limited since the program
+allocates as much dynamic memory as needed to store the number
+of items the user wants to enter.
+
+....
+$ gcc -Wall calloc.c
+$ ./a.out 
+Enter number of items to be remembered: 3
+Enter item #0: hello
+Enter item #1: world
+Enter item #2: goodbye
+You have entered: hello world goodbye 
+....
+
+
+

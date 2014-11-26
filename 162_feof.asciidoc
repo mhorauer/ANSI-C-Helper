@@ -1,0 +1,76 @@
+[[feof]]
+feof
+----
+
+NAME::
+feof - Check if End Of File has been reached.
+
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int feof(FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+Tests if the position indicator of a given stream has
+reached the End of File.
+
+Once End Of File has been reached, further reading operations on
+the same stream return +EOF+ until +rewind()+ or +fseek()+ are called
+changing the position indicator to a valid position. Because the
++EOF+ value returned by many input functions may indicate either the
+End-Of-File or an error, this function should be called to ensure
+the End Of File has been reached.
+
+
+RETURN VALUE::
+
+A non-zero value is returned in the case that the
+position indicator reached the End Of File in the last input
+operation with the specified stream, otherwise +0+ is returned.
+
+
+SEE ALSO::
+
++clearerr+, +ferror+, +fwrite+
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/feof.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall feof.c
+$ ./a.out 
+Error opening file: Bad address
+$ ./a.out feof.c
+Total number of bytes: 342
+.....
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/feof2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall feof2.c
+$ ./a.out feof2.c
+The file contains 26 lines.
+.....
+
+

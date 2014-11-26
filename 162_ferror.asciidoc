@@ -1,0 +1,56 @@
+[[ferror]]
+ferror
+------
+
+NAME::
+ferror - Check for errors.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int ferror(FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+Tests if a error has occurred in the last reading or
+writing operation with the given stream, returning a non-zero value
+in case of error. If indeed there has been an error the error
+indicator will not be modified by a call to this function. You
+should call +clearerr+ or rewind to reset it.
+
+RETURN VALUE::
+
+If there were no errors a 0 value is returned.
+Otherwise a non-zero value is returned and the error indicator of
+the stream will remain set.
+
+SEE ALSO::
+
++feof+, +clearerr+, +perror+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ferror.c[]
+---------------------
+The above program opens an existing file whose file name is provided as command-line argument in read-only mode. The program, however, tries to write a character to it, generating an error that is caught by +ferror+.
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall ferror.c
+$ ./a.out 
+Error opening file: Bad address
+$ ./a.out ferror.c
+Error Writing to ferror.c.
+.....
+
+
+
+

@@ -1,0 +1,37 @@
+[[float]]
+float.h
+-------
+
+Include the standard header +float.h+ to determine various properties of floating-point type representations.
+
+Some target environments can change the rounding and error-reporting properties of floating-point type representations while the program is running.
+
+Where the prefix "FLT" pertains to type float, "DBL" to type double, and "LDBL" to type long double:
+
+.....
+FLT_RADIX - radix of floating-point representations
+FLT_ROUNDS - floating-point rounding mode
+
+FLT_DIG
+DBL_DIG
+LDBL_DIG - precision (in decimal digits)
+FLT_EPSILON
+DBL_EPSILON
+LDBL_EPSILON - smallest number x such that 1.0 + x != 1.0
+FLT_MANT_DIG
+DBL_MANT_DIG
+LDBL_MANT_DIG - number of digits, base FLT_RADIX, in mantissa
+FLT_MAX
+DBL_MAX
+LDBL_MAX - maximum number
+FLT_MAX_EXP
+DBL_MAX_EXP
+LDBL_MAX_EXP - largest positive integer exponent to which FLT_RADIX can be raised and remain representable
+FLT_MIN
+DBL_MIN
+LDBL_MIN - minimum normalised number
+FLT_MIN_EXP
+DBL_MIN_EXP
+LDBL_MIN_EXP - smallest negative integer exponent to which FLT_RADIX can be raised and remain representable 
+.....
+

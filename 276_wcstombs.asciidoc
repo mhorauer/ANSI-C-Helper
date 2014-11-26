@@ -1,0 +1,57 @@
+[[wcstombs]]
+wcstombs
+--------
+
+NAME::
+
+wcstombs - Converts a wide character to the corresponding multibyte character string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+size_t wcstombs( char *mbstr, const wchar_t *wcstr, size_t count );
+---------------------
+
+DESCRIPTION::
+
+The +wcstombs()+ function converts a sequence of wide
+characters from the array +wcstr+ into a sequence of multibyte
+characters and stores up to n bytes of multibyte characters in the
+array +mbstr+.
+
+PARAMETERS::
+
+* mbstr - The address of a sequence of multibyte characters.
+* wcstr - The address of a sequence of wide characters.
+* count - The maximum number of bytes that can be stored in the multibyte output string.
+
+RETURN VALUE::
+
++wcstombs()+ returns the number of bytes stored in +mbstr+ or -1 if +mbstr+ contains an invalid wide character.
+
+SEE ALSO::
+
++mblen+, +mbstowcs+, +wctomb+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/wcstombs.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall wcstombs.c
+$ ./a.out 
+Convert wide-character string:
+ Characters converted: 13
+ Multibyte character: Hello, world.
+
+.....
+
+

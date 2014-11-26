@@ -1,0 +1,51 @@
+[[fabs]]
+fabs
+----
+
+NAME::
+
+fabs - absolute value of floating-point number.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double fabs(double x);
+---------------------
+
+DESCRIPTION::
+
+The fabs function determines the absolute value of the floating-point number +val+.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+The +fabs+ function returns the absolute value of +val+.
+
+SEE ALSO::
+
++abs+, +cabs+, +labs+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fabs.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm fabs.c
+$ ./a.out 
+fabs(10.200000) = 10.200000
+fabs(-3.600000) = 3.600000
+.....
+
+

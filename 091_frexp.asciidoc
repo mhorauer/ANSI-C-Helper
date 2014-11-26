@@ -1,0 +1,55 @@
+[[frexp]]
+frexp
+-----
+
+NAME::
+frexp - convert floating-point number to fractional and integral components.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double frexp(double x, int *exp);
+---------------------
+
+DESCRIPTION::
+
+The function +frexp()+ is used to decompose +num+ into two
+parts: a mantissa between 0.5 and 1 (returned by the function) and
+an exponent returned as +exp+. Scientific notation works like this:
+`num = mantissa * (2 ^ exp)`
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+The +frexp()+ function returns the normalized fraction.
+If the argument +x+ is not zero, the normalized fraction is +x+ times a
+power of two, and is always in the range 1/2 (inclusive) to 1
+(exclusive). If +x+ is zero, then the normalized fraction is zero
+and zero is stored in +exp+.
+
+SEE ALSO::
+
++ldexp+, +modf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/frexp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm frexp.c
+$ ./a.out 
+0.950000 * 2^4 = 15.200000
+.....
+

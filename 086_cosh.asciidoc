@@ -1,0 +1,50 @@
+[[cosh]]
+cosh
+----
+
+NAME::
+cosh - hyperbolic cosine function.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double cosh(double x);
+---------------------
+
+DESCRIPTION::
+
+The +cosh()+ function returns the hyperbolic cosine of +x+, which is defined mathematically as pass:[exp(x) + exp(-x) / 2].
+
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+SEE ALSO::
++sinh+, +tanh+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/cosh.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cosh.c
+$ ./a.out 
+cosh(0.000000) = 1.000000
+cosh(1.000000) = 1.543081
+cosh(2.000000) = 3.762196
+cosh(3.000000) = 10.067662
+cosh(4.000000) = 27.308233
+cosh(5.000000) = 74.209946
+cosh(6.000000) = 201.715637
+.....
+
+

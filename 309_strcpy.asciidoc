@@ -1,0 +1,51 @@
+[[strcpy]]
+strcpy
+------
+
+NAME::
+strcpy - Copy string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strcpy ( char * dest, const char * src ); 
+---------------------
+
+DESCRIPTION::
+
+Copies the content pointed by +src+ to +dest+ stopping after the terminating null-character is copied. dest should have enough memory space allocated to contain src string.
+
+PARAMETERS::
+
+* dest - Destination string. Should be long enough to contain string2.
+* src - Null-terminated string to copy.
+
+RETURN VALUE::
+
++dest+ is returned.
+
+SEE ALSO::
+
++strcat+, +strncat+, +strncpy+, +memcpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strcpy.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strcpy.c
+$ ./a.out 
+str1: Sample string
+str2: Sample string
+str3: copy successful
+.....
+
+

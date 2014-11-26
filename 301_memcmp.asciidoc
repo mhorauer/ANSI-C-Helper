@@ -1,0 +1,78 @@
+[[memcmp]]
+memcmp
+------
+
+NAME::
+memcmp - Compare two buffers.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+int memcmp ( const void * buffer1, const void * buffer2, size_t num ); 
+---------------------
+
+DESCRIPTION::
+Compares the fisrt num bytes of two memory blocks pointed by buffer1 and buffer2.
+
+PARAMETERS::
+
+* buffer1 - Pointer to buffer.
+* buffer2 - Pointer to buffer.
+* num - Number of bytes to compare.
+
+RETURN VALUE::
+
+Returns a value indicating the relationship between the buffers:
+
+
+[options="header",frame="all",colspecs="cl",cols="^2,10",caption_voffset="0mm"]
+|=================================================
+| return value   | description
+| < 0            | buffer1 is less than buffer2
+| 0              | buffer1 is the same as buffer2
+| > 0            | buffer1 is greater than buffer2
+|=================================================
+
+
+For comparative purposes, each byte is considered as +unsigned char+.
+
+SEE ALSO::
+
++memchr+, +memcpy+, +memset+, +strchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/memcmp.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall memcmp.c
+$ ./a.out 
+Enter a sentence: Hello world.
+Enter another sentence: Hello world!
+'Hello world.' is greater than 'Hello world!'$ 
+$ gcc -Wall memcmp.c
+$ ./a.out 
+Enter a sentence: Hello world.
+Enter another sentence: Hello world!
+'Hello world.' is greater than 'Hello world!'
+$ ./a.out 
+Enter a sentence: Hello world.
+Enter another sentence: Hello world.
+'Hello world.' is the same as 'Hello world.'
+$ ./a.out 
+Enter a sentence: Hello world!
+Enter another sentence: Hello world.
+'Hello world!' is less than 'Hello world.'
+.....
+
+
+

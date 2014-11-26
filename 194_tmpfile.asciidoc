@@ -1,0 +1,43 @@
+[[tmpfile]]
+tmpfile
+-------
+
+NAME::
+tmpfile - Open a temporary file.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+FILE *tmpfile(void);
+---------------------
+
+DESCRIPTION::
+
+Creates a temporary binary file for update (`w+b` mode -- see +fopen+ for details). The filename is unique to avoid any conflict with existing files. The temporary file created is automatically deleted when it is closed (+fclose+) or when the program terminates normally.
+
+PARAMETERS::
+
+None.
+
+RETURN VALUE::
+
+If successful, the function returns a file pointer (stream) to the temporary file created. If the file can not be created a NULL pointer is returned.
+
+SEE ALSO::
+
++fopen+, +tmpnam+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/tmpfile.c[]
+---------------------
+
+This code creates a temporary file and deletes it when closing the stream.
+
+
+

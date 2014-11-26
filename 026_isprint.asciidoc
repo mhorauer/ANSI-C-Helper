@@ -1,0 +1,44 @@
+[[isprint]]
+isprint
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isprint (char c);
+---------------------
+
+DESCRIPTION::
+
+The +isprint+ function tests +c+ to determine if it is a printable character (0x20-0x7E).
+
+RETURN VALUE::
+
+The +isprint+ function returns a value of 1 if +c+ is a printable character and a value of 0 if it is
+not.
+
+
+SEE ALSO::
+
++isalnum+, +isalpha+, +iscntrl+, +isdigit+, +isgraph+, +islower+, +ispunct+, +isspace+, +isupper+, +isxdigit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isprint.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isprint.c
+$ ./a.out 
+isprint (30) NO
+isprint (31) NO
+isprint (32) YES
+isprint (33) YES
+.....
+
+

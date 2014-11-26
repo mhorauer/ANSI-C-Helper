@@ -1,0 +1,57 @@
+[[getc]]
+getc
+----
+
+NAME::
+getc - Get the next character.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int getc(FILE *stream); 
+---------------------
+
+DESCRIPTION::
+
+Returns the next character of the stream and increases
+the file pointer to point to the next character. This routine is
+normally implemented as a macro with the same result as
++fgetc()+.
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+
+RETURN VALUE::
+
+The character read is returned as an +int+ value. If the
+End Of File has been reached or there has been an error reading,
+the function returns EOF. You can use +ferror()+ or +feof()+ to
+determine whether an error happened or the End-Of-File was
+reached.
+
+SEE ALSO::
+
++fputc+, +fread+, +fwrite+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/getc.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall getc.c
+$ cat test.txt
+This buffer contains some characters.
+$ ./a.out test.txt
+File contains 3 'a' characters.
+.....
+
+

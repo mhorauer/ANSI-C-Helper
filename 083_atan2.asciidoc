@@ -1,0 +1,68 @@
+[[atan2]]
+atan2
+-----
+
+NAME::
+atan2 - arc tangent function of two variables.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double atan2(double y, double x);
+---------------------
+
+DESCRIPTION::
+
+The +atan2()+ function calculates the arc tangent of the
+two variables +x+ and +y+. It is similar to calculating the arc tangent
+of +y / x+, except that the signs of both arguments are used to
+determine the quadrant of the result. The floating-point value
+returned by +atan2+ will be a number in the range [-PI, PI].
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+The +atan2()+ function returns the result in radians,
+which is between -PI and PI (inclusive).
+
+SEE ALSO::
++acos+, +asin+, +atan+, +cos+, +sin+, +tan+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/atan2.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall -lm atan2.c
+$ ./a.out
+ATAN2(-10.000000/-1.000000) = -1.670465
+ATAN2(-9.000000/-1.000000) = -1.681454
+ATAN2(-8.000000/-1.000000) = -1.695151
+ATAN2(-7.000000/-1.000000) = -1.712693
+ATAN2(-6.000000/-1.000000) = -1.735945
+ATAN2(-5.000000/-1.000000) = -1.768192
+ATAN2(-4.000000/-1.000000) = -1.815775
+ATAN2(-3.000000/-1.000000) = -1.892547
+ATAN2(-2.000000/-1.000000) = -2.034444
+ATAN2(-1.000000/-1.000000) = -2.356194
+ATAN2(0.000000/-1.000000) = 3.141593
+ATAN2(1.000000/-1.000000) = 2.356194
+ATAN2(2.000000/-1.000000) = 2.034444
+ATAN2(3.000000/-1.000000) = 1.892547
+ATAN2(4.000000/-1.000000) = 1.815775
+ATAN2(5.000000/-1.000000) = 1.768192
+ATAN2(6.000000/-1.000000) = 1.735945
+ATAN2(7.000000/-1.000000) = 1.712693
+ATAN2(8.000000/-1.000000) = 1.695151
+ATAN2(9.000000/-1.000000) = 1.681454
+.....
+

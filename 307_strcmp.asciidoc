@@ -1,0 +1,61 @@
+[[strcmp]]
+strcmp
+------
+
+NAME::
+strcmp - Compare two strings.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+int strcmp(const char * string1, const char * string2); 
+---------------------
+
+DESCRIPTION::
+
+Compares +string1+ to +string2+ character by character. This function starts comparing the first character of each string. If they are equal to each other continues with the following pair until the characters differ or until end of string is reached.
+
+PARAMETERS::
+
+* string1 - Null-terminated string to compare.
+* string2 - Null-terminated string to compare.
+
+RETURN VALUE::
+
+Returns a value indicating the lexicographical relation between the strings:
+
+[options="header",frame="all",colspecs="cl",cols="^2,10",caption_voffset="0mm"]
+|============================================
+| return value   | description
+| < 0            | string1 is less than string2
+| 0              | string1 is the same as string2
+| > 0            | string1 is greater than string2
+|============================================
+
+
+SEE ALSO::
+
++strrchr+, +strncmp+, +strspn+, +memcmp+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strcmp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strcmp.c
+$ ./a.out 
+Which is my favourite fruit? banana
+Which is my favourite fruit? apple
+Correct answer!
+.....
+
+
+

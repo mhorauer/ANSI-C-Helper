@@ -1,0 +1,58 @@
+[[atol]]
+atol
+----
+
+NAME::
+atol - Convert string to long.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+long atol ( const char * string ); 
+---------------------
+
+DESCRIPTION::
+Parses string interpreting its content as a number and
+returns a long value.
+
+PARAMETERS::
+string - String representing an integer number. The number is considered until a non-numeric
+character is found (digits, and signs are considered valid numeric
+characters for this parameter as specified in format). The format
+used is: `[white-spaces][+|-][nnnnn]` (where
+white-spaces are any tab or space character and +nnnnn+ may be any
+number of digits)
+
+RETURN VALUE::
+The converted long integer value of the input
+string.
+On overflow the result is undefined. If an error occurs 0 is
+returned.
+
+SEE ALSO::
+
++atoi+, +atof+, +strtod+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/atol.c[]
+---------------------
+
+
+OUTPUT::
+
+....
+$ gcc -Wall atol.c
+$ ./a.out 
+Enter a long number: 123456789
+Value entered is 123456789, and its double 246913578.
+$ ./a.out 
+Enter a long number: 1234567890
+Value entered is 1234567890, and its double -1825831516.
+....
+
+

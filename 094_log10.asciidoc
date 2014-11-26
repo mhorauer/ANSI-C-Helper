@@ -1,0 +1,54 @@
+[[log10]]
+log10
+-----
+
+NAME::
+log10 - The +log10()+ function returns the "base 10" logarithm of +x+.
+
+SYNOPSIS::
+
+[source,c]
+------------------
+#include <math.h>
+
+double log10(double x);
+------------------
+
+DESCRIPTION::
+
+The +log10()+ function returns the natural logarithm of +x+.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+RETURN VALUE::
+
+Returns the logarithm "base 10" of parameter +x+.
+
+ERRORS::
+
+* EDOM - The argument +x+ is negative.
+* ERANGE - The argument +x+ is zero. The log of zero is not defined.
+
+SEE ALSO::
+
++log+, +exp+, +pow+, +sqrt+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/log10.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm log10.c
+$ ./a.out 
+log10(1000.000000) = 3.000000
+.....
+
+
+

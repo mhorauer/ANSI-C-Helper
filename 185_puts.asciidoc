@@ -1,0 +1,47 @@
+[[puts]]
+puts
+----
+
+NAME::
+puts - Output a string to stdout.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int puts (const char * string );
+---------------------
+
+DESCRIPTION::
+Copies the string to standard output stream (stdout) and appends a new line character (`\n`).
+
+PARAMETERS::
+
+* string - Null-terminated string to be outputed.
+
+RETURN VALUE::
+
+On success, a non-negative value is returned. On error EOF value is returned.
+
+SEE ALSO::
+
++putc+, +gets+, +printf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/puts.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall puts.c
+$ ./a.out 
+Hello world!
+.....
+
+

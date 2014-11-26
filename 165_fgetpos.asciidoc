@@ -1,0 +1,54 @@
+fgetpos
+-------
+
+NAME::
+
+fgetpos - Get position in a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fgetpos (FILE * stream , fpos_t * position); 
+---------------------
+
+DESCRIPTION::
+
+Gets the value of the position indicator of the given stream and stores it in the location pointed by position in a format that is only intended for use as a parameter in further calls to +fsetpos+. If you want to get the current position of a stream for any other use than as a parameter for +fsetpos+ you should call to +ftell+ function.
+
+RETURN VALUE::
+
+0 value indicates success. non-zero value indicates error.
+
+SEE ALSO::
+
++fsetpos+, +ftell+, +fseek+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fgetpos.c[]
+---------------------
+
+This example opens a file and reads the first character once and then it reads 3 times the same second
+character.
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall fgetpos.c
+$ ./a.out file.txt
+1st character is h
+2nd character is e
+2nd character is e
+2nd character is e
+.....
+
+
+
+
+

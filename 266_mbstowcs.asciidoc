@@ -1,0 +1,72 @@
+[[mbstowcs]]
+mbstowcs
+--------
+
+NAME::
+mbstowcs - Convert a multibyte string to a wide character string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+size_t mbstowcs(wchar_t *wcstr, const char *mbstr, size_t count);
+---------------------
+
+DESCRIPTION::
+
+The +mbstowcs+ function converts up to a maximum number
+of count multibyte characters pointed to by +mbstr+ to a string of
+corresponding wide characters that are determined by the current
+locale. It stores the resulting wide-character string at the
+address represented by +wcstr+. The result is similar to a series of
+calls to +mbtowc+. If +mbstowcs+ encounters the single-byte null
+character ('\0') either before or when count occurs, it converts
+the null character to a wide-character null character (L'\0') and
+stops. Thus the wide-character string at +wcstr+ is null-terminated
+only if a null character is encountered during conversion. If the
+sequences pointed to by +wcstr+ and +mbstr+ overlap, the behavior is
+undefined. If the +wcstr+ argument is NULL, +mbstowcs+ returns the
+required size of the destination string.
+
+PARAMETERS::
+
+* wcstr - The address of a sequence of wide characters.
+* mbstr - The address of a sequence of null terminated multibyte characters.
+* count - The maximum number of multibyte characters to convert.
+
+RETURN VALUE::
+
+The number of characters translated, not including the ending null-character.
+If an invalid multibyte character is encountered, a -1 value is returned.
+
+SEE ALSO::
+
++mblen+, +mbtowc+, +wcstombs+, +wctomb+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/mbstowcs.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc mbstowcs.c
+$ ./a.out 
+Convert to multibyte string:
+ Characters converted: 1
+ Hex value of first multibyte character: 0x0048
+
+Convert back to wide-character string:
+ Characters converted: 1
+ Hex value of first wide character: 0x0048
+.....
+
+
+
+

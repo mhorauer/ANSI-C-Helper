@@ -1,0 +1,44 @@
+[[islower]]
+islower
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int islower (char c);
+---------------------
+
+DESCRIPTION::
+
+The +islower+ function tests +c+ to determine if it is a lowercase alphabetic character (`'a'-'z'`).
+
+RETURN VALUE::
+
+The +islower+ function returns a value of 1 if +c+ is a lowercase letter and a value of 0 if it is
+not.
+
+
+SEE ALSO::
+
++isalnum+, +isalpha+, +iscntrl+, +isdigit+, +isgraph+, +isprint+, +ispunct+, +isspace+, +isupper+, +isxdigit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/islower.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall islower.c
+$ ./a.out 
+islower (_) NO
+islower (`) NO
+islower (a) YES
+islower (b) YES
+.....
+
+

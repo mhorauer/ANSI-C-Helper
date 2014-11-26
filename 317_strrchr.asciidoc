@@ -1,0 +1,50 @@
+[[strrchr]]
+strrchr
+-------
+
+NAME::
+strrchr - Find last occurrence of character in string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strrchr(const char * string, int c); 
+---------------------
+
+DESCRIPTION::
+
+Returns the last occurrence of +c+ in string. The null-terminating character is included as part of the string and can also be searched.
+
+PARAMETERS::
+
+* string - Null-terminated string scanned in the search.
+* c - Character to be found.
+
+RETURN VALUE::
+
+If character is found, a pointer to the last occurrence of c in string is returned. If not, NULL is returned.
+
+SEE ALSO::
+
++strcspn+, +strchr+, +strcmp+, +strstr+, +memchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strrchr.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall strrchr.c
+$ ./a.out 
+Last occurrence of 's' found at position 18.
+.....
+
+

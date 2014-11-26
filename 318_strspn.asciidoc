@@ -1,0 +1,49 @@
+[[strspn]]
+strspn
+------
+
+NAME::
+strspn - Get length of substring composed of given characters.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+size_t strspn(const char * string1, const char * string2); 
+---------------------
+
+DESCRIPTION::
+
+Scans +string1+ character by character, returning the number of characters read before the first character not included in +string2+ is found. The search does not include terminating null-characters.
+
+PARAMETERS::
+
+* string1 - Null-terminated string to be scanned.
+* string2 - Null-terminated string containing character set.
+
+RETURN VALUE::
+
+Returns the length of the initial substring of +string1+ that is only composed of characters included in +string2+.
+
+SEE ALSO::
+
++strcspn+, +strchr+, +strrchr+, +strstr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strspn.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strspn.c
+$ ./a.out 
+Length of initial number is 3.
+.....
+
+

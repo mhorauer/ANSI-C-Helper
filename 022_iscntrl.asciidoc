@@ -1,0 +1,48 @@
+[[iscntrl]]
+iscntrl
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int iscntrl (char c);
+---------------------
+
+
+DESCRIPTION::
+
+The +iscntrl+ function tests +c+ to determine if it is a control character (0x00-0x1F or 0x7F).
+
+
+RETURN VALUE::
+
+The +iscntrl+ function returns a value of 1 if +c+ is a control character and a value of 0 if it is
+not.
+
+
+SEE ALSO::
+
++isalnum+, +isalpha+, +isdigit+, +isgraph+, +islower+, +isprint+, +ispunct+, +isspace+, +isupper+, +isxdigit+
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/iscntrl.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall iscntrl.c
+$ ./a.out 
+iscntrl (30) YES
+iscntrl (31) YES
+iscntrl (32) NO
+iscntrl (33) NO
+.....
+
+
+

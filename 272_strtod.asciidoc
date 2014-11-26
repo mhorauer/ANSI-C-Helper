@@ -1,0 +1,83 @@
+[[strtod]]
+strtod
+------
+
+NAME::
+strtod - Convert string to double-precision floating-point value.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+double strtod ( const char * string, char** endptr ); 
+---------------------
+
+DESCRIPTION::
+Parses string interpreting its content as a floating-point value until a character that can not be interpreted is found, and returns a double precision value.
+
+PARAMETERS::
+
+* string - String representing a floating point number. The number is considered until a non-numeric
+character is found (digits, signs, E and e are considered valid numeric characters for this parameter as specified in format). The format used is: + 
+`[whitespaces][+|-][nnnnn][.nnnnn][e|E[+|-]nnnn]`
+(where whitespaces are any tab or space character and nnnnn may be
+any number of digits)
+* endptr - Address of a pointer. This is filled by the function with the address where scan has ended. Serves to determine where there is the first non-numerical character in the string.
+
+RETURN VALUE::
+
+The converted double value from the input string. If conversion would cause overflow the result is `+/- HUGE_VAL`. If an error occurs 0 is returned.
+
+SEE ALSO::
+
++atof+, +strtol+, +strtoul+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strtod.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strtod.c
+$ ./a.out 
+Enter a floating-point value> 3.14
+Value entered: 3.140000. Its square: 9.859600
+.....
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strtod2.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall strtod2.c
+$ ./a.out 
+string = 3.1415926This stopped it
+ strtod = 3.141593
+ Stopped scan at: This stopped it
+
+string = -10110134932This stopped it
+ strtol = -2147483648
+ Stopped scan at: This stopped it
+
+string = 10110134932
+ strtol = 45 (base 2)
+ Stopped scan at: 34932
+ strtol = 4423 (base 4)
+ Stopped scan at: 4932
+ strtol = 2134108 (base 8)
+ Stopped scan at: 932
+.....
+

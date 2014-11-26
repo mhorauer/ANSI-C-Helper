@@ -1,0 +1,49 @@
+[[strlen]]
+strlen
+------
+
+NAME::
+strlen - Return string length.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+size_t strlen ( const char * string ); 
+---------------------
+
+DESCRIPTION::
+
+Returns the number of characters in string before the terminating null-character.
+
+PARAMETERS::
+
+string - Null-terminated string.
+
+RETURN VALUE::
+
+The length of string.
+
+SEE ALSO::
+
++strcmp+, +strcspn+, +strchr+, +strrchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strlen.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strlen.c
+$ ./a.out 
+Enter a sentence> Learning C requires endurance and carefulness!
+The sentence entered is 46 characters long.
+.....
+
+

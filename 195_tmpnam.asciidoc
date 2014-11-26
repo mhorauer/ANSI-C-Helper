@@ -1,0 +1,50 @@
+[[tmpnam]]
+tmpnam
+------
+
+NAME::
+tmpnam - Generate a unique temporary filename.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+char *tmpnam ( char *buffer ); 
+---------------------
+
+DESCRIPTION::
+
+A string containing a unique filename is generated. This string can be used to create a temporary file without overwriting any existing one. If the buffer parameter is NULL, the resulting string is stored in an internal static array that can be accessed by the return value. The content of this string is stored until a further call to this function erases it. If the buffer parameter is not NULL, it must point to an array of at least +L_tmpnam+ bytes that will be filled with the proposed tempname. +L_tmpnam+ is a constant defined in +stdio+.
+
+PARAMETERS::
+
+buffer - Pointer to an array of +L_tmpnam+ (defined in +stdio+) bytes, where the proposed tempname will be stored. You can also specify a NULL pointer. In this case the string will be stored in an internal static array.
+
+RETURN VALUE::
+
+A pointer to the string containing the proposed name for a temporary file. If NULL was specified as the buffer this points to an internal buffer that will be overwritten the next time this function is called, otherwise it returns the buffer parameter. If an error occurs this function returns NULL.
+
+SEE ALSO::
+
++fopen+, +tmpfile+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/tmpnam.c[]
+---------------------
+
+
+This program will generate two different names for temporary files. Each one has been created by one of the two methods how +tmpnam+ can be used.
+
+OUTPUT::
+.....
+$ gcc -Wall tmpnam.c
+$ ./a.out 
+Tempname #1: /tmp/filexTTLhK
+Tempname #2: /tmp/fileDhJI1b
+.....
+

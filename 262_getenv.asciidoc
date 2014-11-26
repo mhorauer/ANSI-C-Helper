@@ -1,0 +1,56 @@
+[[getenv]]
+getenv
+------
+
+NAME::
+getenv - Get string from environment.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+char *getenv(const char * varname); 
+---------------------
+
+DESCRIPTION::
+
+Gets a pointer to the null-terminated string
+containing the value of the environment variable which name is
+specified in +varname+. If the requested variable is not defined in
+the environment the function returns a NULL pointer. The returned
+pointer is not intended for modifying operations on the environment
+variable. Refer to +putenv+ or your platform's manual for that.
+
+PARAMETERS::
+
+* varname - Null-terminated string containing the name of the requested variable.
+
+RETURN VALUE::
+
+A null-terminated string with the value of the
+requested environment variable or NULL if that environment variable
+does not exist. Do not use this returned pointer to modify directly
+the environment variable from your program.
+
+SEE ALSO::
+
++malloc+, +calloc+, +realloc+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/getenv.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall getenv.c
+$ ./a.out 
+Current path is: /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:.
+.....
+
+

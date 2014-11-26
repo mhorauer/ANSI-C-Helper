@@ -1,0 +1,96 @@
+[[fgets]]
+fgets
+-----
+
+NAME::
+fgets - Get a string from a stream.
+
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+char *fgets (char *string , int num , FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+Reads characters from stream and stores them in string
+until (+num - 1+) characters have been read or a +newline+ or +EOF+
+character is reached, whichever comes first. A newline character
+ends reading but is considered a valid character and included in
+the new string. A null character is always appended at the end of
+the resulting string.
+
+
+RETURN VALUE::
+
+On success, the string read is returned. On end-of-file or error, null pointer is returned. Use +ferror+ or +feof+ to check what happend.
+
+
+SEE ALSO::
+
++fputc+, +fread+, +fwrite+
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fgets.c[]
+---------------------
+
+
+This example reads the first line or the first 100 characters (whichever come first) of a given file and print it to the screen.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fgets.c
+$ ./a.out 
+Error opening file: Bad address
+$ ./a.out test.txt
+abcdefghi123456789abcdefghi123456789
+
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fgets2.c[]
+---------------------
+
+The above program counts the number of lines in a file.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fgets2.c
+$ ./a.out test.txt
+File contains 2 lines.
+.....
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fgets3.c[]
+---------------------
+
+This programs reads a string and outputs the length of the string minus the newline character.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fgets3.c
+$ ./a.out 
+Enter text > hello world
+Length is 11 -hello world-
+.....
+
+
+

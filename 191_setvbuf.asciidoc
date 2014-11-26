@@ -1,0 +1,91 @@
+[[setvbuf]]
+setvbuf
+-------
+
+NAME::
+setvbuf - Change stream buffering.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int setvbuf(FILE *stream, char *buffer, int mode, size_t size); 
+---------------------
+
+DESCRIPTION::
+
+Changes the buffer to be used for I/O operations with
+the specified stream. Size and mode for the buffer can be
+specified. This function should be called once the file associated
+with the stream has been opened but before any input or output
+operation has been done. The size of the buffer is specified by the
+size parameter, and can be any value between 2 and 32767 in bytes,
+this value may be rounded down by some system due to specific
+alignment. buffer can be NULL. In that case system dynamically
+allocates the amount of memory requested by size and uses it as
+buffer for the stream. The type parameter is used to specify if the
+buffer has to be fully buffered, line buffered or if the stream has
+to be unbuffered (see below). With buffered streams, writing
+operations do not write directly to the physical device associated
+with them; instead the data is accumulated in the buffer and
+written to the device as a block. This can be forced flushing the
+stream by calling +fflush+ or by closing the file (+fclose+). All
+buffers are also flushed when program terminates. With unbuffered
+streams, data is directly written to the device on each writing
+operation. Normally, files are opened with a default allocated
+buffer, where this function can be used to define a user-allocated
+buffer or to disable buffering for the file. System standard
+streams like +stdout+ and +stderr+ are unbuffered by default if they
+are not redirected.
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+* buffer - User allocated buffer. Must have at least a size of size bytes.
+* mode - Specifies a mode for file buffering.
+* size - Buffer size in bytes, must be more than 0 and less than 32768, this value may be rounded down by some systems due to specific alignment, in which case the minimum value should be 2.
+
+
+[options="header",frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|===================================================
+| mode   | description
+| _IOFBF | Full buffering: On output the data is written to the file once the buffer is full. On input the buffer is filled when an input operation is requested and buffer is empty.
+| _IOLBF | Line buffering: On output the data will be written to the file when a newline character is written to the stream or when the buffer is full, whatever happens first. On Input the buffer is
+filled when an input operation is requested and buffer is empty.
+| _IONBF | No buffering: No buffer is used. Each I/O operation is directly carried out to the file without buffering. buffer and size parameters are ignored.
+|===================================================
+
+
+
+
+
+RETURN VALUE::
+
+If the buffer is correctly assigned to the file a 0 value is returned. On error, a non-zero value is returned. This can be because an invalid type or size has been specified or because an error allocating memory (if NULL buffer was specified).
+
+SEE ALSO::
+
++fopen+, +fflush+, +setbuf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/setvbuf.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall setvbuf.c
+$ ./a.out 
+123...
+.....
+
+The above example write +1+ after approximately 3 seconds when the +fflush()+ is executed. +2+ is written almost at the same time since the buffer is now in unbuffered mode.Finally, the buffer is set to line-buffered mode; thus +3+ is written when +puts()+ outputs a terminating `'\n'`. When +puts()+ would be missing, it would take up to the next `'\n'` or (in this case) until the program terminates untzil the +3+ would be output.
+
+
+
+

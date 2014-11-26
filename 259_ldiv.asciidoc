@@ -1,0 +1,59 @@
+[[ldiv]]
+ldiv
+----
+
+NAME::
+
+ldiv - Divide two long integer values.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+ldiv_t ldiv ( long int numer, long int denom ); 
+---------------------
+
+DESCRIPTION::
+
++numer+ is divided by +denom+. Quotient and remainder are returned in a +ldiv_t+ structure.
+
+PARAMETERS::
+
+* numer - Numerator.
+* denom - Denominator.
+
+RETURN VALUE::
+
+A +ldiv_t+ structure is returned:
+
+.....
+typedef struct { long int quot; long int rem;} ldiv_t;
+.....
+
+The +ldiv_t+ structure is defined in +stdlib.h+ and has two
+members of type +long int+: +quot+ representing the quotient, and +rem+
+representing the remainder.
+
+
+SEE ALSO::
+
++div+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ldiv.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall ldiv.c
+$ ./a.out
+65537 / 179 = 366 ( 23
+.....
+
+

@@ -1,0 +1,53 @@
+[[log]]
+log
+---
+
+NAME::
+log - Returns the natural logarithm of parameter +x+.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double log(double x);
+---------------------
+
+DESCRIPTION::
+
+The +log()+ function returns the natural logarithm of +x+.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+
+RETURN VALUE::
+
+Logarithm naturalis of +x+.
+
+ERRORS::
+
+* EDOM - The argument +x+ is negative.
+* ERANGE - The argument +x+ is zero. The log of zero is not defined.
+
+SEE ALSO::
+
++log10+, +exp+, +pow+, +sqrt+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/log.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm log.c
+$ ./a.out 
+ln(5.500000) = 1.704748
+.....
+

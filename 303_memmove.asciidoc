@@ -1,0 +1,49 @@
+[[memmove]]
+memmove
+-------
+
+NAME::
+memmove - Copy bytes from one buffer to another buffer.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+void *memmove ( void *dest, const void *src, size_t num ); 
+---------------------
+
+DESCRIPTION::
+
+Copies +num+ bytes from +dest+ buffer to memory location pointed by +src+. Even if the destination and source buffers overlap the copy is correctly performed.
+
+PARAMETERS::
+
+* dest - Destination buffer where data is copied.
+* src - Source buffer to copy from.
+* num - Number of bytes to copy.
+
+RETURN VALUE::
++dest+ is returned.
+
+SEE ALSO::
+
++memcpy+, +strncpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/memmove.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall memmove.c
+$ ./a.out 
+memmove can be very useful......
+memmove can be very very useful.
+.....
+

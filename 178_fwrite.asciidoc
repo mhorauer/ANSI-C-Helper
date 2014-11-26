@@ -1,0 +1,63 @@
+[[fwrite]]
+fwrite
+------
+
+NAME::
+fwrite - Write a block of data to a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+size_t fwrite( const void *buffer, size_t size, size_t count, FILE *stream ); 
+---------------------
+
+DESCRIPTION::
+
+Writes count number of items, each one with a size of
+size bytes, from the memory block pointed by buffer to the current
+position in the stream. Stream's position indicator is increased by
+the number of bytes written. On files opened in text mode some
+translations may occur with carriage-return and line-feed
+characters. The total number of bytes to be written is (size x
+count). Normally the parameter size should contain the size of each
+item (+char+, +int+, +long+, structures ...) to be written and count the
+number of these items. But this is not absolute, you can specify
+any combination of numbers which result of (+size x count+) match the
+size in bytes of the block to be written.
+
+PARAMETERS::
+
+* buffer - Pointer to data to be written.
+* size - Size in bytes of each item that has to be written.
+* count - Number of items, each one with a size of size bytes.
+* stream - Pointer to an open file with writing access.
+
+RETURN VALUE::
+
+Number of full items (not bytes) successfully written. This may be less than the specified in count parameter if an error occurred.
+
+SEE ALSO::
+
++fread+, +fscanf+, +getc+, +fgetc+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fwrite.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall fwrite.c
+$ ./a.out test.txt
+$ cat test.txt
+This buffer contains some characters.
+.....
+
+

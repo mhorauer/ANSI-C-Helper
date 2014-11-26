@@ -1,0 +1,45 @@
+[[fputchar]]
+fputchar
+--------
+
+NAME::
+fputchar - Write character to stdout.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fputchar (int character);
+---------------------
+
+DESCRIPTION::
+
+Writes character to standard output. It is equivalent to +fputchar(character,stdout)+.
+
+PARAMETERS::
+
+* character - Character to be written. Although it is declared as +int+, the function converts it to +unsigned char+ before writing it.
+
+RETURN VALUE::
+
+The value returned is the written character. If an error occurs, EOF is returned.
+
+===============
+NOTE: Not defined in ANSI-C, however, supported by most compilers.
+===============
+
+SEE ALSO::
+
++fputc+, +fgetc+, +putchar+
+
+EXAMPLE::
+
+
+This program writes
+ABCDEFGHIJKLMNOPQRSTUVWXYZ to the
+standard output (screen).
+
+
+

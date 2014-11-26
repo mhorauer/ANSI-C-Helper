@@ -1,0 +1,66 @@
+[[fread]]
+fread
+-----
+
+NAME::
+fread - Read a block of data from a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fread (void *buffer, size_t size, size_t count, FILE *stream); 
+---------------------
+
+DESCRIPTION::
+
+Read count number of items each one with a size of
+size bytes from the stream and stores it in the specified buffer.
+Stream's position indicator is increased by the number of bytes
+read. Total amount of bytes read is (size * count).
+
+PARAMETERS::
+
+* buffer - Pointer to the destination structure with a minimum size of (`size*count`) bytes.
+* size - Size in bytes of each item to be read.
+* count - Number of items, each one with a size of size bytes.
+* stream - pointer to an open file.
+
+RETURN VALUE::
+
+The total number of items read is returned. If this
+number differs from the requested amount (count parameter) an error
+has occurred or End Of File has been reached. To determine what
+happened call +feof+ or +ferror+.
+
+SEE ALSO::
+
++fgetc+, +fread+, +fwrite+, +fopen+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fread.c[]
+---------------------
+
+
+This code loads the contents of a file into a buffer, outputs the read text in reverse order and finally terminates.
+
+OUTPUT::
+
+.....
+$ gcc -Wall fread.c
+$ cat test.txt
+0123456789
+abcdefghijklmnopqrstuvwxyz
+$ ./a.out test.txt
+zyxwvutsrqponmlkjihgfedcba
+9876543210
+.....
+
+
+
+

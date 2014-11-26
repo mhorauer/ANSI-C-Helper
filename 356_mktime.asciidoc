@@ -1,0 +1,58 @@
+[[mktime]]
+mktime
+------
+
+NAME::
+mktime - Convert tm structure to time_t value.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+time_t mktime ( struct tm * ptm ); 
+---------------------
+
+DESCRIPTION::
+Checks the members of the +tm+ structure passed as
+parameter +ptm+ adjusting the values if the ones provided are not in
+the possible range or they are incomplete or mistaken and then
+translates that structure to a +time_t+ value (seconds elapsed since
+Jan 1, 1970) that is returned. The original values of +tm_wday+ and
++tm_yday+ members of +ptm+ are ignored and filled with the
+correspondent ones to the calculated date. The range of +tm_mday+ is
+not checked until +tm_mon+ and +tm_year+ are determined.
+
+PARAMETERS::
+
+* ptm - Pointer to a +tm+ structure, that contains data to be computed.
+
+
+RETURN VALUE::
+A +time_t+ value corresponding to the date and time passed in +ptm+ parameter. On error, a -1 value is returned.
+
+SEE ALSO::
+
++asctime+, +gmtime+, +localtime+, +time+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/mktime.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall mktime.c
+$ ./a.out 
+Enter year: 2012
+Enter month: 8 
+Enter day: 1
+That day is a Wednesday.
+.....
+
+
+

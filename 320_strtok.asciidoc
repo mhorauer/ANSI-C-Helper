@@ -1,0 +1,83 @@
+[[strtok]]
+strtok
+------
+
+NAME::
+strtok - Sequentially truncate string if delimiter is found.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strtok(const char * string, const char * delimiters); 
+---------------------
+
+DESCRIPTION::
+
+If string is not NULL, the function scans string for the first occurrence of any character included in delimiters. If it is found, the function overwrites the delimiter in string by a null-character and returns a pointer to the token, i.e. the part of the scanned string previous to the delimiter. After a first call to +strtok+, the function may be called with NULL as string parameter, and it will follow by where the last call to +strtok+ found a delimiter. delimiters may vary from a call to another.
+
+["NOTE",voffset="0mm"]
++strtok+ will alter the input string by placing NULLS at the delimiter positions. A good habit is to copy the string to a temporary string and use the copy in the +strtok+ call. +
+More than one delimiter can be specified. So you can code, e.g.: +
+`word = strtok(string, " \t;:,");` +
+You do not have to include the `'\0'` or NULL character.
+
+
+PARAMETERS::
+
+* string - Null-terminated string to scan.
+* separator - Null-terminated string containing the separators.
+
+RETURN VALUE::
+
+A pointer to the last token found in string. NULL is returned when there are no more tokens to be found.
+
+
+SEE ALSO::
+
++strcspn+, +strspn+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/strtok.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall strtok.c
+$ ./a.out 
+Splitting string "This is a sample string,just testing." in tokens:
+This
+is
+a
+sample
+string
+just
+testing
+.....
+
+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/strtok2.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall strtok2.c
+$ ./a.out 
+string to split up
+------------------
+string
+to
+split
+up
+.....
+
+
+

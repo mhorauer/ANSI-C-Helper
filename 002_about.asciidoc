@@ -1,0 +1,19 @@
+[[about]]
+This ANSI-C helper collection is compiled from various different sources found on the internet, in
+particular:
+
+- C Programming Reference by Martin Leslie (http://home.fhtw-berlin.de/~junghans/cref/index.html[german translation])
+- The http://www.acm.uiuc.edu/webmonkeys/book/c_guide/index.html[C Library Reference Guide] by Eric Hus
+- IBM Public Information Center
+
+
+The examples were tested on Fedora using the GNU C-Compiler.
+
+===============
+WARNING: There are a lost of _dirty implemented_ examples. Several functions from the standard are missing.
+===============
+
+For comments and feedback feel free to contact me at: martin[at]horauer.at, http://www.horauer.at[http://www.horauer.at]
+
+
+

@@ -1,0 +1,45 @@
+[[labs]]
+labs
+----
+
+NAME::
+labs - absolute value of long integer parameter.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+double labs(long n);
+---------------------
+
+DESCRIPTION::
+
+The absolute value corresponding to the +long int+ parameter n is returned (|n|).
+
+PARAMETERS::
+
+* n - integer value.
+
+SEE ALSO::
+
++abs+, +fabs+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/labs.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall labs.c
+$ ./a.out 
+n=65537
+m=100000
+.....
+
+

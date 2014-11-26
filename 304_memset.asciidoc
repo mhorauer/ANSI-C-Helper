@@ -1,0 +1,49 @@
+[[memset]]
+memset
+------
+
+NAME::
+memset - Fill buffer with specified character.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+void *memset ( void * buffer, int c, size_t num ); 
+---------------------
+
+DESCRIPTION::
+Sets the first num bytes pointed by buffer to the value specified by c parameter.
+
+PARAMETERS::
+
+* buffer - Pointer to block of data to be filled with c.
+* c - Character value to set.
+* num - Number of bytes to copy.
+
+RETURN VALUE::
++buffer+ is returned.
+
+SEE ALSO::
+
++memcpy+, +strncpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/memset.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall memset.c
+$ ./a.out 
+almost every programmer should know memset.
+------ every programmer should know memset.
+.....
+
+

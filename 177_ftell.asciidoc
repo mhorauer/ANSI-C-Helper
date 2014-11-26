@@ -1,0 +1,60 @@
+[[ftell]]
+ftell
+-----
+
+NAME::
+ftell - Return the current position in a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+long ftell ( FILE *stream ); 
+---------------------
+
+DESCRIPTION::
+
+Returns the current position pointed by the position
+indicator of the stream. When a file has been opened in binary mode
+the value obtained corresponds to the number of bytes from the
+beginning of the file. In files opened in text-mode this is not
+granted because of carriage-return translations under that mode.
+The value returned is valid for further calls to +fseek+.
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+
+RETURN VALUE::
+
+On success, the current file pointer position is
+returned. If an error occurs -1 is returned and the global
+variable errno is set to a positive value. If the stream is unable
+to perform seeking operations the return value is
+undefined.
+
+SEE ALSO::
+
++fopen+, +fseek+, +fgetpos+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ftell.c[]
+---------------------
+
+
+This program opens a file for reading and calculates its size by simply positioning the file-pointer to the end.
+
+OUTPUT::
+
+.....
+$ gcc -Wall ftell.c
+$ ./a.out test.txt
+Size of test.txt: 18 bytes.
+.....
+
+

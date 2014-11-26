@@ -1,0 +1,52 @@
+[[strerror]]
+strerror
+--------
+
+NAME::
+strerror - Get pointer to error message string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strerror(int errnum); 
+---------------------
+
+DESCRIPTION::
+
+Returns a pointer to a string with the error message corresponding to the errnum error number. The returned pointer points to a statically allocated string. Further calls to this function will overwrite its content. This funcion can be called with global variable errno declared in +errno.h+ to get the last error produced by a call to a C library function.
+
+PARAMETERS::
+
+errnum - Error number.
+
+
+RETURN VALUE::
+
+A pointer to the error string describing error errnum.
+
+SEE ALSO::
+
++clearerr+, +perror+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strerror.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall strerror.c
+$ ./a.out 
+Error opening file (null): Bad address
+$ ./a.out nofile.txt
+Error opening file nofile.txt: No such file or directory
+.....
+
+

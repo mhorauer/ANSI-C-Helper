@@ -1,0 +1,117 @@
+[[sprintf]]
+sprintf
+-------
+
+NAME::
+sprintf - Print formatted data to a string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int sprintf ( char *buffer, const char *format [ , argument , ...] ); 
+---------------------
+
+DESCRIPTION::
+
+Writes a sequence of arguments to the given buffer formatted as the format argument specifies.
+
+PARAMETERS::
+
+* buffer - Buffer where to store the resulting formatted string.
+* format - String that contains the text to be printed. Optionally it can contain format tags that are substituted by the values specified in subsequent argument(s) and formatted as requested. The number of format tags must correspond to the number of additional arguments that follows. The format tags follow this prototype: `%[flags][width][.precision][modifiers]type` where type is the most significant and defines how the value will be printed:
+
+[options="header",frame="all",colspecs="clr",cols="^1,8,^1",caption_voffset="0mm"]
+|========================================
+| type   | Output                                                    | Example
+| c      | Character                                                 | 'a' 
+| d or i | Signed decimal integer                                    | 392
+| e      | Scientific notation (mantise/exponent) using e character  | 3.9265e2
+| E      | Scientific notation (mantise/exponent) using E character  | 3.9265E2
+| f      | Decimal floating point                                    | 392.650000
+| g      | Use shorter %e or %f                                      | 392.65
+| G      | Use shorter %E or %f                                      | 392.65
+| o      | Signed octal                                              | 610
+| s      | String of characters                                      | "sample"
+| u      | Unsigned decimal integer                                  | 7235
+| x      | Unsigned hexadecimal integer                              | 7fa
+| X      | Unsigned hexadecimal integer (capital letters)            | 7FA
+| p      | Address pointed by the argument                           | B800:0000
+| n      | Nothing printed. The argument must be a pointer to integer where the number of characters written so far will be stored. | 
+|========================================
+
+The other parameters +flags+, +width+, +precision+ and +modifiers+  are optional and follow these specifications:
+
+[options="header",frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|========================================
+| flags   | meaning
+| -       | Left align within the given width. (right align is the default).
+| +       | Forces to prepend the result with a sign (+ or -) if signed type. (by default only - (minus) is printed).
+| blank   | If the argument is a positive signed value, a blank is inserted before the number.
+| #       | Used with +o+, +x+ or +X+ type the value is prepended with +0+, +0x+ or +0X+ respectively if non-zero. +
+Used with +e+, +E+ or +f+ forces the output value to contain a decimal point even if only zeros follow. +
+Used with +g+ or +G+ the result is the same as +e+ or +E+ but trailing zeros are not removed.
+|========================================
+
+
+
+[options="header",frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|========================================
+| width   | meaning
+| number  | Minimum number of characters to be printed. If the value to be printed is shorter than this number the result is padded with blanks. The value is never truncated even if the result is larger.
+| 0number | Same as above but filled with 0s instead of blanks.
+| *       | The width is not specified in the format string, it is specified by an integer
+value preceding the argument has has to be formatted.
+|========================================
+
+
+
+[options="header",frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|========================================
+| .precision | meaning
+| .number    | for +d+, +i+, +o+, +u+, +x+, +X+ types: precision specifies the minimum number of
+decimal digits to be printed. If the value to be printed is shorter than this number the result is padded with blanks. The value is never truncated even if the result is larger.(if nothing specified
+default is 1). +
+for +e+, +E+, +f+ types: number of digits to be printed after the decimal point. (if nothing specified default is 6). +
+for +g+, +G+ types: maximum number of significant numbers to be printed. +
+for +s+ type: maximum number of characters to be printed. (default is to print until first null character is encountered). +
+for +c+ type : (no effect).
+|========================================
+
+
+[options="header",frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|========================================
+| modifier | meaning (influences on how arguments are interpreted by the function)
+| h        | argument is interpreted as short +int+ (integer types).
+| l        | argument is interpreted as +long int+ (integer types) or +double+ (floating point types).
+| L        | argument is interpreted as +long double+ (floating point types).
+|========================================
+
+argument(s) - Optional parameter(s) that contain the data to be inserted instead of % tags specified in format parameter. There must be the same number of these parameter
+than the number of format tags.
+
+
+RETURN VALUE::
+
+On success, the total number of characters printed is returned. On error, a negative number is returned.
+
+SEE ALSO::
+
++printf+, +sscanf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/sprintf.c[]
+---------------------
+
+OUTPUT::
+
+.....
+[5 plus 3 is 8] is a 13 chars string
+.....
+
+

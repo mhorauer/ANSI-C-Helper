@@ -1,0 +1,49 @@
+[[localtime]]
+localtime
+---------
+
+NAME::
+localtime - Convert +time_t+ value to a +tm+ structure as local time.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+struct tm * localtime ( const time_t * timer ); 
+---------------------
+
+DESCRIPTION::
+
+Converts timer to +tm+ structure adjusting to the local time zone.
+
+PARAMETERS::
+
+* timer - Pointer to a +time_t+ value, usually returned by time function.
+
+RETURN VALUE::
+
+A pointer to a +tm+ structure. This structure is statically allocated and shared by +gmtime+, +localtime+ and +ctime+ functions. Each time one of these functions is called the content
+of the structure is overwritten.
+
+SEE ALSO::
+
++asctime+, +ctime+, +localtime+, +mktime+, +time+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/localtime.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall localtime.c
+$ ./a.out 
+Current date and time are: Sat Sep  8 12:40:56 2012
+.....
+
+

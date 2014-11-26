@@ -1,0 +1,54 @@
+[[rename]]
+rename
+------
+
+NAME::
+rename - Rename a file or directory.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int rename(const char *oldname , const char *newname); 
+---------------------
+
+DESCRIPTION::
+
+Renames the file or directory specified by +oldname+ to +newname+. If +oldname+ and +newname+ specify different paths the file is moved.
+
+PARAMETERS::
+
+* oldname - Path and name of the file to be renamed or moved. This file must exist and we must have write access to it.
+* newname - New path and name for the file. This filename must not be the same of an existing one.
+
+RETURN VALUE::
+
+If the file is successfully renamed/moved a 0 value is returned. On error a non-zero value is returned and the +errno+ variable is set to the corresponding error code that can be printed using +perror+.
+
+SEE ALSO::
+
++remove+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/rename.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ ./a.out old.txt new.txt
+$ cat new.txt 
+Hello World!
+$ cat old.txt
+cat: old.txt: No such file or directory
+.....
+
+If the file +old.txt+ exists before execution and we meet the permission requirements to call this function the file will be renamed to +new.txt+, otherwise a message similar to `STDERR: Error renaming file: Permission denied` will be output.
+
+
+

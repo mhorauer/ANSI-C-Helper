@@ -1,0 +1,38 @@
+[[stddef]]
+stddef
+------
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stddef.h>
+---------------------
+
+DESCRIPTION::
+
+The +stddef+ header defines several standard definitions. Many of these definitions also appear in other
+headers:
+
+* ptrdiff_t - is the result of subtracting two pointers.
+* size_t - is the unsigned integer result of the sizeof keyword.
+* wchar_t - is an integer type of the size of a wide character constant.
+* NULL - is the value of a null pointer constant.
+* offsetof(type, member-designator) - This results in a constant integer of type size_t which is the offset in bytes of a structure member from the beginning of the structure. The member is given by member-designator, and the name of the structure is given in type.
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/stddef.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall stddef.c
+$ ./a.out 
+level is at 100 byte.
+.....
+
+

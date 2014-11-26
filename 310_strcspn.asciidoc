@@ -1,0 +1,54 @@
+[[strcspn]]
+strcspn
+-------
+
+NAME::
+
+strcspn - Search string for occurrence of character set.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+size_t strcspn(const char * string1, const char * string2); 
+---------------------
+
+DESCRIPTION::
+
+Scans +string1+ character by character, returning the number of characters read until the first occurrence of any character included in +string2+. The search includes terminating null-characters, so the function will return the length of string1 if none of the characters included in +string2+ is in +string1+.
+
+PARAMETERS::
+
+* string1 - Null-terminated string to be scanned.
+* string2 - Null-terminated string containing the character set to search for.
+
+RETURN VALUE::
+
+Returns the position in +string1+ of the first occurrence of a component character of +string2+.
+
+SEE ALSO::
+
++strspn+, +strstr+, +strncmp+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strcspn.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strcspn.c
+$ ./a.out 
+str1 = fcba73
+           ^
+pos....0...4.
+str2 = 1234567890
+-----------------
+The first character of str2 found in str1 is at position 4.
+.....
+

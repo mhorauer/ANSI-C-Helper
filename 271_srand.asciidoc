@@ -1,0 +1,71 @@
+[[srand]]
+srand
+-----
+
+NAME::
+srand - Initialize random number generator.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+int srand ( unsigned int seed );
+---------------------
+
+DESCRIPTION::
+
+Uses seed parameter to set a new starting point for generating random numbers with rand. If seed is set to 1 the generator is reinitialized to its initial value as before any call to rand or srand. In order to generate true random numbers it is suggested to use as seed a value that changes often, like the one returned by time function included in +time.h+ (the number of seconds elapsed since newyear 1970).
+
+PARAMETERS::
+
+* seed - An integer value to be used as starting point with the pseudo-random number generator algorithm.
+
+RETURN VALUE::
+
+None.
+
+SEE ALSO::
+
++rand+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/srand.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall srand.c
+$ ./a.out 
+A number between 0 and 100: 22
+A number between 20 and 30: 25
+$ ./a.out 
+A number between 0 and 100: 33
+A number between 20 and 30: 28
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/srand2.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall srand2.c
+$ ./a.out 
+Dice value is 5
+Dice value is 1
+Dice value is 3
+Dice value is 4
+.....
+
+

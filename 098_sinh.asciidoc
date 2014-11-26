@@ -1,0 +1,45 @@
+[[sinh]]
+sinh
+----
+
+NAME::
+sinh - hyperbolic cosine function.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double sinh(double x);
+---------------------
+
+DESCRIPTION::
+
+The +sinh()+ function returns the hyperbolic sine of +x+, which is defined mathematically as `exp(x) - exp(-x) / 2`.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+SEE ALSO::
+
++cosh+, +tanh+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/sinh.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm sinh.c
+$ ./a.out 
+Hyperbolic sine of 45.000000 degrees is 0.868671
+.....
+
+
+

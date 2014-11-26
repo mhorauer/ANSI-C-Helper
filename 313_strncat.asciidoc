@@ -1,0 +1,52 @@
+[[strncat]]
+strncat
+-------
+
+NAME::
+strncat - Append substring to string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strncat(char * dest, const char * src, sizet_t num); 
+---------------------
+
+DESCRIPTION::
+
+Appends +num+ characters of +src+ string to the +dest+ string. If the terminating null-character appears in +src+ string before +num+ character have been appended, the function appends the
+null-character to +dest+ and ends. The terminating null character in +dest+ is overwritten by the first character of +src+. The resulting string includes a null-character at end.
+
+PARAMETERS::
+
+* dest - Pointer to a null-terminated string with enough space allocated to contain +src+ plus +num+
+characters.
+* src - Null-terminated string containing characters to be appended.
+* num - Number of characters to be appended from +src+ to +dest+.
+
+RETURN VALUE::
+
++dest+ is returned.
+
+SEE ALSO::
+
++strcat+, +strcpy+, +strncpy+, +memcpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strncat.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strncat.c
+$ ./a.out 
+To be or not ...
+.....
+
+

@@ -1,0 +1,209 @@
+[[ansi-c]]
+
+[green]##include <assert.h># +
+
+* <<assert,assert>> - Abort the program if assertion is false.
+
+[green]##include <ctype.h># +
+
+* <<isalnum,isalnum>> - Checks whether a character is alphanumeric (A-Z, a-z, 0-9)
+* <<isalpha,isalpha>> - Checks whether a character is alphabetic (A-Z, a-z )
+* <<iscntrl,iscntrl>> - Checks whether a character is a control character or delete ( decimal 0-31 and 127)
+* <<isdigit,isdigit>> - Checks whether a character is a digit (0-9)
+* <<isgraph,isgraph>> - Checks whether a character is a printable character, excluding the space (decimal 32)
+* <<islower,islower>> - Checks whether a character is a lower case letter (a-z).
+* <<isprint,isprint>> - Checks whether a character is printable (decimal 32-126).
+* <<ispunct,ispunct>> - Checks whether a character is punctuation (decimal 32-47, 58-63, 91-96, 123-126)
+* <<isspace,isspace>> - Checks whether a character is white space - space, CR HT VT NL, FF.
+* <<isupper,isupper>> - Checks whether a character is an upper case letter (A-Z).
+* <<isxdigit,isxdigit>> - Checks whether a character is hex digit (0-9, A-F, a-f).
+* <<tolower,tolower>> - Convert an uppercase character to lowercase.
+* <<toupper,toupper>> - Converts a lowercase character to uppercase.
+
+[green]##include <errno.h># +
+
+* <<errno,errno>> - The number of the last error.
+
+[green]##include <float.h># +
+
+* <<float,float>> - Determine properties of floating-point type representations.
+
+[green]##include <limits.h># +
+
+* <<limits,limits>> - Determine various properties of integer type representations.
+
+[green]##include <locale.h># +
+
+* <<setlocale,setlocale>> - Determine various properties required for different locales (e.g. currencies, special characters, etc.).
+
+[green]##include <math.h># +
+
+===================
+WARNING: You also need to link against the math library using `-lm`.
+===================
+
+* <<acos,acos>> - Calculate arccosine
+* <<asin,asin>> - Calculate arcsine
+* <<atan,atan>> - Calculate arctangent
+* <<atan2,atan2>> - Calculate arctangent, 2 parameters
+* <<ceil,ceil>> - Return the smallest integer that is greater or equal to x
+* <<cos,cos>> - Calculate cosine
+* <<cosh,cosh>> - Calculate hyperbolic cosine
+* <<exp,exp>> - Calculate exponential
+* <<fabs,fabs>> - Return absolute value of floating-point
+* <<floor,floor>> - Round down value
+* <<fmod,fmod>> - Return remainder of floating point division
+* <<frexp,frexp>> - Get mantissa and exponent of floating-point value
+* <<ldexp,ldexp>> - Get floating-point value from mantissa and exponent
+* <<log,log>> - Calculate natural logarithm
+* <<log10,log10>> - Calculate logarithm base 10
+* <<modf,modf>> - Split floating-point value into fractional and integer parts
+* <<pow,pow>> - Calculate numeric power
+* <<sin,sin>> - Calculate sine
+* <<sinh,sinh>> - Calculate hyperbolic sine
+* <<sqrt,sqrt>> - Calculate square root
+* <<tan,tan>> - Calculate tangent
+* <<tanh,tanh>> - Calculate hyperbolic tangent
+
+[green]##include <setjmp.h># +
+
+* <<longjmp,longjmp>> - Non-local jump to a saved stack context.
+* <<setjmp,setjmp>> - Save stack context for non-local goto.
+
+[green]##include <signal.h># +
+
+* <<signal,signal>> - Signal handling.
+* <<raise,raise>> - Send a signal.
+
+[green]##include <stdarg.h># +
+
+* <<stdarg,stdarg>> - Macros for dealing with variable argument lists.
+
+[green]##include <stddef.h># +
+
+* <<stddef,stddef>> - Dealing with several different standard definitions.
+
+[green]##include <stdio.h># +
+
+* <<stdio_summary,stdio summary>>
+* <<clearerr,clearerr>> - Reset error indicators.
+* <<fclose,fclose>> - Close a file.
+* <<feof,feof>> - Check for EOF while reading a file.
+* <<ferror,ferror>> - Check for errors.
+* <<fflush,fflush>> - Flush a stream.
+* <<fgetc,fgetc>> - Get next character from a stream.
+* <<fgetpos,fgetpos>> - Get position in a stream.
+* <<fgets,fgets>> - Get string from a stream.
+* <<fopen,fopen>> - Open a file.
+* <<fprintf,fprintf>> - Print formatted data to a stream.
+* <<fputc,fputc>> - Write character to a stream.
+* <<fputchar,fputchar>> - Write character to STDOUT.
+* <<fputs,fputs>> - Write string to a stream.
+* <<fread,fread>> - Read block of data from a stream.
+* <<freopen,freopen>> - Reopen a file using a different file mode.
+* <<fscanf,fscanf>> - Read formatted data from a stream.
+* <<fseek,fseek>> - Reposition stream's position indicator.
+* <<fsetpos,fsetpos>> - Reposition file pointer to a saved location.
+* <<ftell,ftell>> - Return the current position of the file pointer.
+* <<fwrite,fwrite>> - Write block of data to a stream.
+* <<getc,getc>> - Get the next character.
+* <<getchar,getchar>> - Get the next character from STDIN.
+* <<perror,perror>> - Print an error message.
+* <<printf,printf>> - Print formatted data to STDOUT.
+* <<putc,putc>> - Write character to a stream.
+* <<putchar,putchar>> - Write character to STDOUT.
+* <<puts,puts>> - Write a string to STDOUT.
+* <<remove,remove>> - Delete a file.
+* <<rename,rename>> - Rename a file or directory.
+* <<rewind,rewind>> - Reposition file pointer to the beginning of a stream.
+* <<scanf,scanf>> - Read formatted data from STDIN.
+* <<setbuf,setbuf>> - Change stream buffering.
+* <<setvbuf,setvbuf>> - Change stream buffering.
+* <<sprintf,sprintf>> - Format data to a string.
+* <<snprintf,snprintf>> - Format data to a string.
+* <<sscanf,sscanf>> - Read formatted data from a string.
+* <<tmpfile,tmpfile>> - Open a temporary file.
+* <<tmpnam,tmpnam>> - Generate a unique temporary filename.
+* <<ungetc,ungetc>> - Push a character back into stream.
+* <<vfprintf,vfprintf>> - Sends formatted output to a stream using an argument list.
+* <<vprintf,vprintf>> - Sends formatted output to STDOUT using an argument list.
+* <<vspnrintf,vspnrintf>> - Sends formatted output to an array using an argument list.
+* <<vsprintf,vsprintf>> - Sends formatted output to a string using an argument list.
+* <<vfscanf,vfscanf>> - Format file input of a standard argument list.
+* <<vscanf,vscanf>> - Format STDIN input of a standard argument list.
+* <<vsscanf,vsscanf>> - Format string input of a standard argument list.
+
+[green]##include <stdlib.h># +
+
+* <<stdlib_summary,stdlib summary>>
+* <<abort,abort>> - Abort current process returning error code
+* <<abs,abs>> - Return, absolute value of integer parameter
+* <<atexit,atexit>> - Specifies a function to be executed at exit
+* <<atof,atof>> - Convert string to double
+* <<atoi,atoi>> - Convert string to integer
+* <<atol,atol>> - Convert string to long
+* <<bsearch,bsearch>> - Binary search
+* <<calloc,calloc>> - Allocate array in memory
+* <<div,div>> - Divide two integer values
+* <<ldiv,ldiv>> - Divide two long integer values
+* <<exit,exit>> - Terminate calling process
+* <<free,free>> - Deallocate dynamically allocated memory
+* <<getenv,getenv>> - Get string from environment
+* <<labs,labs>> - Return absolute calue of long integer parameter
+* <<malloc,malloc>> - Allocate memory block
+* <<mblen,mblen>> - Determine the number of bytes in a character
+* <<mbstowcs,mbstowcs>> - Convert a multibyte string to a wide character string
+* <<mbtowc,mbtowc>> - Convert a multibyte character to a wide character
+* <<qsort,qsort>> - Sort using quicksort algorithm
+* <<rand,rand>> - Generate random number
+* <<realloc,realloc>> - Reallocate memory block
+* <<srand,srand>> - Initialize random number generator
+* <<strtod,strtod>> - Convert string to double-precision floating-point value
+* <<strtol,strtol>> - Convert string to long integer
+* <<strtoul,strtoul>> - Convert string to unsigned long integer
+* <<system,system>> - Execute command
+* <<wcstombs,wcstombs>> - Convert a wide character string to a multibyte character string
+* <<wctomb,wctomb>> - Convert a wide character to a multibyte character
+
+[green]##include <string.h># +
+
+* <<memchr,memchr>> - Search buffer for a character
+* <<memcmp,memcmp>> - Compare two buffers
+* <<memcpy,memcpy>> - Copy bytes to buffer from buffer
+* <<memmove,memmove>> - Copy bytes to buffer from buffer
+* <<memset,memset>> - Fill buffer with specified character
+* <<strcat,strcat>> - Append string
+* <<strchr,strchr>> - Find character in string
+* <<strcmp,strcmp>> - Compare two strings
+* <<strcoll,strcoll>> - Compare two strings using locale settings
+* <<strcpy,strcpy>> - Copy string
+* <<strcspn,strcspn>> - Search string for occurrence of charcter set
+* <<strerror,strerror>> - Get pointer to error message string
+* <<strlen,strlen>> - Return string length
+* <<strncat,strncat>> - Append substring to string
+* <<strncmp,strncmp>> - Compare some characters of two strings
+* <<strncpy,strncpy>> - Copy characters from one string to another
+* <<strpbrk,strpbrk>> - Scan string for specified characters
+* <<strrchr,strrchr>> - Find last occurrence of character in string
+* <<strspn,strspn>> - Get length of substring composed of given characters
+* <<strstr,strstr>> - Find substring
+* <<strtok,strtok>> - Sequentially truncate string if delimiter is found
+* <<strxfrm,strxfrm>> - Transform string using locale settings
+
+[green]##include <time.h># +
+
+* <<time_summary,time summary>>
+* <<asctime,asctime>> - Convert tm structure to string
+* <<clock,clock>> - Return number of clock ticks since process start
+* <<ctime,ctime>> - Convert time_t value to string
+* <<difftime,difftime>> - Return difference between two times
+* <<gmtime,gmtime>> - Convert time_t value to tm structure as UTC time
+* <<localtime,localtime>> - Convert time_t value to tm structure as local time
+* <<mktime,mktime>> - Convert tm structure to time_t value
+* <<strftime,strftime>> - Format date and time
+* <<time,time>> - Get current time
+
+[green]#ASCII Table# +
+
+* <<ASCII_table,ASCII table>>
+

@@ -1,0 +1,85 @@
+[[strftime]]
+strftime
+--------
+
+NAME::
+strftime - Format date and time.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+size_t strftime(char *s, size_t max, const char *format, const struct tm *tm);
+---------------------
+
+DESCRIPTION::
+
+The +strftime()+ function formats the broken-down time +tm+ according to the format specification format and places the result in the character array s of size max. Ordinary characters placed in the format string are copied to s without conversion. Conversion specifiers are introduced by a `'%'` character, and are replaced in s as follows:
+
+
+[frame="all",colspecs="cl",cols="^1,10",caption_voffset="0mm"]
+|==================================================
+|%a   | The abbreviated weekday name according to the current locale.
+|%A   | The full weekday name according to the current locale.
+|%b   | The abbreviated month name according to the current locale.
+|%B   | The full month name according to the current locale.
+|%c   | The preferred date and time representation for the current locale.
+|%d   | The day of the month as a decimal number (range 0 to 31).
+|%H   | The hour as a decimal number using a 24-hour clock (range 00 to 23).
+|%I   | The hour as a decimal number using a 12-hour clock (range 01 to 12).
+|%j   | The day of the year as a decimal number (range 001 to 366).
+|%m   | The month as a decimal number (range 10 to 12).
+|%M   | The minute as a decimal number.
+|%p   | Either `am' or `pm' according to the given time value, or the corresponding strings for the current locale.
+|%S   | The second as a decimal number.
+|%U   | The week number of the current year as a decimal number, starting with the first Sunday as the first day of the first week.
+|%W   | The week number of the current year as a decimal number, starting with the first Monday as the first day of the first week.
+|%w   | The day of the week as a decimal, Sunday being 0.
+|%x   | The preferred date representation for the current locale without the time.
+|%X   | The preferred time representation for the current locale without the date.
+|%y   | The year as a decimal number without a century (range 00 to 99).
+|%Y   | The year as a decimal number including the century.
+|%Z   | The time zone or name or abbreviation.
+|%%   | A literal `'%'` character.
+|==================================================
+
+
+PARAMETERS::
+* s - Points to the array containing the output date and time string.
+* max - Specifies the maximum number of bytes or wide characters to be written to the array pointed to by the +s+ or +wcs+ parameter.
+* format - Points to a sequence of characters that specify the format of the date and time to be written to the output string or wide-character string.
+* tm - Points to a type +tm+ structure that contains broken-down time information.
+
+RETURN VALUE::
+
+The +strftime()+ function returns the number of characters placed in the array s, not including the terminating NULL character. If the value equals max, it means that the array was too small.
+
+SEE ALSO::
+
++ctime+, +time+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strcmp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strftime.c
+$ ./a.out 
+It is Monday.
+.....
+
+["NOTE",voffset="0mm"]
+The `%S` seconds field can contain a value up to 61 seconds rather than up to 59 seconds to allow leap seconds that are sometimes added to years to keep clocks in correspondence with the
+solar year.
+
+
+
+
+

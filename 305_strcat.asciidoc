@@ -1,0 +1,49 @@
+[[strcat]]
+strcat
+------
+
+NAME::
+strcat - Append string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strcat(char * dest, const char * src);
+---------------------
+
+DESCRIPTION::
+
+Appends +src+ string to +dest+ string. The terminating null character in +dest+ is overwritten by the first character of +src+. The resulting string includes a null-character at end.
+
+PARAMETERS::
+
+* dest - Pointer to a null-terminated string with enough space allocated to contain both +src+ and +dest+.
+* src - Null-terminated string to append.
+
+RETURN VALUE::
+
++dest+ is returned.
+
+SEE ALSO::
+
++strcpy+, +strncat+, +strncpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strcat.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strcat.c
+$ ./a.out 
+strings have been concatenated.
+.....
+
+

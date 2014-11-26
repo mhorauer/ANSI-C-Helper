@@ -1,0 +1,51 @@
+[[memcpy]]
+memcpy
+------
+
+NAME::
+memcpy - Copy data between two memory locations.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+void * memcpy ( void * dest, const void * src, size_t num ); 
+---------------------
+
+DESCRIPTION::
+Copies +num+ bytes from +src+ buffer to memory location pointed by +dest+.
+
+PARAMETERS::
+
+* dest - Destination buffer where data is copied.
+* src - Source buffer to copy from.
+* num - Number of bytes to copy.
+
+RETURN VALUE::
+
++dest+ is returned.
+
+SEE ALSO::
+
++memchr+, +memcmp+, +memset+, +strchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/log.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall memcpy.c
+$ ./a.out 
+str1: Sample string
+str2: Sample string
+str3: copy successful
+.....
+
+

@@ -1,0 +1,28 @@
+[[ASCII_table]]
+ASCII Table
+-----------
+
+The following table lists the ASCII characters and their decimal, octal and hexadecimal
+numbers. Characters which appear as names in parentheses (e.g. (NUL)) are non-printing characters.
+A table of the common non-printing characters appears after this table.
+
+[format="psv",options="header",frame="all",cols="^,^,^,^,^,^,^,^,^,^,^,^,^,^,^,^",colspecs="cccccccccccccccc",caption_voffset="0mm"]
+|===================================================
+|Oct|Dec|Hex|Abbr|Oct|Dec|Hex|Glyph|Oct|Dec|Hex|Glyph|Oct|Dec|Hex|Glyph
+include::src/ascii.dsv[]
+|===================================================
+
+[options="header",frame="all",colspecs="clc",cols="^2,4,6",caption_voffset="0mm"]
+|====================================================
+|ASCII Code    |Description     |C Escape Sequence
+|(NUL)         |Null Byte       |\0
+|(BEL)         |Bell Character  |\a
+|(BS)          |Backspace       |\b
+|(HT)          |Horizontal Tab  |\t
+|(NP)          |Formfeed        |\f
+|(NL)          |Newline         |\n
+|(CR)          |Carriage Return |\r
+|(VT)          |Vertical Tab    |
+|(ESC)         |Escape          |
+|(SP)          |Space           |
+|====================================================

@@ -1,0 +1,115 @@
+[[malloc]]
+malloc
+------
+
+NAME::
+malloc - Allocate memory block.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void * malloc ( size_t size ); 
+---------------------
+
+DESCRIPTION::
+
+Requests the allocation of a block of size bytes of memory. A pointer to the new block of memory is returned if successful. The dynamic memory should be freed using free once it is no longer needed.
+
+PARAMETERS::
+
+* size - size in bytes of the block of memory requested.
+
+RETURN VALUE::
+
+A pointer to the allocated space. The type of this
+pointer is `"void *"`. A type cast to the desired type of data pointer
+should be performed on this returned pointer in order to be used as
+an ordinary array of a concrete type. If the system could not
+allocate the requested block of memory or if the size requested was
+0 a NULL pointer is returned.
+
+SEE ALSO::
+
++free+, +calloc+, +realloc+
+
+EXAMPLE::
+
+[source,c]
+-------------------
+include::src/log.c[]
+-------------------
+
+This program generates a string of the length specified by the user and fills it with alphabetic characters. The possible length of this string is only limited by the amount of
+memory available in the system that +malloc+ can allocate.
+
+OUTPUT::
+
+.....
+$ gcc -Wall malloc.c
+$ ./a.out 
+How long do you want the string? 5
+Random string: nwlrb
+.....
+
+=====================
+["NOTE", voffset="0mm"]
++malloc+ (memory allocation) is used to dynamically allocate memory at run time. Possible uses for this function are:
+
+* Read records of an unknown length.
+* Read an unknown number of database records.
+* Linked lists.
+=====================
+
+
+The simplest way to reserve memory is to code something like:
+
+
+[source,c]
+-----
+#include <string.h>
+
+int main(void)
+{ 
+  char string[1000]; 
+  
+  strcpy (string, "Some text");
+  /* ... */
+  return 0;
+}
+-----
+
+The example above, however, has the following problems:
+
+. If the data is less than 1000 bytes the program wasting memory.
+. If the data is greater than 1000 bytes the program is going to crash.
+. The 1000 bytes are reserved throughout the life of the program. If this was a long running program that rarely used the memory, it would again be wasteful.
+
+
++malloc+, in contrast, allows us to allocate exactly the correct amount of memory and with the use of free only for the time it is required.
+
+
+[source,c]
+-----
+#include <stdlib.h>
+
+int main(void)
+{ 
+  char * str;
+  str = (char *) malloc(1000);
+  /* ... */
+  free(str);
+  str=NULL;
+  return 0;
+}
+-----
+
+Looking at the example snippet above, 1000 bytes are reserved and the pointer String points to the first byte. The 1000 bytes are *not* initialized by +malloc+. If the memory is *not* available, a NULL pointer is returned. Please note, the cast is required to return a pointer of the correct type.
+
+
+
+
+
+

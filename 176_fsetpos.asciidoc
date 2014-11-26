@@ -1,0 +1,53 @@
+[[fsetpos]]
+fsetpos
+-------
+
+NAME::
+fsetpos - Reposition file pointer to a saved location.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fsetpos ( FILE *stream , const fpos_t *position ); 
+---------------------
+
+DESCRIPTION::
+
+Sets the file pointer associated with stream to a new position. The position parameter is a value previously obtained by a call to +fgetpos+. After a call to this function, the End-Of-File indicator of the stream is cleared and any effect of a previous call to +ungetc+ is undone. The next operation with the stream after a call to +fsetpos+ can be either for input or output.
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+* position - Position value obtained from a previous call to +fgetpos+ that indicates the position of the file pointer at that moment.
+
+RETURN VALUE::
+
+If successful the function returns 0. Otherwise it returns nonzero and sets the global variable errno to a non-zero value.
+
+SEE ALSO::
+
++fopen+, +fgetpos+, +fseek+, +ftell+, +frewind+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fsetpos.c[]
+---------------------
+
+The above example first obtains the actual position of the file pointer. Next, it writes `That is a sample.` to the file. Than the file pointer is re-positioned using +fsetpos+ and parts of the text get overwritten.
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall fsetpos.c
+$ ./a.out test.txt
+$ cat test.txt
+This is a sample.
+.....
+
+

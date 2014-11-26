@@ -1,0 +1,55 @@
+[[wctomb]]
+wctomb
+------
+
+NAME::
+
+wctomb - Converts a wide character to the corresponding multibyte character.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+int wctomb(char *mbchar, wchar_t wchar);
+---------------------
+
+DESCRIPTION::
+
+The +wctomb()+ function converts a wide character wchar into a multibyte character and, if +mbchar+ is not NULL, stores the multibyte character representation in +mbchar+.
+
+PARAMETERS::
+
+* mbchar - The address of a multibyte character.
+* wchar - A wide character.
+
+RETURN VALUE::
+
++wctomb()+ returns the number of bytes in the multibyte character or -1 if the wide character is not valid.
+
+SEE ALSO::
+
++mblen+, +mbstowcs+, +wcstombs+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/wctomb.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ ./a.out 
+Convert a wide character:
+ Characters converted: 1
+ Multibyte character: a
+
+Attempt to convert when target is NULL:
+ Characters converted: 0
+ Multibyte character: 
+.....
+
+

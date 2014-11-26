@@ -1,0 +1,48 @@
+[[exp]]
+exp
+---
+
+NAME::
+exp - exponential function.
+
+SYNOPSIS::
+
+[source,c]
+-------------------
+#include <math.h>
+
+double exp(double x);
+-------------------
+
+DESCRIPTION::
+
+The +exp()+ function returns the value of +e+ (the base of natural logarithms) raised to the power of x.
+
+===================
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+===================
+
+RETURN VALUE::
+
+On success, these functions return the exponential value of +x+.
+
+SEE ALSO::
+
++log+, +log10+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/exp.c[]
+---------------------
+
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm exp.c
+$ ./a.out 
+EXP(4.605170) = 100.000000
+.....

@@ -1,0 +1,27 @@
+[[stdlib_summary]]
+Stdlib Summary
+--------------
+
+C +stdlib+ library functions can be divided in these groups depending on their utility:
+
+- conversion
+  * atof, atoi, atol, mblen, mbstowcs, mbtowc, strtod, strtol, strtoul, wctomb, wcstombs
+- dynamic memory allocation/deallocation
+  * calloc, free, malloc, realloc
+- process control and environment variables
+  * abort, atexit, exit, getenv, system
+- sorting and searching
+  * bsearch, lfind, lsearch, qsort
+- mathematical operations
+  * abs, div, labs, ldiv, rand, srand, etc.
+
+NOTES
+~~~~~
+* NULL - NULL is a defined constant used to express null pointers, that is, an unassigned pointer or a
+pointer that points nowhere. It is defined as: +
+`#define NULL 0`
+* size_t - Defined type used as arguments for some functions that require sizes or counts specifications. This represents an unsigned value generally defined in header files as unsigned int: +
+`typedef unsigned int size_t;`
+
+
+

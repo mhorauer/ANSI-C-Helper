@@ -1,0 +1,49 @@
+[[abs]]
+abs
+---
+
+NAME::
+abs - computes the absolute value of an integer.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+int abs(int j);
+---------------------
+
+DESCRIPTION::
+
+The +abs()+ function computes the absolute value of the
+integer argument +j+.
+
+SEE ALSO::
++fabs+, +labs+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/abs.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall abs.c
+$ ./a.out 2147483647
+Number out of range.
+$ ./a.out 2147483646
+The number you entered 2147483646.
+The absolute value is 2147483646.
+$ ./a.out -2147483647
+The number you entered -2147483647.
+The absolute value is 2147483647.
+$ ./a.out -2147483648
+Number out of range.
+.....
+
+
+

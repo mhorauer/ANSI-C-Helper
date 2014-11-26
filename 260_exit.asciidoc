@@ -1,0 +1,66 @@
+[[exit]]
+exit
+----
+
+NAME::
+exit - Terminate calling process.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void exit(int status); 
+---------------------
+
+DESCRIPTION::
+
+The process performs standard cleanup and then
+terminates. Before the cleanup is done any function registered by
++atexit+ is called. The cleanup consists on flushing all buffers and
+close any open files. The status parameter is returned to the
+parent of the process (if any) or the operating system as if a
+return statement was specified in main function. Generally a return
+value of +0+ or constant +EXIT_SUCCESS+ indicates success and any other
+value or constant +EXIT_FAILURE+ is used to indicate an error or an
+abnormal program termination.
+
+PARAMETERS::
+
+* status - status value returned to parent process (if any) or operating system, generally:
+
+[options="header",frame="all",colspecs="cc",cols="2,^2,6",caption_voffset="0mm"]
+|============================
+| status        | value   | description
+| EXIT_SUCCESS  | 0       | Normal termination
+| EXIT_FAILURE  | 1       | Abnormal termination. Error in process.
+|============================
+
+
+
+RETURN VALUE::
+
+NONE.
+
+SEE ALSO::
++abort+, +atexit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/exit.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall exit.c
+$ ./a.out hello
+Error opening file.
+$ ./a.out exit.c
+Operation successful.
+.....
+
+

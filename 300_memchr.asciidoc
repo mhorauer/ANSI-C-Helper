@@ -1,0 +1,51 @@
+[[memchr]]
+memchr
+------
+
+NAME::
+memchr - Search buffer for a character.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+void *memchr ( const void *buffer, int c, size_t num ); 
+---------------------
+
+DESCRIPTION::
+
+Searches the first num bytes of memory block pointed by buffer for character +c+.
+
+PARAMETERS::
+
+* buffer - Pointer to buffer.
+* c - Key character to look for.
+* num - Number of characters to check from buffer.
+
+RETURN VALUE::
+
+A pointer to the first occurrence of +c+ in buffer. If
+character is not found the function returns NULL.
+
+SEE ALSO::
+
++memcmp+, +memcpy+, +memset+, +strchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/memchr.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall memchr.c
+$ ./a.out 
+Character l was at position 6.
+.....
+
+

@@ -1,0 +1,59 @@
+[[atof]]
+atof
+----
+
+NAME::
+atof - convert string to double.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+double atof(const char * string ); 
+---------------------
+
+DESCRIPTION::
+
+Parses string interpreting its content as a floating
+point number and returns a value of type double.
+
+PARAMETERS::
+
+string - String representing a
+floating point number. The number is considered until a non-numeric
+character is found (digits, signs, E and e are considered valid
+numeric characters for this parameter as specified in format). The
+format used is: `[white-spaces][+|-][nnnnn][.nnnnn][e|E[+|-]nnnn]`
+(where white-spaces are any tab or space character and +nnnnn+ may be
+any number of digits)
+
+RETURN VALUE::
+
+The converted floating point value of the
+input string. On overflow the result is undefined. If an error occurs 0.0
+is returned.
+
+SEE ALSO::
+
++atoi+, +atol+, +strtod+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/atof.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm atof.c
+$ ./a.out
+Enter degrees: 45
+sine of 45.000000 degrees is 0.707107
+.....
+
+
+

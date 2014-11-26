@@ -1,0 +1,50 @@
+[[putchar]]
+putchar
+-------
+
+NAME::
+putchar - Write character to STDOUT.
+
+SYNOPSIS::
+
+[source,c]
+-----
+#include <stdio.h>
+
+int putchar(int c);
+-----
+
+DESCRIPTION::
+
+Writes character to the current position in the standard output (stdout) and increases the file pointer to point to next character. This routine corresponds to: +putc(character,stdout)+.
+
+PARAMETERS::
+
+* character - Character to be written. Although it is declared as +int+, the function converts it to
++unsigned char+ before it writes it.
+
+RETURN VALUE::
+
+The value returned is the written character. If an error occurs, EOF is returned. Note that when you work with binary files EOF is a valid character and you must use +ferror()+ function
+to check if it has been an error.
+
+SEE ALSO::
+
++putc+, +fputc+, +getchar+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/putchar.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall putchar.c
+$ ./a.out 
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+.....
+
+

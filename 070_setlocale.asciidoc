@@ -1,0 +1,60 @@
+[[setlocale]]
+setlocale
+---------
+
+NAME::
+setlocale - set the current locale.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <locale.h>
+
+char *setlocale(int category, const char * locale);
+---------------------
+
+DESCRIPTION::
+
+The +setlocale()+ function is used to set or query the program's current locale. If locale is "C" or "POSIX", the current locale is set to the portable locale. +
+If locale is "", the locale is set to the default locale which is selected from the environment variable LANG. +
+On startup of the main program, the portable "C" locale is selected as default. +
+The argument category determines which functions are influenced by the new locale:
+
+* LC_ALL - for all of the locale.
+* LC_COLLATE - for the functions +strcoll()+ and +strxfrm()+.
+* LC_CTYPE - for the character classification and conversion routines.
+* LC_MONETARY - for +localeconv()+.
+* LC_NUMERIC - for the decimal character.
+* LC_TIME - for +strftime()+. 
+* NULL if the request cannot not be honored. This string may be allocated in static storage.
+
+A program may be made portable to all locales by calling +setlocale(LC_ALL, "" )+ after program
+initialization, by using the values returned from a +localeconv()+ call for locale - dependent information and by using +strcoll()+ or +strxfrm()+ functions to compare strings.
+
+EXAMPLE::
+
+A code snippet similar to the following one can be used to change the locale or a portion thereof for a limited duration:
+
+[source,c]
+---------------------
+include::src/setlocale.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall setlocale.c
+$ ./a.out 
+Locale is: C
+Date is: Sun Sep  9 20:06:35 2012
+Currency symbol is: 
+-
+Locale is: en_US.utf8
+Date is: Sun 09 Sep 2012 08:06:35 PM CEST
+Currency symbol is: $
+-
+.....
+
+
+

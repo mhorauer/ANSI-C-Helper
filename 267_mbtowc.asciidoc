@@ -1,0 +1,75 @@
+[[mbtowc]]
+mbtowc
+------
+
+NAME::
+mbtowc - Convert a multibyte character to a wide character.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+int mbtowc(wchar_t *wchar, const char *mbchar, size_t count);
+---------------------
+
+DESCRIPTION::
+The +mbtowc+ function converts +count+ or fewer bytes
+pointed to by +mbchar+, if +mbchar+ is not NULL, to a corresponding
+wide character. +mbtowc+ stores the resulting wide character at
++wchar+, if +wchar+ is not NULL. +mbtowc+ does not examine more than
++MB_CUR_MAX+ bytes.
+
+PARAMETERS::
+
+* wchar - Address of a wide character (type +wchar_t+).
+* mbchar - Address of a sequence of bytes (a multibyte character).
+* count - Number of bytes to check.
+
+RETURN VALUE::
+
+If +mbchar+ is not NULL and if the object that +mbchar+
+points to forms a valid multibyte character, +mbtowc+ returns the
+length in bytes of the multibyte character. If +mbchar+ is NULL or
+the object that it points to is a wide-character null character
+(`L'\0'`), the function returns 0. If the object that +mbchar+ points
+to does not form a valid multibyte character within the first count
+characters, it returns -1.
+
+SEE ALSO::
+
++mblen+, +mbstowcs+, +wcstombs+, +wctomb+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/mbtowc.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc mbtowc.c
+$ ./a.out 
+Convert a wide character to multibyte character:
+ Characters converted: 1
+ Multibyte character: 61
+
+Convert multibyte character back to a wide character:
+ Bytes converted: 1
+ Wide character: 61
+
+Attempt to convert when target is NULL
+ returns the length of the multibyte character:
+ Length of multibyte character: 1
+
+Attempt to convert a NULL pointer to a wide character:
+ Bytes converted: 0
+.....
+
+
+
+

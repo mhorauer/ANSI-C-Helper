@@ -1,0 +1,70 @@
+[[strchr]]
+strchr
+------
+
+NAME::
+strchr - Find character in string.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strchr(const char * string, int c); 
+---------------------
+
+DESCRIPTION::
+
+Returns the first occurrence of c in string. The null-terminating character is included as part of the string and can also be searched.
+
+PARAMETERS::
+
+* string - Null-terminated string scanned in the search.
+* c - Character to be found.
+
+RETURN VALUE::
+
+If character is found, a pointer to the first occurrence of c in string is returned. If not, NULL is
+returned.
+
+SEE ALSO::
+
++strrchr+, +strcspn+, +strcmp+, +strstr+, +memchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strchr.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strchr.c
+$ ./a.out 
+Looking for 's' character in "This is a sample string"...
+found at 4
+found at 7
+found at 11
+found at 18
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strchr2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strchr2.c
+$ ./a.out 
+remove the following text: # remove me
+remove the following text: 
+.....
+
+

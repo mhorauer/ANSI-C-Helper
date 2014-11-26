@@ -1,0 +1,78 @@
+[[realloc]]
+realloc
+-------
+
+NAME::
+realloc - Reallocate memory block.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void * realloc(void * memblock, size_t size); 
+---------------------
+
+DESCRIPTION::
+
+The size of the block pointed to by the +memblock+ parameter
+is changed to the +size+ in bytes specified, expanding or reducing
+the amount of memory accessible in that block. The block could be
+moved to a new location in some cases, in this case the pointer
+returned by the function will point to the location. The content of
+the block will remain unchanged even if the block is moved and will
+be accessible from the new pointer. In case that +memblock+ is NULL
+the function behaves exactly as +malloc+ assigning a new block of
++size+ bytes and returning a pointer to the beginning of it. In case
+that +size+ is +0+ the memory previously allocated in +memblock+ is
+de-allocated and a NULL pointer is returned. Dynamic memory
+allocated with +malloc+, +calloc+ and +realloc+ should be freed using
++free+ once it is no longer needed.
+
+PARAMETERS::
+
+* memblock - Pointer to a previously allocated block of memory. If it is NULL a new block is allocated and a pointer to it is returned by the function.
+* size - size in bytes of the block of memory requested. If it is +0+ and +memblock+ points to an existing block of memory this is de-allocated and a NULL pointer is returned by the function.
+
+RETURN VALUE::
+
+A pointer to the allocated space. The type of this
+pointer is `"void *"`. A type cast to the desired type of data pointer
+should be performed on this returned pointer in order to be used as
+an ordinary array of a concrete type. If the system could not
+allocate the requested block of memory or if the size requested was
++0+ a NULL pointer is returned.
+
+SEE ALSO::
+
++free+, +calloc+, +malloc+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/realloc.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall realloc.c
+$ ./a.out 
+Enter an integer value (0 to end): 9
+Enter an integer value (0 to end): 8
+Enter an integer value (0 to end): 77
+Enter an integer value (0 to end): 98
+Enter an integer value (0 to end): -13
+Enter an integer value (0 to end): 98
+Enter an integer value (0 to end): 0
+Numbers entered: 9 8 77 98 -13 98 0 
+.....
+
+The program prompts the user for numbers until a 0 is
+entered. Each time a new value is introduced the memory block
+pointed by numbers is increased by the size of an +int+.
+
+
+

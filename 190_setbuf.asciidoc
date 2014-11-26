@@ -1,0 +1,55 @@
+[[setbuf]]
+setbuf
+------
+
+NAME::
+setbuf - Change stream buffering.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+void setbuf ( FILE *stream , char *buffer ); 
+---------------------
+
+DESCRIPTION::
+
+Changes the buffer used for I/O operations with the specified stream, or, if the specified buffer is NULL it disables buffering with the stream. This function should be called once the file associated with the stream has been opened but before any input or output operation has been done. The buffer must point to an array BUFSIZ bytes long (BUFSIZ is defined in stdio.h). With buffered streams writing operations do not write directly to the device associated with them; the data is accumulated in the buffer and written to the device as a block. This can be forced flushing the stream by calling +fflush+ or by closing the file (+fclose+). All buffers are also flushed when program terminates. With unbuffered streams, data is directly written to the physical device on each writing operation. Normally, files are opened with a default allocated buffer, where this function can be used to define a user-allocated buffer or to disable buffering for the file. System standard streams like +stdout+ and +stderr+ are unbuffered by default if they are not redirected.
+
+PARAMETERS::
+
+* stream - Pointer to an open file.
+* buffer - User allocated buffer. Must have a length of BUFSIZ bytes.
+
+RETURN VALUE::
+
+None.
+
+SEE ALSO::
+
++fopen+, +fflush+, +setvbuf+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/setbuf.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall setbuf.c
+$ ./a.out file1.txt file2.txt 
+$ cat file1.txt 
+This is sent to a buffered stream.
+$ cat file2.txt 
+This is sent to an unbuffered stream.
+.....
+
+Two files are opened with writing access. The stream associated with the file1.txt is set to a user allocated buffer; a writing operation to it is done; the data is logically part of the stream now and a reading operation to it can get this data, but it has not been physically written to the device until the +fflush+ has been called. The second buffer in the example, associated with the file2.txt, is set to unbuffered, so the subsequent output operation is directly written to the device.
+
+
+

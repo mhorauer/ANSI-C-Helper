@@ -1,0 +1,110 @@
+[[bsearch]]
+bsearch
+-------
+
+NAME::
+bsearch - Binary search.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void* bsearch ( const void * key, const void * base, size_t num, \
+                size_t width, int (*fncompare)(const void *, const void * ) ); 
+---------------------
+
+DESCRIPTION::
+
+Searches the given key in an array pointed by base and
+formed by num elements each of a size of width bytes, and returns
+the address of the first entry in the table that matches the search
+key. The comparison is performed by function +fncomparison+ that is
+called back one or more times during the search. Because this
+function performs a binary search the values of the items in the
+array should be in ascending sorted order before the call.
+
+PARAMETERS::
+
+* key - Pointer to the object that serves as key for the search.
+* base - Pointer to the base of the array where the search is performed.
+* num - Number of elements in the array pointed by base.
+* width - Width of each element in the array.
+* fncompare - Function that compares two elements. This should be provided by the caller to this function and must follow or be cast to a declaration like:
+
+....
+int fncompare (const void * elem1, const void * elem2);
+....
+
+The function should receive two parameters (+elem1+ and +elem2+) that
+are pointers to elements, and should return an int value with the
+result of comparing them:
+
+[options="header",frame="all",colspecs="cc",cols="^2,8",caption_voffset="0mm"]
+|========================
+| return value | description
+| <0           | *elem1 < *elem2
+| 0            | *elem1 == *elem2
+| >0           | *elem1 > elem2
+|========================
+
+
+RETURN VALUE::
+
+A pointer to an entry in the array that matches the
+search key. If key is not found, a NULL pointer is returned.
+
+SEE ALSO::
++lsearch+, +qsort+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/bsearch.c[]
+---------------------
+
+In the example there is an array of sorted int values.
+There is also a function called compare that compares the values
+pointed by the two parameters as if they were pointers to int
+values (that indeed they are) and returns the result of the
+subtraction, giving 0 if they are equal, greater than 0 if a points
+to a greater int than b or less than 0 if b points to a greater int
+than a.
+
+OUTPUT::
+
+.....
+$ gcc -Wall bsearch.c
+$ ./a.out 
+Enter an integer number in the range 0-100 > 20
+20 is in the array.
+$ ./a.out 
+Enter an integer number in the range 0-100 > 15
+15 is not in the array.
+.....
+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/bsearch2.c[]
+---------------------
+
+....
+$ gcc -Wall bsearch2.c
+$ ./a.out 
+Enter an integer number in the range 0-30 > 7
+7 13 
+7 7 
+7 found
+$ ./a.out 
+Enter an integer number in the range 0-30 > 30
+30 13 
+30 19 
+30 23 
+30 not found
+....
+
+

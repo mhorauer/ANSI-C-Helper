@@ -1,0 +1,49 @@
+[[ceil]]
+ceil
+----
+
+NAME::
+ceil - smallest integral value not less than +x+.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <math.h>
+
+double ceil(double x);
+---------------------
+
+DESCRIPTION::
+The +ceil()+ function rounds +x+ upwards to the
+nearest integer, returning that value as a double.
+
+=============
+WARNING: You'll also need to link the program against the math library (see example below) using the `-lm` compile/link option.
+=============
+
+RETURN VALUE::
+
+The +ceil+ function returns a double that
+contains the smallest integer value that is not less than val.
+
+SEE ALSO::
++floor+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ceil.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm ceil.c
+$ ./a.out 
+Enter a floating point value > 45.98934
+CEIL(45.989340) = 46.000000
+.....
+
+

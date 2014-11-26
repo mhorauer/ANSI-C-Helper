@@ -1,0 +1,90 @@
+[[fopen]]
+fopen
+-----
+
+NAME::
+fopen - Open a file.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+FILE *fopen (const char *filename, const char *mode); 
+---------------------
+
+DESCRIPTION::
+
+Opens the file which name is stored in the
++filename+ string and returns a pointer to the file (stream). Operations
+allowed to the file returned are defined by the mode parameter:
+
+[colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|================================
+| "r"  | Open a file for reading. The file must exist.
+| "w"  | Create an empty file for writing. If a file with the same name already exists its content is erased.
+| "a"  | Append to a file. Writing operations append data at the end of the file. The file is created if it doesn't exist.
+| "r+" | Open a file for reading and writing. The file must exist.
+| "w+" | Create an empty file for reading and writing. If a file with the same name already exists its content is erased before it is opened.
+| "a+" | Open a file for reading and appending. All writing operations are done at the end of the file protecting the previous content to be overwritten. You can reposition (+fseek+, +rewind+) the pointer to anywhere in the file for reading, but writing operations will move back to the end of file. The file is created if it doesn't exist.
+|================================
+
+
+The mode parameter serves also to specify whether we want to open the file as text or binary, adding
++t+ or +b+ characters to this access mode string.
+
+[colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|=================================
+| t | Text mode. In text mode the end of file is assumed to be at first Ctrl-Z character. Some conversions can occur reading and writing with End Of Line / Feedback characters depending on your compiler and your Operating System.
+| b | Binary mode. End of file is reached at last byte of the file. No conversions.
+|=================================
+
+
+
+This additional +t+ or +b+ characters can be appended to the read/write
+mode at the end of the string (like "rb", "wt", "r+t", "w+b" ...)
+or can be inserted between the letter and the "+" character (like "rt+", "wb+").
+
+If +t+ nor +b+ are given, the default method is used (commonly +t+). Most compilers use the default method specified by the global variable `_fmode` defined in +stdio.h+.
+
+RETURN VALUE::
+
+If the file has been successfully opened the function will return a pointer to the file. Otherwise a NULL pointer is returned.
+
+SEE ALSO::
+
++fclose+, +fputc+, +fgetc+, +fread+, +fwrite+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fopen.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fopen.c
+$ ./a.out test.txt
+$ cat test.txt
+fopen example
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/fopen2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fopen2.c
+$ ./a.out test.txt
+fopen example
+.....
+
+

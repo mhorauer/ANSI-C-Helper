@@ -1,0 +1,51 @@
+[[longjmp]]
+longjmp
+-------
+
+NAME::
+longjmp - non-local jump to a saved stack context.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <setjmp.h>
+
+void longjmp(jmp_buf env, int val);
+---------------------
+
+DESCRIPTION::
+
++longjmp()+ and +setjmp()+ are useful for dealing with
+errors and interrupts encountered in a low-level subroutine of a
+program. +longjmp()+ restores the environment saved by the last call
+of +setjmp()+ with the corresponding env argument. After +longjmp()+ is
+completed, program execution continues as if the corresponding call
+of +setjmp()+ had just returned the value val. +longjmp()+ cannot cause
+0 to be returned. If +longjmp+ is invoked with a second argument of
+0, 1 will be returned instead.
+
+RETURN VALUE::
+
+This function never returns.
+
+SEE ALSO::
+
++setjmp+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/longjmp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall longjmp.c
+$ ./a.out 
+Calling function.
+Reached this point from a longjmp with value=5.
+.....
+

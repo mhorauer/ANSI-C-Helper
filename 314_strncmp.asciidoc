@@ -1,0 +1,62 @@
+[[strncmp]]
+strncmp
+-------
+
+NAME::
+strncat - Compare some characters of two strings.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+int strncmp(const char * string1, const char * string2, sizet_t num); 
+---------------------
+
+DESCRIPTION::
+
+Compares the first +num+ characters of +string1+ to the first +num+ characters of +string2+. The comparison is performed character by character. If a character that is not equal in both strings is found the function ends and returns a value that determines which of them was greater.
+
+PARAMETERS::
+
+* string1 - Null-terminated string to compare.
+* string2 - Null-terminated string to compare.
+* num - Maximum number of characters to compare.
+
+RETURN VALUE::
+
+Returns a value indicating the lexicographical relation between the strings:
+
+[options="header",frame="all",colspecs="cl",cols="^2,10",caption_voffset="0mm"]
+|=======================================
+| return value | description
+| < 0          | string1 is less than string2
+| 0            | string1 is the same as string2
+| > 0          | string1 is greater than string2
+|=======================================
+
+
+SEE ALSO::
+
++strcat+, +strcpy+, +strncpy+, +strset+, +memcpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strncmp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strncmp.c
+$ ./a.out 
+Looking for human relations robots...
+found C3PO
+found C3A4
+.....
+
+
+

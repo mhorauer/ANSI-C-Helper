@@ -1,0 +1,46 @@
+[[stdio_summary]]
+Stdio Summary
+-------------
+
+STREAMS
+~~~~~~~
+Streams are an abstraction used in C and C++ for input
+and output operations through I/O devices based on characters, like
+files, a keyboard, printer, screen and I/O ports. A +stdio+
+stream is represented by a pointer to a +FILE+ structure that
+contains internal info about properties and indicators of a file.
+Normally data contained in these structures are not referred
+directly. When using stdio.h functions, pointer to +FILE+
+structures are only used to be passed as parameters to I/O
+functions.
+
+PROPERTIES
+~~~~~~~~~~
+A stream has some properties that define which
+functions can be used with it or how the functions will treat the
+stream. Most of them are defined in the mode parameter when the
++fopen+ function is called.
+
+* Access - Specifies if the operations performed with the stream will have read and/or write access to the file.
+* Text / Binary - Text files are those where lines are delimited by the special character +EOL+ (End Of Line), and some translations occur when this special character is read or written for that these file can be directly output to a console. The End of a text file is defined by the first occurrence of the +EOF+ character. +
+A binary file is a file where each byte is read or written as a character, no translations occur, and the End of a binary file matches with the physical End of the File.
+* Buffer - A buffer is a block of memory where data is accumulated before being physically read or written to the file. Buffered stream causes I/O operations with the stream to be faster because normally buffers are faster than physical devices like disks or ports. A stream can be unbuffered so the data is directly read or written to the device. The use of stream buffers can be specified using functions +setbuf+ and +setvbuf+.
+
+INDICATORS
+~~~~~~~~~~
+A stream has some indicators that specify the current state of it. These are internally modified and affect the behavior of Input/Output functions:
+
+* Error Indicator - This indicator is set when an error has occurred in an operation related with the stream. This indicator can be checked using +ferror+, and can be reset by a call to +clearerr+ or by any repositioning function (+rewind+, +fseek+, and +fsetpos+).
+* End-Of-File Indicator - When this indicator is set, the last reading or writing operation performed has reached the End of the file associated with the stream. This can be checked with the +feof+ function, and can be reset by calling to +clearerr+ or by any repositioning function (+rewind+, +fseek+, and +fsetpos+).
+* Position Indicator (File pointer) - This indicator is an internal pointer that points to the next character within the stream that has to be read or written by the next I/O operation. This value can be obtained by the +ftell+ and +fgetpos+ functions, and can be changed calling to +rewind+, +fseek+, and +fsetpos+ functions.
+
+STANDARD STREAMS
+~~~~~~~~~~~~~~~~
+When a program that includes +stdio+ begin its execution, three predefined streams are opened:
+
+* stdin - This is the standard input stream. By default +stdin+ corresponds to the keyboard, but this can be redirected by the operating system.
+* stdout - This is the standard output stream. By default +stdout+ is directed to the screen, but the operating system can redirect it to a file or any other output device.
+* stderr - The standard error stream. This is an output stream specifically intended to receive error messages. By default is directed to the standard output (like +stdout+), but it can be redirected to a log file or any other output device.
+
+
+

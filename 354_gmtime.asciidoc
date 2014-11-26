@@ -1,0 +1,52 @@
+[[gmtime]]
+gmtime
+------
+
+NAME::
+gmtime - Convert time_t value to tm structure as UTC time.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <time.h>
+
+struct tm *gmtime(const time_t * timer); 
+---------------------
+
+DESCRIPTION::
+
+Converts timer to tm structure adjusting to UTC (formerly known as GMT) timezone.
+
+PARAMETERS::
+
+* timer - Pointer to a +time_t+ value, usually returned by time function.
+
+
+
+RETURN VALUE::
+
+A pointer to a tm structure. This structure is statically allocated and shared by gmtime, localtime and ctime functions. Each time one of these functions is called the content of the structure is overwritten.
+
+SEE ALSO::
+
++asctime+, +ctime+, +localtime+, +mktime+, +time+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/gmtime.c[]
+---------------------
+
+
+OUTPUT::
+
+.....
+$ gcc -Wall gmtime.c
+$ ./a.out 
+Time in Los Angeles:  1:04
+Time in Berlin: 10:04
+Time in Hong Kong: 17:04
+.....
+

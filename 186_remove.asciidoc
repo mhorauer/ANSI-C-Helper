@@ -1,0 +1,51 @@
+[[remove]]
+remove
+------
+
+NAME::
+remove - Delete a file.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int remove( const char *filename ); 
+---------------------
+
+DESCRIPTION::
+Deletes the file specified by filename. It is compiled as a call to the system function for deleting files (unlink, erase or del).
+
+PARAMETERS::
+
+* filename - Path and name of the file to be removed.
+
+RETURN VALUE::
+
+If the file is successfully deleted a 0 value is returned. On error a non-zero value is returned and the errno variable is set with the corresponding error code that that can be printed with a call to perror.
+
+SEE ALSO::
+
++rename+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/remove.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall remove.c
+$ ls src.txt 
+src.txt
+$ ./a.out src.txt 
+File successfully deleted
+$ ls src.txt
+ls: cannot access src.txt: No such file or directory
+.....
+
+

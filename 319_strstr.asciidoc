@@ -1,0 +1,70 @@
+[[strstr]]
+strstr
+------
+
+NAME::
+strstr - Find substring.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strstr(const char * string1, const char * string2); 
+---------------------
+
+DESCRIPTION::
+
+Scans +string1+ for the first occurrence of +string2+. The search does not include terminating null-characters.
+
+PARAMETERS::
+
+* string1 - Null-terminated string to search.
+* string2 - Null-terminated string containing the substring to search for.
+
+RETURN VALUE::
+
+A pointer to the first occurrence of +string2+ in +string1+. If +string2+ is not found in +string1+ the function returns NULL.
+
+SEE ALSO::
+
++strcspn+, +strspn+, +strpbrk+, +strchr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strstr.c[]
+---------------------
+
+This example searches for the "simple" substring in +str+ and substitutes that word for "sample".
+
+
+OUTPUT::
+.....
+$ gcc -Wall strstr.c
+$ ./a.out 
+This is a simple string.
+This is a sample string.
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strstr2.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall strstr2.c
+$ ./a.out
+Enter a search string> sear
+String found.
+$ ./a.out
+Enter a search string> test
+String not found.
+.....
+
+

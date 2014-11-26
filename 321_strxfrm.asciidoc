@@ -1,0 +1,64 @@
+[[strxfrm]]
+strxfrm
+-------
+
+NAME::
+strxfrm - Transform string using locale settings.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+size_t strxfrm(const char * dest, const char * src, size_t num); 
+---------------------
+
+DESCRIPTION::
+
+Copies the first +num+ characters of +src+ to +dest+ performing the appropriate transformations for the current locale settings if needed. No null-character is implicitly appended to +dest+ after copying process. So +dest+ may not be null-terminated if no null-characters are copied from +src+. If +num+ is greater than the length of +src+, +dest+ is padded with zeros until +num+. The behavior of this function is the same as +strncpy+ but performing locale character transformations.
+
+PARAMETERS::
+
+* dest - Destination string. Space allocated should be at least +num+ characters long.
+* string2 - Null-terminated string containing string to be transformed.
+* num - Number of characters to be transformed and stored in +dest+.
+
+RETURN VALUE::
+
+The length of the transformed string without the null-character terminator.
+
+SEE ALSO::
+
++strcmp+, +strncmp+, +memcmp+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strxfrm.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall strxfrm.c
+$ ./a.out 
+The length of str = 18
+The content of str = Hello Mister Müller
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strxfrm.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall strxfrm2.c
+$ ./a.out 
+Müller Bäcker
+Müller Bäcker (15)
+.....
+

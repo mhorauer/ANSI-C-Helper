@@ -1,0 +1,54 @@
+[[assert]]
+assert
+------
+
+NAME::
+assert - Abort the program if assertion is false.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <assert.h>
+
+void assert (scalar expression);
+---------------------
+
+DESCRIPTION::
+The assert macro allows diagnostic information to be
+written to the standard error file. If expression evaluates to 0
+(false), then the expression, source code file name, and line number
+are sent to the standard error, and then calls the +abort+ to terminate the function.
+If the identifier +NDEBUG+ ("no debug") is defined with 
++#define NDEBUG+ then the macro assert does nothing.
+
+RETURN VALUE::
+No value is returned.
+
+SEE ALSO::
++exit+, +abort+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/assert.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall assert.c
+$ ./a.out
+a.out: assert.c:12: main: Assertion `argc==2 && argv[1][0]=='1'' failed.
+Aborted
+$ ./a.out 21
+a.out: assert.c:12: main: Assertion `argc==2 && argv[1][0]=='1'' failed.
+Aborted
+$ ./a.out 1
+a.out: assert.c:6: open_record: Assertion `record_name!=((void *)0)' failed.
+Aborted
+.....
+
+
+

@@ -1,0 +1,49 @@
+[[strncpy]]
+strncpy
+-------
+
+NAME::
+strncpy - Copy characters from one string to another.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strncpy(char * dest, const char * src, sizet_t num); 
+---------------------
+
+DESCRIPTION::
+
+Copies the first +num+ characters of +src+ to +dest+. No null-character is implicitly appended to +dest+ after copying process. So +dest+ may not be null-terminated if no null-characters are copied from +src+. If +num+ is greater than the length of +src+, +dest+ is padded with zeros until +num+.
+
+PARAMETERS::
+
+* dest - Destination string. Space allocated should be at least +num+ characters long.
+* string2 - Null-terminated string.
+* num - Number of characters to be copied.
+
+RETURN VALUE::
+
++dest+ is returned.
+
+SEE ALSO::
+
++strcat+, +strcpy+, +strncat+, +strstr+, +memcpy+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strncpy.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strncpy.c
+$ ./a.out 
+To be
+.....
+

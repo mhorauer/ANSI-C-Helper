@@ -1,0 +1,61 @@
+[[ungetc]]
+ungetc
+------
+
+NAME::
+ungetc - Push a character back into stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int ungetc(int character , FILE *stream); 
+---------------------
+
+DESCRIPTION::
+
+A character is pushed into an input stream where last
+character was read and the file pointer is reset to that previous
+position. This character will be returned by the next call to getc
+or fread for the same stream. If the End-Of-File indicator was set
+is cleared after a call to this function. A call to fflush, fseek,
+fsetpos or rewind for this stream will undo the effects of any
+previous call to ungetc. This function do not affect the file
+associated with the stream, which will remain unchanged by any call
+to this function.
+
+PARAMETERS::
+
+* character - Character to be pushed.
+* stream - Pointer to an open file.
+
+RETURN VALUE::
+
+If successful, the character put is returned. Otherwise EOF is returned and the stream remains unchanged.
+
+SEE ALSO::
+
++getc+, +fgetc+, +putc+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ungetc.c[]
+---------------------
+
+This example opens an existing file  and reads the first character, then pushes back this
+character into the stream and gets the whole line into buffer.
+
+OUTPUT::
+.....
+$ gcc -Wall ungetc.c
+$ ./a.out file.txt 
+H
+[H] Hello
+.....
+
+
+

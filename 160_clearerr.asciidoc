@@ -1,0 +1,50 @@
+[[clearerr]]
+clearerr
+--------
+
+NAME::
+clearerr - Reset error indicators.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+void clearerr( FILE *stream );
+---------------------
+
+DESCRIPTION::
+
+The function +clearerr+ clears the end-of-file (EOF) and
+error indicators for the stream pointed to by stream.
+
+RETURN VALUE::
+
+None.
+
+SEE ALSO::
+
++feof+, +ferror+, +fwrite+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/clearerr.c[]
+---------------------
+
+This program opens a existing file in read-only mode thus causing an I/O error. That error is cleared using +clearerr+ so a second error checking returns false.
+
+OUTPUT::
+....
+$ gcc -Wall clearerr.c
+$ ./a.out test
+Error opening file: No such file or directory
+$ touch test
+$ ./a.out test
+Error Writing to test.
+No errors reading test.
+....
+
+

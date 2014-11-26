@@ -1,0 +1,66 @@
+[[strtoul]]
+strtoul
+-------
+
+NAME::
+
+strtoul - Convert string to unsigned long integer.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+unsigned long strtoul(const char * string, char** endptr, int radix); 
+---------------------
+
+DESCRIPTION::
+
+Parses string interpreting its content as an integer value until a character that can not be interpreted is found, and returns an unsigned long value.
+
+PARAMETERS::
+
+* string - String representing an integer number. The number is considered until a non-numeric character is found (only the digits from 0 to radix-1 are considered valid numeric characters, signs are considered valid numeric characters for this parameter). The format used is: +
+`[whitespaces][+|-][0|0x][nnnnn]` + 
+(where whitespaces are any tab or space character and nnnnn is a sequence of valid numbers following the specified radix). Although the value returned is unsigned, signs in the string will be read and considered.
+* endptr - Address of a pointer. This is filled by the function with the address where scan has ended. Serves to determine where there is the first non-numerical character in the
+string.
+* radix - Numeral radix in which the number to be interpreted. Must be 0 or be between 2 and 36. If it is 0 the radix of the string is determined by the initial characters of the string:
+
+
+[options="header",frame="all",colspecs="cl",cols="^2,10",caption_voffset="0mm"]
+|===================================================
+| initial chars    | interpreted by strol as
+| 0x               | hexadecimal: radix 16
+| 0                | octal: radix 8
+| [1-9]            | decimal: radix 10
+|===================================================
+
+
+
+RETURN VALUE::
+
+The converted +unsigned long+ value from the input string. If conversion would cause overflow the result is +ULONG_MAX+. If an error occurs or no conversion can be made 0 is returned.
+
+SEE ALSO::
+
++atof+, +strtod+, +strtol+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strtoul.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strtoul.c
+$ ./a.out 
+Enter an integer value: 0xAc32
+Value entered: 44082. Its double: 88164
+.....
+
+

@@ -1,0 +1,88 @@
+[[vscanf]]
+vscanf
+------
+
+NAME::
+
+vscanf - Format input of a stdarg argument list.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int vscanf(const char *restrict format, va_list arg);
+---------------------
+
+DESCRIPTION::
+
+The +vscanf+ function is equivalent to +scanf+, with the variable argument list replaced by +arg+, which shall have been initialized by the +va_start+ macro (and possibly subsequent +va_arg+ calls). The +vscanf+ function does not invoke the +va_end+ macro.
+
+PARAMETERS::
+
+* format - String that can contain one or more of these items:
+  - Whitespace characters: the function will read and ignore any whitespace characters (this includes blank, newline and tab characters) encountered before the next non-whitespace character. This includes any quantity of whitespace characters (including none).
+  - Non-whitespace characters (any character not including blank, newline, tab, or any format specifier beginning with % character): this cause that the function read and discard any character that match the given non-whitespace character. If this character is not found the function ends returning error.
+  - Format specifiers: A sequence of characters beginning with `'%'` indicates that next data has to be read and stored at the location pointed by its corresponding argument with a given format that is specified following this prototype: `%[*][width][modifiers]type where:`
+
+
+
+
+[frame="all",colspecs="cl",cols="^1,9",caption_voffset="0mm"]
+|========================================
+| *         |Data is read but ignored. It is not assigned to the corresponding argument.
+| width     |Specifies the maximum number of characters to be read.
+| modifiers 
+|Specifies a different size for the data pointed by argument: 
+
+- h: short int
+- l: long int (if integer) or double (if floating point).
+- L: long double
+
+| type      |Character specifying the type of data that is expected and how it has to be read. See next table.
+|========================================
+
+
+[options="header",frame="all",colspecs="clc",cols="^1,8,^1",caption_voffset="0mm"]
+|========================================
+| type      | Qualifying Input                                                             | required argument
+| c         | Single character: Reads the next character (whitespace characters included). | char *
+| d         | Decimal integer: Number optionally preceded with a sign.                     | int *
+| e,E,f,g,G | Floating point: Decimal number containing a decimal point, optionally preceded by a sign and optionally followed by the +e+ or +E+ character and a decimal number. Valid entries are -732.103 or 7.12e4                                                                         | float *
+| o         | Octal integer.                                                               | int *
+| s         | String of characters. This will read subsequent characters until a whitespace is found (whitespace characters are blank, newline and tab).                                  | char *(string)
+| u         | Unsigned decimal integer.                                                    | unsigned int *
+| x         | Hexadecimal integer.                                                         | int *
+|========================================
+
+argument(s) - pointer to objects or structures to be filled with data read as specified by format
+string. There must be the same number of these parameters than the number of format tags. NOTE: These arguments must be pointers: if you want to store the result of a +scanf+ operation on a standard variable you should precede it with the reference operator, i.e. an ampersand sign (`&`), like in: `scanf ("%d",&n);`
+
+RETURN VALUE::
+
+The +vscanf+ function returns the value of the macro EOF if an input failure occurs before any conversion. Otherwise, the +vscanf+ function returns the number of input items assigned, which can be fewer than provided for, or even zero, in the event of an early matching failure.
+
+SEE ALSO::
+
++scanf+
+
+EXAMPLE::
+[source,c]
+---------------------
+include::src/vscanf.c[]
+---------------------
+
+
+OUTPUT::
+.....
+$ gcc -Wall vscanf.c
+$ ./a.out 
+Enter an integer, a real number, a character and a string : 
+42 123.456 a hello
+integer = 42
+real number = 123.456001
+character = a
+string = hello
+.....
+

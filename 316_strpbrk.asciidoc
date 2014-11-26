@@ -1,0 +1,74 @@
+[[strpbrk]]
+strpbrk
+-------
+
+NAME::
+strpbrk - Scan string for specified characters.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <string.h>
+
+char *strpbrk(const char * string1, const char * string2); 
+---------------------
+
+DESCRIPTION::
+
+Scans +string1+ character by character, returning a pointer to the first character that matches with any of the characters in +string2+. The search does not includes the terminating null-characters.
+
+PARAMETERS::
+
+* string1 - Null-terminated string to be scanned.
+* string2 - Null-terminated string containing the character set to search for.
+
+RETURN VALUE::
+
+A pointer to the first appearance in +string1+ of a character specified in +string2+. If none of the characters specified in +string2+ exists in +string1+, a NULL pointer is returned.
+
+SEE ALSO::
+
++strcspn+, +strchr+, +strrchr+, +strstr+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strpbrk.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strpbrk.c
+$ ./a.out 
+Vowels in 'This is a sample string': i i a a e i 
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/strpbrk2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall strpbrk2.c
+$ ./a.out 
+Enter a sentence - press ENTER twice to terminate.
+Hello, how are you doing?
+Hello  how are you doing?
+Please, don't remove all ','! 
+Please  don't remove all ' '! 
+abc;def.ghi&amp;jkl:mno,pqrabc def ghi jkl mno pqr
+abc def ghi amp jkl mno pqrabc def ghi jkl mno pqr
+
+.....
+
+Turns miscellaneous field separators into just a space separating tokens for easy parsing by +sscanf+. Eventually, the character separators and replacement character will be passed in as strings.
+
+
+

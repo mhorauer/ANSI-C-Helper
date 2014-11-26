@@ -1,0 +1,101 @@
+[[fflush]]
+fflush
+------
+
+NAME::
+fflush - Flush a stream.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdio.h>
+
+int fflush(FILE *stream);
+---------------------
+
+DESCRIPTION::
+
+If the given stream has been opened for writing
+operations the output buffer is physically written to the file. If
+the stream was open for reading operations the content of the input
+buffer is cleared. The stream remains open after this call. When a
+file is closed all the buffers associated with it are automatically
+flushed. If the program terminates, every buffer is automatically
+flushed.
+
+RETURN VALUE::
+
+A +0+ value indicates success. If errors occur +EOF+ is returned.
+
+ERRORS::
+
+EBADF - Stream is not an open stream, or, in the case of +fflush+, not a stream open for writing.
+
+The function +fflush+ may also fail and set +errno+ for any of the
+errors specified for the routine +write()+.
+
+SEE ALSO::
+
++fclose+, +fopen+, +fread+, +fwrite+
+
+EXAMPLE::
+
+Consider the following program. It opens a file stream and writes `something' to the file. Next, it reads a few characters and then tries to write `something' a second time. Finally the program becomes busy --- in this case simulated by an endless loop --- before the program can eventually close the stream. We use a text pattern written to a +test.txt+ file to investigate the behavior.
+
+[source,c]
+---------------------
+include::src/fflush_wo.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fflush.c
+$ cat test.txt
+abcdefghi123456789abcdefghi123456789
+abcdefghi123456789abcdefghi123456789
+$ ./a.out test.txt
+Read 123456789 from file.
+^C
+$ cat test.txt
+something123456789abcdefghi123456789
+abcdefghi123456789abcdefghi123456789
+.....
+
+Following compilation the above listing first shows the content of the test files +test.txt+ Next the program is invoked and after a few seconds interrupted by pressing CTRL+C (Strg+C). Finally, +test.txt+ is investigated a second time. From the output we can see that the first +fprintf()+ and +fgets()+ were successful, the second +fprintf()+, however, doesn't show up.
+
+The next listing adds a +fflush()+ after the second +fprintf()+; now, since the output gets flushed the second +fprintf()+ output is also present in the test file.
+
+[source,c]
+---------------------
+include::src/fflush.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall fflush.c
+$ cat test.txt
+abcdefghi123456789abcdefghi123456789
+abcdefghi123456789abcdefghi123456789
+$ ./a.out test.txt
+Read 123456789 from file.
+^C
+$ cat test.txt
+something123456789something123456789
+abcdefghi123456789abcdefghi123456789
+.....
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+[[abort]]
+abort
+-----
+
+NAME::
+abort - cause abnormal process termination
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <stdlib.h>
+
+void abort(void);
+---------------------
+
+DESCRIPTION::
+If the +abort()+ function causes process termination, all open streams are closed and flushed. +
+
+RETURN VALUE::
+None. The calling process does not receive back control. 
+
+SEE ALSO::
++exit+, +atexit+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/abort.c[]
+---------------------
+
+If the file name provided as argument doesn't exist a message is
+printed, +abort+ is called and an errorlevel is returned. Otherwise
+the file is normally closed and the errorlevel returned is 0
+(return 0). In a Unix +bash+ shell the return value can be read via +echo $?+ immediately after termination.
+
+
+
