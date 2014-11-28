@@ -10,7 +10,7 @@ particular:
 The examples were tested on Fedora using the GNU C-Compiler.
 
 ===============
-WARNING: There are a lost of _dirty implemented_ examples. Several functions from the standard are missing.
+WARNING: There are a lost of _dirty implemented_ examples. Several functions from the standard are missing. For all functions and there correct definitions checkout the draft of the http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf[ISO/IEC 9899:TC3] standard.
 ===============
 
 For comments and feedback feel free to contact me at: martin[at]horauer.at, http://www.horauer.at[http://www.horauer.at]
