@@ -12,236 +12,210 @@ C-Helper
 
 About & Overview 
 ----------------
-include::002_about.asciidoc[]
+include::002_about.asciidoc[] +
 include::005_ansi-c.asciidoc[]
 
 assert.h
 --------
-:leveloffset: 1
-include::010_assert.asciidoc[]
-:leveloffset: 0
+include::010_assert.asciidoc[] 
 
 ctype.h
 -------
-:leveloffset: 1
-include::020_isalnum.asciidoc[]
-include::021_isalpha.asciidoc[]
-include::022_iscntrl.asciidoc[]
-include::023_isdigit.asciidoc[]
-include::024_isgraph.asciidoc[]
-include::025_islower.asciidoc[]
-include::026_isprint.asciidoc[]
-include::027_ispunct.asciidoc[]
-include::028_isspace.asciidoc[]
-include::029_isupper.asciidoc[]
-include::030_isxdigit.asciidoc[]
-include::031_tolower.asciidoc[]
-include::033_toupper.asciidoc[]
-:leveloffset: 0
+include::020_isalnum.asciidoc[] +
+include::021_isalpha.asciidoc[] +
+include::022_iscntrl.asciidoc[] +
+include::023_isdigit.asciidoc[] +
+include::024_isgraph.asciidoc[] +
+include::025_islower.asciidoc[] +
+include::026_isprint.asciidoc[] +
+include::027_ispunct.asciidoc[] +
+include::028_isspace.asciidoc[] +
+include::029_isupper.asciidoc[] +
+include::030_isxdigit.asciidoc[] +
+include::031_tolower.asciidoc[] +
+include::033_toupper.asciidoc[] 
 
 errno.h
 -------
-:leveloffset: 1
 include::040_errno.asciidoc[]
-:leveloffset: 0
 
 floats.h
 --------
-:leveloffset: 1
 include::050_float.asciidoc[]
-:leveloffset: 0
+
 
 limits.h
 --------
-:leveloffset: 1
 include::060_limits.asciidoc[]
-:leveloffset: 0
 
 locale.h
 --------
-:leveloffset: 1
 include::070_setlocale.asciidoc[]
-:leveloffset: 0
 
 math.h
 ------
-:leveloffset: 1
-include::080_acos.asciidoc[]
-include::081_asin.asciidoc[]
-include::082_atan.asciidoc[]
-include::083_atan2.asciidoc[]
-include::084_ceil.asciidoc[]
-include::085_cos.asciidoc[]
-include::086_cosh.asciidoc[]
-include::087_exp.asciidoc[]
-include::088_fabs.asciidoc[]
-include::089_floor.asciidoc[]
-include::090_fmod.asciidoc[]
-include::091_frexp.asciidoc[]
-include::092_ldexp.asciidoc[]
-include::093_log.asciidoc[]
-include::094_log10.asciidoc[]
-include::095_modf.asciidoc[]
-include::096_pow.asciidoc[]
-include::097_sin.asciidoc[]
-include::098_sinh.asciidoc[]
-include::099_sqrt.asciidoc[]
-include::100_tan.asciidoc[]
-include::101_tanh.asciidoc[]
-:leveloffset: 0
+include::080_acos.asciidoc[] +
+include::081_asin.asciidoc[] +
+include::082_atan.asciidoc[] +
+include::083_atan2.asciidoc[] +
+include::084_ceil.asciidoc[] +
+include::085_cos.asciidoc[] +
+include::086_cosh.asciidoc[] +
+include::087_exp.asciidoc[] +
+include::088_fabs.asciidoc[] +
+include::089_floor.asciidoc[] +
+include::090_fmod.asciidoc[] +
+include::091_frexp.asciidoc[] +
+include::092_ldexp.asciidoc[] +
+include::093_log.asciidoc[] +
+include::094_log10.asciidoc[] +
+include::095_modf.asciidoc[] +
+include::096_pow.asciidoc[] +
+include::097_sin.asciidoc[] +
+include::098_sinh.asciidoc[] +
+include::099_sqrt.asciidoc[] +
+include::100_tan.asciidoc[] +
+include::101_tanh.asciidoc[] 
 
 setjmp.h
 --------
-:leveloffset: 1
-include::120_longjmp.asciidoc[]
-include::121_setjmp.asciidoc[]
-:leveloffset: 0
+include::120_longjmp.asciidoc[] +
+include::121_setjmp.asciidoc[] +
+
 
 signal.h
 --------
-:leveloffset: 1
-include::130_signal.asciidoc[]
-include::131_raise.asciidoc[]
-:leveloffset: 0
+include::130_signal.asciidoc[] +
+include::131_raise.asciidoc[] +
+
 
 stdarg.h
 --------
-:leveloffset: 1
-include::140_stdarg.asciidoc[]
-:leveloffset: 0
+include::140_stdarg.asciidoc[] 
+
 
 stddef.h
 --------
-:leveloffset: 1
 include::150_stddef.asciidoc[]
-:leveloffset: 0
+
 
 stdio.h
 -------
-:leveloffset: 1
-include::159_stdio_summary.asciidoc[]
-include::160_clearerr.asciidoc[]
-include::161_fclose.asciidoc[]
-include::162_feof.asciidoc[]
-include::162_ferror.asciidoc[]
-include::163_fflush.asciidoc[]
-include::164_fgetc.asciidoc[]
-include::165_fgetpos.asciidoc[]
-include::166_fgets.asciidoc[]
-include::167_fopen.asciidoc[]
-include::168_fprintf.asciidoc[]
-include::169_fputc.asciidoc[]
-include::170_fputchar.asciidoc[]
-include::171_fputs.asciidoc[]
-include::172_fread.asciidoc[]
-include::173_freopen.asciidoc[]
-include::174_fscanf.asciidoc[]
-include::175_fseek.asciidoc[]
-include::176_fsetpos.asciidoc[]
-include::177_ftell.asciidoc[]
-include::178_fwrite.asciidoc[]
-include::179_getc.asciidoc[]
-include::180_getchar.asciidoc[]
-include::181_perror.asciidoc[]
-include::182_printf.asciidoc[]
-include::183_putc.asciidoc[]
-include::184_putchar.asciidoc[]
-include::185_puts.asciidoc[]
-include::186_remove.asciidoc[]
-include::187_rename.asciidoc[]
-include::188_rewind.asciidoc[]
-include::189_scanf.asciidoc[]
-include::190_setbuf.asciidoc[]
-include::191_setvbuf.asciidoc[]
-include::192_sprintf.asciidoc[]
-include::193_snprintf.asciidoc[]
-include::193_sscanf.asciidoc[]
-include::194_tmpfile.asciidoc[]
-include::195_tmpnam.asciidoc[]
-include::196_ungetc.asciidoc[]
-include::197_vfprintf.asciidoc[]
-include::198_vprintf.asciidoc[]
-include::199_vsnprintf.asciidoc[]
-include::200_vsprintf.asciidoc[]
-include::201_vfscanf.asciidoc[]
-include::202_vscanf.asciidoc[]
-include::203_vsscanf.asciidoc[]
-:leveloffset: 0
+include::159_stdio_summary.asciidoc[] +
+include::160_clearerr.asciidoc[] +
+include::161_fclose.asciidoc[] +
+include::162_feof.asciidoc[] +
+include::162_ferror.asciidoc[] +
+include::163_fflush.asciidoc[] +
+include::164_fgetc.asciidoc[] +
+include::165_fgetpos.asciidoc[] +
+include::166_fgets.asciidoc[] +
+include::167_fopen.asciidoc[] +
+include::168_fprintf.asciidoc[] +
+include::169_fputc.asciidoc[] +
+include::170_fputchar.asciidoc[] +
+include::171_fputs.asciidoc[] +
+include::172_fread.asciidoc[] +
+include::173_freopen.asciidoc[] +
+include::174_fscanf.asciidoc[] +
+include::175_fseek.asciidoc[] +
+include::176_fsetpos.asciidoc[] +
+include::177_ftell.asciidoc[] +
+include::178_fwrite.asciidoc[] +
+include::179_getc.asciidoc[] +
+include::180_getchar.asciidoc[] +
+include::181_perror.asciidoc[] +
+include::182_printf.asciidoc[] +
+include::183_putc.asciidoc[] +
+include::184_putchar.asciidoc[] +
+include::185_puts.asciidoc[] +
+include::186_remove.asciidoc[] +
+include::187_rename.asciidoc[] +
+include::188_rewind.asciidoc[] +
+include::189_scanf.asciidoc[] +
+include::190_setbuf.asciidoc[] +
+include::191_setvbuf.asciidoc[] +
+include::192_sprintf.asciidoc[] +
+include::193_snprintf.asciidoc[] +
+include::193_sscanf.asciidoc[] +
+include::194_tmpfile.asciidoc[] +
+include::195_tmpnam.asciidoc[] +
+include::196_ungetc.asciidoc[] +
+include::197_vfprintf.asciidoc[] +
+include::198_vprintf.asciidoc[] +
+include::199_vsnprintf.asciidoc[] +
+include::200_vsprintf.asciidoc[] +
+include::201_vfscanf.asciidoc[] +
+include::202_vscanf.asciidoc[] +
+include::203_vsscanf.asciidoc[] +
 
 stdlib.h
 --------
-:leveloffset: 1
-include::249_stdlib_summary.asciidoc[]
-include::250_abort.asciidoc[]
-include::251_abs.asciidoc[]
-include::252_atexit.asciidoc[]
-include::253_atof.asciidoc[]
-include::254_atoi.asciidoc[]
-include::255_atol.asciidoc[]
-include::256_bsearch.asciidoc[]
-include::257_calloc.asciidoc[]
-include::258_div.asciidoc[]
-include::259_ldiv.asciidoc[]
-include::260_exit.asciidoc[]
-include::261_free.asciidoc[]
-include::262_getenv.asciidoc[]
-include::263_labs.asciidoc[]
-include::264_malloc.asciidoc[]
-include::265_mblen.asciidoc[]
-include::266_mbstowcs.asciidoc[]
-include::267_mbtowc.asciidoc[]
-include::268_qsort.asciidoc[]
-include::269_rand.asciidoc[]
-include::270_realloc.asciidoc[]
-include::271_srand.asciidoc[]
-include::272_strtod.asciidoc[]
-include::273_strtol.asciidoc[]
-include::274_strtoul.asciidoc[]
-include::275_system.asciidoc[]
-include::276_wcstombs.asciidoc[]
-include::277_wctomb.asciidoc[]
-:leveloffset: 0
+include::249_stdlib_summary.asciidoc[] +
+include::250_abort.asciidoc[] +
+include::251_abs.asciidoc[] +
+include::252_atexit.asciidoc[] +
+include::253_atof.asciidoc[] +
+include::254_atoi.asciidoc[] +
+include::255_atol.asciidoc[] +
+include::256_bsearch.asciidoc[] +
+include::257_calloc.asciidoc[] +
+include::258_div.asciidoc[] +
+include::259_ldiv.asciidoc[] +
+include::260_exit.asciidoc[] +
+include::261_free.asciidoc[] +
+include::262_getenv.asciidoc[] +
+include::263_labs.asciidoc[] +
+include::264_malloc.asciidoc[] +
+include::265_mblen.asciidoc[] +
+include::266_mbstowcs.asciidoc[] +
+include::267_mbtowc.asciidoc[] +
+include::268_qsort.asciidoc[] +
+include::269_rand.asciidoc[] +
+include::270_realloc.asciidoc[] +
+include::271_srand.asciidoc[] +
+include::272_strtod.asciidoc[] +
+include::273_strtol.asciidoc[] +
+include::274_strtoul.asciidoc[] +
+include::275_system.asciidoc[] +
+include::276_wcstombs.asciidoc[] +
+include::277_wctomb.asciidoc[] 
 
 string.h
 --------
-:leveloffset: 1
-include::300_memchr.asciidoc[]
-include::301_memcmp.asciidoc[]
-include::302_memcpy.asciidoc[]
-include::303_memmove.asciidoc[]
-include::304_memset.asciidoc[]
-include::305_strcat.asciidoc[]
-include::306_strchr.asciidoc[]
-include::307_strcmp.asciidoc[]
-include::308_strcoll.asciidoc[]
-include::309_strcpy.asciidoc[]
-include::310_strcspn.asciidoc[]
-include::311_strerror.asciidoc[]
-include::312_strlen.asciidoc[]
-include::313_strncat.asciidoc[]
-include::314_strncmp.asciidoc[]
-include::315_strncpy.asciidoc[]
-include::316_strpbrk.asciidoc[]
-include::317_strrchr.asciidoc[]
-include::318_strspn.asciidoc[]
-include::319_strstr.asciidoc[]
-include::320_strtok.asciidoc[]
-include::321_strxfrm.asciidoc[]
-:leveloffset: 0
+include::300_memchr.asciidoc[] +
+include::301_memcmp.asciidoc[] +
+include::302_memcpy.asciidoc[] +
+include::303_memmove.asciidoc[] +
+include::304_memset.asciidoc[] +
+include::305_strcat.asciidoc[] +
+include::306_strchr.asciidoc[] +
+include::307_strcmp.asciidoc[] +
+include::308_strcoll.asciidoc[] +
+include::309_strcpy.asciidoc[] +
+include::310_strcspn.asciidoc[] +
+include::311_strerror.asciidoc[] +
+include::312_strlen.asciidoc[] +
+include::313_strncat.asciidoc[] +
+include::314_strncmp.asciidoc[] +
+include::315_strncpy.asciidoc[] +
+include::316_strpbrk.asciidoc[] +
+include::317_strrchr.asciidoc[] +
+include::318_strspn.asciidoc[] +
+include::319_strstr.asciidoc[] +
+include::320_strtok.asciidoc[] +
+include::321_strxfrm.asciidoc[] 
 
 time.h
 ------
-:leveloffset: 1
-include::349_time_summary.asciidoc[]
-include::350_asctime.asciidoc[]
-include::351_clock.asciidoc[]
-include::352_ctime.asciidoc[]
-include::353_difftime.asciidoc[]
-include::354_gmtime.asciidoc[]
-include::355_localtime.asciidoc[]
-include::356_mktime.asciidoc[]
-include::357_strftime.asciidoc[]
-include::358_time.asciidoc[]
-include::500_ascii-table.asciidoc[]
-:leveloffset: 0
-
+include::349_time_summary.asciidoc[] +
+include::350_asctime.asciidoc[] +
+include::351_clock.asciidoc[] +
+include::352_ctime.asciidoc[] +
+include::353_difftime.asciidoc[] +
+include::354_gmtime.asciidoc[] +
+include::355_localtime.asciidoc[] +
+include::356_mktime.asciidoc[] +
+include::357_strftime.asciidoc[] +
+include::358_time.asciidoc[] +
+include::500_ascii-table.asciidoc[] 
