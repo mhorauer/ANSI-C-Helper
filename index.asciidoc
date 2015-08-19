@@ -9,216 +9,217 @@ C-Helper
 :data-uri:
 :lang: en
 :encoding: utf-8
+:nofooter:
 
 About & Overview
 ----------------
-link:002_about.asciidoc[about]         |
-link:005_ansi-c.asciidoc[ANSI-C Index]
+link:002_about.html[about]         |
+link:005_ansi-c.html[ANSI-C Index]
 
 assert.h
 --------
-link:010_assert.asciidoc[assert]
+link:010_assert.html[assert]
 
 ctype.h
 -------
-link:020_isalnum.asciidoc[isalnum]   |
-link:021_isalpha.asciidoc[isalpha]   |
-link:022_iscntrl.asciidoc[iscntrl]   |
-link:023_isdigit.asciidoc[isdigit]   |
-link:024_isgraph.asciidoc[isgraph]   |
-link:025_islower.asciidoc[islower]   |
-link:026_isprint.asciidoc[isprint]   |
-link:027_ispunct.asciidoc[ispunct]   |
-link:028_isspace.asciidoc[isspace]   |
-link:029_isupper.asciidoc[isupper]   |
-link:030_isxdigit.asciidoc[isxdigit] |
-link:031_tolower.asciidoc[tolower]   |
-link:033_toupper.asciidoc[toupper]
+link:020_isalnum.html[isalnum]   |
+link:021_isalpha.html[isalpha]   |
+link:022_iscntrl.html[iscntrl]   |
+link:023_isdigit.html[isdigit]   |
+link:024_isgraph.html[isgraph]   |
+link:025_islower.html[islower]   |
+link:026_isprint.html[isprint]   |
+link:027_ispunct.html[ispunct]   |
+link:028_isspace.html[isspace]   |
+link:029_isupper.html[isupper]   |
+link:030_isxdigit.html[isxdigit] |
+link:031_tolower.html[tolower]   |
+link:033_toupper.html[toupper]
 
 errno.h
 -------
-link:040_errno.asciidoc[errno]
+link:040_errno.html[errno]
 
 floats.h
 --------
-link:050_float.asciidoc[float]
+link:050_float.html[float]
 
 
 limits.h
 --------
-link:060_limits.asciidoc[limits]
+link:060_limits.html[limits]
 
 locale.h
 --------
-link:070_setlocale.asciidoc[setlocale]
+link:070_setlocale.html[setlocale]
 
 math.h
 ------
-link:080_acos.asciidoc[acos]   |
-link:081_asin.asciidoc[asin]   |
-link:082_atan.asciidoc[atan]   |
-link:083_atan2.asciidoc[atan2] |
-link:084_ceil.asciidoc[ceil]   |
-link:085_cos.asciidoc[cos]     |
-link:086_cosh.asciidoc[cosh]   |
-link:087_exp.asciidoc[exp]     |
-link:088_fabs.asciidoc[fabs]   |
-link:089_floor.asciidoc[floor] |
-link:090_fmod.asciidoc[fmod]   |
-link:091_frexp.asciidoc[frexp] |
-link:092_ldexp.asciidoc[ldexp] |
-link:093_log.asciidoc[log]     |
-link:094_log10.asciidoc[log10] |
-link:095_modf.asciidoc[modf]   |
-link:096_pow.asciidoc[pow]     |
-link:097_sin.asciidoc[sin]     |
-link:098_sinh.asciidoc[sinh]   |
-link:099_sqrt.asciidoc[sqrt]   |
-link:100_tan.asciidoc[tan]     |
-link:101_tanh.asciidoc[tanh]
+link:080_acos.html[acos]   |
+link:081_asin.html[asin]   |
+link:082_atan.html[atan]   |
+link:083_atan2.html[atan2] |
+link:084_ceil.html[ceil]   |
+link:085_cos.html[cos]     |
+link:086_cosh.html[cosh]   |
+link:087_exp.html[exp]     |
+link:088_fabs.html[fabs]   |
+link:089_floor.html[floor] |
+link:090_fmod.html[fmod]   |
+link:091_frexp.html[frexp] |
+link:092_ldexp.html[ldexp] |
+link:093_log.html[log]     |
+link:094_log10.html[log10] |
+link:095_modf.html[modf]   |
+link:096_pow.html[pow]     |
+link:097_sin.html[sin]     |
+link:098_sinh.html[sinh]   |
+link:099_sqrt.html[sqrt]   |
+link:100_tan.html[tan]     |
+link:101_tanh.html[tanh]
 
 setjmp.h
 --------
-link:120_longjmp.asciidoc[longjmp] |
-link:121_setjmp.asciidoc[setjmp]
+link:120_longjmp.html[longjmp] |
+link:121_setjmp.html[setjmp]
 
 
 signal.h
 --------
-link:130_signal.asciidoc[signal] |
-link:131_raise.asciidoc[raise]
+link:130_signal.html[signal] |
+link:131_raise.html[raise]
 
 
 stdarg.h
 --------
-link:140_stdarg.asciidoc[stdarg]
+link:140_stdarg.html[stdarg]
 
 
 stddef.h
 --------
-link:150_stddef.asciidoc[stddef]
+link:150_stddef.html[stddef]
 
 
 stdio.h
 -------
-link:159_stdio_summary.asciidoc[STDIO Summary]|
-link:160_clearerr.asciidoc[clearerr]          |
-link:161_fclose.asciidoc[fclose]              |
-link:162_feof.asciidoc[feof]                  |
-link:162_ferror.asciidoc[ferror]              |
-link:163_fflush.asciidoc[fflush]              |
-link:164_fgetc.asciidoc[fgetc]                |
-link:165_fgetpos.asciidoc[fgetpos]            |
-link:166_fgets.asciidoc[fgets]                |
-link:167_fopen.asciidoc[fopen]                |
-link:168_fprintf.asciidoc[fprintf]            |
-link:169_fputc.asciidoc[fputc]                |
-link:170_fputchar.asciidoc[fputchar]          |
-link:171_fputs.asciidoc[fputs]                |
-link:172_fread.asciidoc[fread]                |
-link:173_freopen.asciidoc[freopen]            |
-link:174_fscanf.asciidoc[fscanf]              |
-link:175_fseek.asciidoc[fseek]                |
-link:176_fsetpos.asciidoc[fsetpos]            |
-link:177_ftell.asciidoc[ftell]                |
-link:178_fwrite.asciidoc[fwrite]              |
-link:179_getc.asciidoc[getc]                  |
-link:180_getchar.asciidoc[getchar]            |
-link:181_perror.asciidoc[perror]              |
-link:182_printf.asciidoc[printf]              |
-link:183_putc.asciidoc[putc]                  |
-link:184_putchar.asciidoc[putchar]            |
-link:185_puts.asciidoc[puts]                  |
-link:186_remove.asciidoc[remove]              |
-link:187_rename.asciidoc[rename]              |
-link:188_rewind.asciidoc[rewind]              |
-link:189_scanf.asciidoc[scanf]                |
-link:190_setbuf.asciidoc[setbuf]              |
-link:191_setvbuf.asciidoc[setvbuf]            |
-link:192_sprintf.asciidoc[sprintf]            |
-link:193_snprintf.asciidoc[snprintf]          |
-link:193_sscanf.asciidoc[sscanf]              |
-link:194_tmpfile.asciidoc[tmpfile]            |
-link:195_tmpnam.asciidoc[tmpnam]              |
-link:196_ungetc.asciidoc[ungetc]              |
-link:197_vfprintf.asciidoc[vfprintf]          |
-link:198_vprintf.asciidoc[vprintf]            |
-link:199_vsnprintf.asciidoc[vsnprintf]        |
-link:200_vsprintf.asciidoc[vsprintf]          |
-link:201_vfscanf.asciidoc[vfscanf]            |
-link:202_vscanf.asciidoc[vscanf]              |
-link:203_vsscanf.asciidoc[vsscanf]
+link:159_stdio_summary.html[STDIO Summary]|
+link:160_clearerr.html[clearerr]          |
+link:161_fclose.html[fclose]              |
+link:162_feof.html[feof]                  |
+link:162_ferror.html[ferror]              |
+link:163_fflush.html[fflush]              |
+link:164_fgetc.html[fgetc]                |
+link:165_fgetpos.html[fgetpos]            |
+link:166_fgets.html[fgets]                |
+link:167_fopen.html[fopen]                |
+link:168_fprintf.html[fprintf]            |
+link:169_fputc.html[fputc]                |
+link:170_fputchar.html[fputchar]          |
+link:171_fputs.html[fputs]                |
+link:172_fread.html[fread]                |
+link:173_freopen.html[freopen]            |
+link:174_fscanf.html[fscanf]              |
+link:175_fseek.html[fseek]                |
+link:176_fsetpos.html[fsetpos]            |
+link:177_ftell.html[ftell]                |
+link:178_fwrite.html[fwrite]              |
+link:179_getc.html[getc]                  |
+link:180_getchar.html[getchar]            |
+link:181_perror.html[perror]              |
+link:182_printf.html[printf]              |
+link:183_putc.html[putc]                  |
+link:184_putchar.html[putchar]            |
+link:185_puts.html[puts]                  |
+link:186_remove.html[remove]              |
+link:187_rename.html[rename]              |
+link:188_rewind.html[rewind]              |
+link:189_scanf.html[scanf]                |
+link:190_setbuf.html[setbuf]              |
+link:191_setvbuf.html[setvbuf]            |
+link:192_sprintf.html[sprintf]            |
+link:193_snprintf.html[snprintf]          |
+link:193_sscanf.html[sscanf]              |
+link:194_tmpfile.html[tmpfile]            |
+link:195_tmpnam.html[tmpnam]              |
+link:196_ungetc.html[ungetc]              |
+link:197_vfprintf.html[vfprintf]          |
+link:198_vprintf.html[vprintf]            |
+link:199_vsnprintf.html[vsnprintf]        |
+link:200_vsprintf.html[vsprintf]          |
+link:201_vfscanf.html[vfscanf]            |
+link:202_vscanf.html[vscanf]              |
+link:203_vsscanf.html[vsscanf]
 
 stdlib.h
 --------
-link:249_stdlib_summary.asciidoc[STDLIB Summary]|
-link:250_abort.asciidoc[abort]                  |
-link:251_abs.asciidoc[abs]                      |
-link:252_atexit.asciidoc[atexit]                |
-link:253_atof.asciidoc[atof]                    |
-link:254_atoi.asciidoc[atoi]                    |
-link:255_atol.asciidoc[atol]                    |
-link:256_bsearch.asciidoc[bsearch]              |
-link:257_calloc.asciidoc[calloc]                |
-link:258_div.asciidoc[div]                      |
-link:259_ldiv.asciidoc[ldiv]                    |
-link:260_exit.asciidoc[exit]                    |
-link:261_free.asciidoc[free]                    |
-link:262_getenv.asciidoc[getenv]                |
-link:263_labs.asciidoc[labs]                    |
-link:264_malloc.asciidoc[malloc]                |
-link:265_mblen.asciidoc[mblen]                  |
-link:266_mbstowcs.asciidoc[mbstowcs]            |
-link:267_mbtowc.asciidoc[mbtowc]                |
-link:268_qsort.asciidoc[qsort]                  |
-link:269_rand.asciidoc[rand]                    |
-link:270_realloc.asciidoc[realloc]              |
-link:271_srand.asciidoc[srand]                  |
-link:272_strtod.asciidoc[strtod]                |
-link:273_strtol.asciidoc[strtol]                |
-link:274_strtoul.asciidoc[strtoul]              |
-link:275_system.asciidoc[system]                |
-link:276_wcstombs.asciidoc[wcstombs]            |
-link:277_wctomb.asciidoc[wctomb]
+link:249_stdlib_summary.html[STDLIB Summary]|
+link:250_abort.html[abort]                  |
+link:251_abs.html[abs]                      |
+link:252_atexit.html[atexit]                |
+link:253_atof.html[atof]                    |
+link:254_atoi.html[atoi]                    |
+link:255_atol.html[atol]                    |
+link:256_bsearch.html[bsearch]              |
+link:257_calloc.html[calloc]                |
+link:258_div.html[div]                      |
+link:259_ldiv.html[ldiv]                    |
+link:260_exit.html[exit]                    |
+link:261_free.html[free]                    |
+link:262_getenv.html[getenv]                |
+link:263_labs.html[labs]                    |
+link:264_malloc.html[malloc]                |
+link:265_mblen.html[mblen]                  |
+link:266_mbstowcs.html[mbstowcs]            |
+link:267_mbtowc.html[mbtowc]                |
+link:268_qsort.html[qsort]                  |
+link:269_rand.html[rand]                    |
+link:270_realloc.html[realloc]              |
+link:271_srand.html[srand]                  |
+link:272_strtod.html[strtod]                |
+link:273_strtol.html[strtol]                |
+link:274_strtoul.html[strtoul]              |
+link:275_system.html[system]                |
+link:276_wcstombs.html[wcstombs]            |
+link:277_wctomb.html[wctomb]
 
 string.h
 --------
-link:300_memchr.asciidoc[memchr]     |
-link:301_memcmp.asciidoc[memcmp]     |
-link:302_memcpy.asciidoc[memcpy]     |
-link:303_memmove.asciidoc[memmove]   |
-link:304_memset.asciidoc[memset]     |
-link:305_strcat.asciidoc[strcat]     |
-link:306_strchr.asciidoc[strchr]     |
-link:307_strcmp.asciidoc[strcmp]     |
-link:308_strcoll.asciidoc[strcoll]   |
-link:309_strcpy.asciidoc[strcpy]     |
-link:310_strcspn.asciidoc[strcspn]   |
-link:311_strerror.asciidoc[strerror] |
-link:312_strlen.asciidoc[strlen]     |
-link:313_strncat.asciidoc[strncat]   |
-link:314_strncmp.asciidoc[strncmp]   |
-link:315_strncpy.asciidoc[strncpy]   |
-link:316_strpbrk.asciidoc[strpbrk]   |
-link:317_strrchr.asciidoc[strrchr]   |
-link:318_strspn.asciidoc[strspn]     |
-link:319_strstr.asciidoc[strstr]     |
-link:320_strtok.asciidoc[strtok]     |
-link:321_strxfrm.asciidoc[strxfrm]
+link:300_memchr.html[memchr]     |
+link:301_memcmp.html[memcmp]     |
+link:302_memcpy.html[memcpy]     |
+link:303_memmove.html[memmove]   |
+link:304_memset.html[memset]     |
+link:305_strcat.html[strcat]     |
+link:306_strchr.html[strchr]     |
+link:307_strcmp.html[strcmp]     |
+link:308_strcoll.html[strcoll]   |
+link:309_strcpy.html[strcpy]     |
+link:310_strcspn.html[strcspn]   |
+link:311_strerror.html[strerror] |
+link:312_strlen.html[strlen]     |
+link:313_strncat.html[strncat]   |
+link:314_strncmp.html[strncmp]   |
+link:315_strncpy.html[strncpy]   |
+link:316_strpbrk.html[strpbrk]   |
+link:317_strrchr.html[strrchr]   |
+link:318_strspn.html[strspn]     |
+link:319_strstr.html[strstr]     |
+link:320_strtok.html[strtok]     |
+link:321_strxfrm.html[strxfrm]
 
 time.h
 ------
-link:349_time_summary.asciidoc[TIME Summary] |
-link:350_asctime.asciidoc[asctime]           |
-link:351_clock.asciidoc[clock]               |
-link:352_ctime.asciidoc[ctime]               |
-link:353_difftime.asciidoc[difftime]         |
-link:354_gmtime.asciidoc[gmtime]             |
-link:355_localtime.asciidoc[localtime]       |
-link:356_mktime.asciidoc[mktime]             |
-link:357_strftime.asciidoc[strftime]         |
-link:358_time.asciidoc[time]
+link:349_time_summary.html[TIME Summary] |
+link:350_asctime.html[asctime]           |
+link:351_clock.html[clock]               |
+link:352_ctime.html[ctime]               |
+link:353_difftime.html[difftime]         |
+link:354_gmtime.html[gmtime]             |
+link:355_localtime.html[localtime]       |
+link:356_mktime.html[mktime]             |
+link:357_strftime.html[strftime]         |
+link:358_time.html[time]
 
 ASCII Table
 -----------
-link:500_ascii-table.asciidoc[ASCII Table]
+link:500_ascii-table.html[ASCII Table]
