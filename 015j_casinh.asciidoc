@@ -1,0 +1,55 @@
+[[casinh]]
+casinh
+------
+
+NAME::
+casinh - complex arc hyperbolic sine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      casinh  (double complex z);
+float complex       casinhf (float complex z);
+long double complex casinhl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The *casinh()* function calculates the complex arc hyperbolic sine of `z`. 
+If `y = casinh(z)`, then `z = csinh(y)`. The imaginary part of `y` is chosen in 
+the interval `[-pi/2,pi/2]`.
+
+One has: `casinh(z) = clog(z + csqrt(z * z + 1))`
+
+RETURN VALUE::
+Returns the complex arc hyperbolic sine value in the range of a strip 
+mathematically unbound along the real axis in the interval `[-I*pi,I*pi]` along 
+the imaginary axis.
+
+SEE ALSO::
+<<asinh,asinh>>, <<cabs,cabs>>, <<csinh,csinh>>, <<cimag,cimag>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/casinh.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm casinh.c
+$ ./a.out
+casinh(+0+2i) = 1.316958+1.570796i
+casinh(-0+2i) (the other side of the cut) = -1.316958+1.570796i
+casinh(1+2i) = 1.469352+1.063440i
+casin(i * (1+2i))/i = 1.469352+1.063440i
+.....
+
+

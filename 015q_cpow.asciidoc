@@ -1,0 +1,48 @@
+[[cpow]]
+cpow
+----
+
+NAME::
+cpow - complex power function
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      cpow  (double complex x, complex double z);
+float complex       cpowf (float complex x, complex float z);
+long double complex cpowl (long double complex x, complex long double z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The function calculates `x` raised to the power `z`. (With a branch cut for `x`
+along the negative real axis.)
+
+RETURN VALUE::
+The complex power `x^y`.
+
+SEE ALSO::
+<<cabs,cabs>>, <<pow,pow>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/cpow.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cpow.c
+$ ./a.out
+-3.000000+4.000000i
+-0.222517+0.100709i
+.....
+
+

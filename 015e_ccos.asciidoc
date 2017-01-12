@@ -1,0 +1,49 @@
+[[ccos]]
+ccos
+----
+
+NAME::
+ccos - complex cosine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      ccos  (double complex z);
+float complex       ccosf (float complex z);
+long double complex ccosl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The complex cosine function is defined as:
+
+`ccos(z) = (exp(I * z) + exp(-I * z)) / 2`
+
+RETURN VALUE::
+Returns the complex cosine value.
+
+SEE ALSO::
+<<cabs,cabs>>, <<cacos,cacos>>, <<csin,csin>>, <<ctan,ctan>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ccos.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm ccos.c
+$ ./a.out
+cos(1+0i) = 0.540302-0.000000i ( cos(1)=0.540302)
+cos(0+1i) = 1.543081-0.000000i (cosh(1)=1.543081)
+.....
+
+

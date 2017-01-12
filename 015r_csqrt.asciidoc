@@ -1,0 +1,51 @@
+[[csqrt]]
+csqrt
+-----
+
+NAME::
+csqrt - complex square root
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      csqrt  (double complex z);
+float complex       csqrtf (float complex z);
+long double complex csqrtl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+Calculate the square root of a given complex number, with nonnegative real part,
+and with a branch cut along the negative real axis. (That means that
+`csqrt(-1+eps*I)` will be close to `I` while `csqrt(-1-eps*I)` will be close to
+`-I`, if `eps` is a small positive real number.)
+
+RETURN VALUE::
+The complex square root of `z` in the interval `[0; +∞)` along the real axis and
+ in the interval `(−∞; +∞)` along the imaginary axis.
+
+SEE ALSO::
+<<cabs,cabs>>, <<cexp,cexp>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+----------------------
+include::src/csqrt.c[]
+----------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm csqrt.c
+$ ./a.out
+0.000000+1.000000i
+1.272020+0.786151i
+.....
+
+

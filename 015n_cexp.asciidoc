@@ -1,0 +1,49 @@
+[[cexp]]
+cexp
+-----
+
+NAME::
+cexp - complex exponential function
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      cexp  (double complex z);
+float complex       cexpf (float complex z);
+long double complex cexpl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The function calculates `e` (2.71828 ..., the base of natural logarithms) raised
+to the power of `z`.
+
+One has: `cexp(I * z) = ccos(z) + I * csin(z)`
+
+RETURN VALUE::
+Returns the complex base-e exponential value.
+
+SEE ALSO::
+<<cexp2,cexp2>>, <<cabs,cabs>>, <<clog,clog>>, <<cpow,cpow>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/cexp.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cexp.c
+$ ./a.out
+exp(i*pi) = -1.0+0.0i
+.....
+
+

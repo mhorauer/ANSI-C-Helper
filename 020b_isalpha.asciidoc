@@ -1,0 +1,66 @@
+[[isalpha]]
+isalpha
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isalpha   (char c);
+int isalpha_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is an alphabetic character, i.e., either an
+uppercase letter (ABCDEFGHIJKLMNOPQRSTUVWXYZ), or a lowercase letter
+(abcdefghijklmnopqrstuvwxyz).
+
+In locales other than "C", an alphabetic character is a character for which
+`isupper()` or `islower()` returns true or any other character considered
+alphabetic by the locale. In any case, `iscntrl()`, `isdigit()`, `ispunct()` and
+`isspace()` will return false for this character.
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value (true) if the character is an alphabetic character, 0 (false) 
+otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isalpha1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isalpha1.c
+$ ./a.out 
+isalpha (?) NO
+isalpha (@) NO
+isalpha (A) YES
+isalpha (B) YES
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isalpha2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isalpha2.c
+$ ./a.out 
+isalpha('\xdf') in default C locale returned 0
+isalpha('\xdf') in ISO-8859-1 locale returned 1
+.....
+

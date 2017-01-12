@@ -1,0 +1,95 @@
+[[toupper]]
+toupper
+-------
+
+NAME::
+tolower - convert a character to its upper-case pendant.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+#define _toupper(c) ((c) - 'a' + 'A')
+
+int toupper   (int c);
+int toupper_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Converts the given character to uppercase according to the character conversion
+rules defined by the currently installed C locale.
+
+In the default "C" locale, the following lowercase letters
+`abcdefghijklmnopqrstuvwxyz` are replaced with respective uppercase letters
+`ABCDEFGHIJKLMNOPQRSTUVWXYZ`.
+
+The above `_toupper` macro is a simpler version of `toupper` that can be used
+when `c` is known to be a lowercase character.
+
+RETURN VALUE::
+Uppercase version of `c` or unmodified ch if no uppercase version is listed in
+the current C locale.
+
+SEE ALSO::
+
+<<tolower,tolower>>
+
+[NOTE]
+The details of what constitutes an uppercase or lowercase letter depend on the
+current locale. For example, the default "C" locale does not know about
+"umlauts", so no conversion is done for them. In some non - English locales,
+there are lowercase letters with no corresponding uppercase equivalent; the
+German "sharp s" is one example.
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/toupper1.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall toupper1.c
+$ ./a.out 
+toupper(_) = _
+toupper(`) = `
+toupper(a) = A
+toupper(b) = B
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/toupper2.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall toupper2.c
+$ ./a.out 
+aA
+.....
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/toupper3.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall toupper3.c
+$ ./a.out 
+aA bB cC dD eE fF gG hH iI jJ kK lL mM nN oO pP qQ rR sS tT uU vV wW xX yY zZ 
+
+in iso8859-1, toupper('0xb8') gives 0xb8
+in iso8859-15, toupper('0xb8') gives 0xb4
+.....
+
+

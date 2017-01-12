@@ -1,0 +1,53 @@
+[[catan]]
+catan
+-----
+
+NAME::
+catan - complex arc tangents
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      catan  (double complex z);
+float complex       catanf (float complex z);
+long double complex catanl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The *catan()* function calculates the complex arc tangent of `z`. If 
+`y = catan(z)`, then `z = ctan(y)`. The real part of `y` is chosen in the 
+interval `[-pi/2,pi/2]`.
+
+One has: `catan(z) = (clog(1 + I * z) - clog(1 - I * z)) / (2 * I)`
+
+
+RETURN VALUE::
+Returns the complex arc tangent in the range of a strip mathematically unbounded
+along the imaginary axis and in the interval `[-pi/2,pi/2]` along the real axis.
+
+SEE ALSO::
+<<ccos,ccos>>, <<ctan,ctan>>, <<clog,clog>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/catan.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm catan.c
+$ ./a.out 1 2
+catan() =  1.339  0.402*i
+formula =  1.339  0.402*i
+.....
+
+

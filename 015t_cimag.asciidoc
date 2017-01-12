@@ -1,0 +1,48 @@
+[[cimag]]
+cimag
+-----
+
+NAME::
+cimag - get imaginary part of a complex number
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double      cimag  (double complex z);
+float       cimagf (float complex z);
+long double cimagl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The *cimag()* function returns the imaginary part of the complex number `z`.
+
+One has: `z = creal(z) + I * cimag(z)`
+
+RETURN VALUE::
+The imaginary part of `z`.
+
+SEE ALSO::
+<<cabs,cabs>>, <<creal,creal>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/cimag.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cimag.c
+$ ./a.out
+1.000000+2.000000i
+.....
+
+

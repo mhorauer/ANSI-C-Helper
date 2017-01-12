@@ -1,0 +1,65 @@
+[[islower]]
+islower
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int islower   (char c);
+int islower_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is classified as a lowercase character according
+to the current C locale. In the default "C" locale, `islower` returns true only
+for the lowercase letters (`abcdefghijklmnopqrstuvwxyz`).
+
+If `islower` returns true, it is guaranteed that `iscntrl`, `isdigit`,
+`ispunct`, and `isspace` return false for the same character in the same C
+locale.
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character is a lowercase letter, zero otherwise.
+
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/islower1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall islower1.c
+$ ./a.out 
+islower (_) NO
+islower (`) NO
+islower (a) YES
+islower (b) YES
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/islower2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall islower2.c
+$ ./a.out 
+In the default C locale, \xe5 is not lowercase
+In ISO-8859-1 locale, \xe5 is lowercase
+.....
+

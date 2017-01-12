@@ -1,0 +1,59 @@
+[[isdigit]]
+isdigit
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isdigit   (char c);
+int isdigit_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is a numeric character (0123456789).
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value (true) if the character is a numeric character, 0 (false) 
+otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isdigit1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isdigit1.c
+$ ./a.out 
+isdigit (.) NO
+isdigit (/) NO
+isdigit (0) YES
+isdigit (1) YES
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isdigit2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isdigit2.c
+$ ./a.out 
+0123456789
+.....
+
+

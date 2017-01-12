@@ -1,0 +1,109 @@
+[[tolower]]
+tolower
+-------
+
+NAME::
+tolower - convert a character to its lower-case pendant.
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+#define _tolower(c) ((c) - 'A' + 'a')
+
+int tolower   (int c);
+int tolower_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Converts the given character to lowercase according to the character conversion
+rules defined by the currently installed C locale.
+
+In the default "C" locale, the following uppercase letters
+`ABCDEFGHIJKLMNOPQRSTUVWXYZ` are replaced with respective lowercase letters
+`abcdefghijklmnopqrstuvwxyz`.
+
+The above `_tolower` macro is a simpler version of `tolower` that can be used 
+when `c` is known to be an uppercase character.
+
+RETURN VALUE::
+Lowercase version of `c` or unmodified ch if no lowercase version is listed in 
+the current C locale.
+
+SEE ALSO::
+
+<<toupper,toupper>>
+
+[NOTE]
+The details of what constitutes an uppercase or lowercase letter depend on the
+current locale. For example, the default "C" locale does not know about
+"umlauts", so no conversion is done for them. In some non - English locales,
+there are lowercase letters with no corresponding uppercase equivalent; the
+German "sharp s" is one example.
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/tolower1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall tolower1.c
+$ ./a.out 
+tolower(A) = a
+tolower(B) = b
+tolower(C) = c
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/tolower2.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall tolower2.c
+$ ./a.out 
+Aa
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/tolower2.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall tolower2.c
+$ ./a.out 
+Aa
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/tolower3.c[]
+---------------------
+
+OUTPUT::
+.....
+$ gcc -Wall tolower3.c
+$ ./a.out 
+Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 
+
+in iso8859-1, tolower('0xb4') gives 0xb4
+in iso8859-15, tolower('0xb4') gives 0xb8
+.....
+
+
+

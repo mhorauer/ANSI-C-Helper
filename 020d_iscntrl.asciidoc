@@ -1,0 +1,63 @@
+[[iscntrl]]
+iscntrl
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int iscntrl   (char c);
+int iscntrl_l (int c, locale_t locale);
+---------------------
+
+
+DESCRIPTION::
+Checks if the given character is a control character, i.e., codes 0x00-0x1F and
+0x7F.
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value (true) if the character is a control character, 0 (false) 
+otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/iscntrl1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall iscntrl1.c
+$ ./a.out 
+iscntrl (30) YES
+iscntrl (31) YES
+iscntrl (32) NO
+iscntrl (33) NO
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/iscntrl2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall iscntrl2.c
+$ ./a.out 
+0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f 0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c 0x1d 0x1e 0x1f 0x7f
+.....
+
+
+

@@ -1,0 +1,49 @@
+[[ccosh]]
+ccosh
+-----
+
+NAME::
+ccosh - complex hyperbolic cosine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      ccosh  (double complex z);
+float complex       ccoshf (float complex z);
+long double complex ccoshl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The complex hyperbolic cosine function is defined as:
+
+`ccosh(z) = (exp(z)+exp(-z))/2`
+
+RETURN VALUE::
+Returns the complex hyperbolic cosine value.
+
+SEE ALSO::
+<<cacosh,cacosh>>, <<cabs,cabs>>, <<csinh,csinh>>, <<ctanh,ctanh>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ccosh.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm ccosh.c
+$ ./a.out
+cosh(1+0i) = 1.543081+0.000000i (cosh(1)=1.543081)
+cosh(0+1i) = 0.540302+0.000000i ( cos(1)=0.540302)
+.....
+
+

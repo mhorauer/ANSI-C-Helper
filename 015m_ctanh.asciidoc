@@ -1,0 +1,49 @@
+[[ctanh]]
+ctanh
+-----
+
+NAME::
+ctanh - complex hyperbolic tangent
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      ctanh  (double complex z);
+float complex       ctanhf (float complex z);
+long double complex ctanhl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The complex hyperbolic tangent function is defined as:
+
+`ctanh(z) = csinh(z) / ccosh(z)`
+
+RETURN VALUE::
+Returns the complex hyperbolic tangent value of `z`.
+
+SEE ALSO::
+<<catanh,catanh>>, <<cabs,cabs>>, <<ccosh,ccosh>>, <<csinh,csinh>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ctanh.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm ctanh.c
+$ ./a.out
+tanh(1+0i) = 0.761594+0.000000i (tanh(1)=0.761594)
+tanh(0+1i) = 0.000000+1.557408i ( tan(1)=1.557408)
+.....
+
+

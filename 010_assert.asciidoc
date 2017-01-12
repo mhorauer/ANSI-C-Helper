@@ -26,13 +26,13 @@ RETURN VALUE::
 No value is returned.
 
 SEE ALSO::
-+exit+, +abort+
+<<exit,exit>>, <<abort,abort>>
 
 EXAMPLE::
 
 [source,c]
 ---------------------
-include::src/assert.c[]
+include::src/assert1.c[]
 ---------------------
 
 OUTPUT::
@@ -50,5 +50,25 @@ a.out: assert.c:6: open_record: Assertion `record_name!=((void *)0)' failed.
 Aborted
 .....
 
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/assert2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall assert.c
+$ ./a.out
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+a.out: assert2.c:6: test_assert: Assertion `x <= 4' failed.
+Aborted (core dumped)
+.....
 
 

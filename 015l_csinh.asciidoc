@@ -1,0 +1,49 @@
+[[csinh]]
+csinh
+-----
+
+NAME::
+csinh - complex hyperbolic sine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      csinh  (double complex z);
+float complex       csinhf (float complex z);
+long double complex csinhl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The complex hyperbolic sine function is defined as:
+
+`csinh(z) = (exp(z)-exp(-z))/2`
+
+RETURN VALUE::
+Returns the complex hyperbolic sine value of `z`.
+
+SEE ALSO::
+<<casinh,casinh>>, <<cabs,cabs>>, <<ccosh,ccosh>>, <<ctanh,ctanh>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/csinh.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm csinh.c
+$ ./a.out
+sinh(1+0i) = 1.175201+0.000000i (sinh(1)=1.175201)
+sinh(0+1i) = 0.000000+0.841471i ( sin(1)=0.841471)
+.....
+
+

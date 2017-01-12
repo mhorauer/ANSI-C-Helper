@@ -1,0 +1,49 @@
+[[csin]]
+csin
+----
+
+NAME::
+csin - complex sine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      csin  (double complex z);
+float complex       csinf (float complex z);
+long double complex csinl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The complex cosine function is defined as:
+
+`csin(z) = (exp(I * z) - exp(-I * z)) / (2 * I)`
+
+RETURN VALUE::
+Returns the complex sine value.
+
+SEE ALSO::
+<<cabs,cabs>>, <<casin,casin>>, <<ccos,ccos>>, <<ctan,ctan>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/csin.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm csin.c
+$ ./a.out
+sin(1+0i) = 0.841471+0.000000i ( sin(1)=0.841471)
+sin(0+1i) = 0.000000+1.175201i (sinh(1)=1.175201)
+.....
+
+

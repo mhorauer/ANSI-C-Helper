@@ -1,0 +1,70 @@
+[[isgraph]]
+isgraph
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isgraph   (char c);
+int isgraph_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character has a graphical representation, i.e. it is either
+a number (`0123456789`), an uppercase letter (`ABCDEFGHIJKLMNOPQRSTUVWXYZ`), a
+lowercase letter (`abcdefghijklmnopqrstuvwxyz`), or a punctuation
+character(`!"#$%&'()*+,-./:;<=>?@[\]^_{|}~``), or any graphical 
+character specific to the current C locale.
+
+The behavior is undefined if the value of `c` is not representable as 
+`unsigned char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character has a graphical representation character, zero 
+otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isgraph1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isgraph1.c
+$ ./a.out 
+isgraph ( ) NO
+isgraph (!) YES
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isgraph2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isgraph2.c
+$ ./a.out 
+!"#$%&'()*
++,-./01234
+56789:;<=>
+?@ABCDEFGH
+IJKLMNOPQR
+STUVWXYZ[\
+]^_`abcdef
+ghijklmnop
+qrstuvwxyz
+{|}~
+.....
+
+

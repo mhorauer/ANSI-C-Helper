@@ -1,0 +1,64 @@
+[[isspace]]
+isspace
+-------
+
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isspace   (char c);
+int isspace_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is a whitespace character, i.e., either space
+(0x20), form feed (0x0c), line feed (0x0a), carriage return (0x0d), horizontal
+tab (0x09) or vertical tab (0x0b).
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character is a whitespace character, zero otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isspace1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isspace1.c
+$ ./a.out 
+isspace ( ) YES
+isspace (!) NO
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isspace2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isspace2.c
+$ ./a.out 
+0x09
+0x0a
+0x0b
+0x0c
+0x0d
+0x20
+.....
+
+

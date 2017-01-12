@@ -1,0 +1,53 @@
+[[casin]]
+casin
+-----
+
+NAME::
+casin - complex arc sine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      casin  (double complex z);
+float complex       casinf (float complex z);
+long double complex casinl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The *casin()* function calculates the complex arc sine of `z`. If 
+`y = casin(z)`, then `z = csin(y)`. The real part of y is chosen in the 
+interval `[-pi/2,pi/2]`.
+
+One has: `casin(z) = -I clog(Iz + csqrt(1 - z * z))`
+
+RETURN VALUE::
+Returns the complex arc sine in the range of a strip mathematically unbounded
+along the imaginary axis and in the interval `[-pi/2,pi/2]` along the real axis.
+
+SEE ALSO::
+<<csin,csin>>, <<clog,clog>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/casin.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm casin.c
+$ ./a.out 1 2
+casin(-2+0i) = -1.570796+1.316958i
+casin(-2-0i) (the other side of the cut) = -1.570796-1.316958i
+csin(cacos(-2-0i)-pi/2) = 2.000000+0.000000i
+.....
+
+

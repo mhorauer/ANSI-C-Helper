@@ -1,0 +1,57 @@
+[[clog]]
+clog
+----
+
+NAME::
+clog - natural logarithm of a complex number
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      clog  (double complex z);
+float complex       clogf (float complex z);
+long double complex clogl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The logarithm *clog()* is the inverse function of the exponential `cexp()`. 
+Thus, if `y = clog(z)`, then `z = cexp(y)`. The imaginary part of `y` is chosen 
+in the interval `[-pi,pi]`.
+
+One has: `clog(z) = log(cabs(z)) + I * carg(z)`
+
+Note that `z` close to zero will cause an overflow.
+
+RETURN VALUE::
+Returns the complex natural logarithm in the range of a strip mathematically
+unbound along the real axis and in the interval `[-I*pi,I*pi]` along the
+imaginary axis.
+
+SEE ALSO::
+<<cexp,cexp>>, <<cabs,cabs>>, <<clog10,clog10>>, <<clog2,clog2>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/clog.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm clog.c
+$ ./a.out
+2*log(i) = 0.0+3.141593i
+4*log(sqrt(2)/2+sqrt(2)i/2) = 0.0+3.141593i
+log(-1+0i) = 0.0+3.141593i
+log(-1-0i) (the other side of the cut) = 0.0-3.141593i
+.....
+
+

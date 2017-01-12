@@ -1,0 +1,49 @@
+[[ctan]]
+ctan
+----
+
+NAME::
+ctan - complex tangent
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      ctan  (double complex z);
+float complex       ctanf (float complex z);
+long double complex ctanl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The complex tangent function is defined as:
+
+`ctan(z) = csin(z) / ccos(z)`
+
+RETURN VALUE::
+Returns the complex tangent of `z`.
+
+SEE ALSO::
+<<cabs,cabs>>, <<catan,catan>>, <<ccos,ccos>>, <<csin,csin>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ctan.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm ctan.c
+$ ./a.out
+tan(1+0i) = 1.557408+0.000000i ( tan(1)=1.557408)
+tan(0+1i) = 0.000000+0.761594i (tanh(1)=0.761594)
+.....
+
+

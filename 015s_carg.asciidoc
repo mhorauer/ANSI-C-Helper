@@ -1,0 +1,58 @@
+[[carg]]
+carg
+----
+
+NAME::
+carg - calculate the complex argument
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double      carg  (double complex z);
+float       cargf (float complex z);
+long double cargl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+A complex number can be described by two real coordinates. One may use
+rectangular coordinates and get `z = x + I * y` where `x = creal(z) and y =
+cimag(z)`.
+
+Or one may use polar coordinates and get `z = r * cexp(I * a)` where `r =
+cabs(z)` is the "radius", the "modulus", the absolute value of `z`, and `a =
+carg(z)` is the "phase angle", the argument of `z`.
+
+One has: `tan(carg(z)) = cimag(z) / creal(z)`
+
+RETURN VALUE::
+The return value is the range of `[-pi,pi]`.
+
+SEE ALSO::
+<<abs,abs>>, <<cimag,cimag>>, <<hypot,hypot>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/carg.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm carg.c
+$ ./a.out
+ 0.000000 radians,     0.0 degrees
+ 0.785398 radians,    45.0 degrees
+ 2.356194 radians,   135.0 degrees
+-2.356194 radians,  -135.0 degrees
+-0.785398 radians,   -45.0 degrees
+.....
+
+

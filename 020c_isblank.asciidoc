@@ -1,0 +1,46 @@
+[[isblank]]
+isblank
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isblank   (char c);
+int isblank_l (int c, locale_t locale);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+Checks if the given character is a blank character in the current C locale. In
+the default C locale, only space (0x20) and horizontal tab (0x09) are classified
+as blank.
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value (true) if the character is a blank character, 0 (false) 
+otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isblank.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isblank.c
+$ ./a.out 
+0x09
+0x20
+.....
+

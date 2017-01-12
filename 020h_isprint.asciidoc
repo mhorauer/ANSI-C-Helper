@@ -1,0 +1,63 @@
+[[isprint]]
+isprint
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isprint   (char c);
+int isprint_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character can be printed, i.e., it is either a number
+(`0123456789`), an uppercase letter (`ABCDEFGHIJKLMNOPQRSTUVWXYZ`), a lowercase
+letter (`abcdefghijklmnopqrstuvwxyz`), a punctuation
+character(`!"#$%&'()*+,-./:;<=>?@[\]^_{|}~``), or space, or any character
+classified as printable by the current C locale.
+
+The behavior is undefined if the value of `c` is not representable as 
+`unsigned char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character can be printed, zero otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isprint1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isprint1.c
+$ ./a.out 
+isprint (30) NO
+isprint (31) NO
+isprint (32) YES
+isprint (33) YES
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isprint2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isprint2.c
+$ ./a.out 
+In the default C locale, \xa0 is not printable
+In ISO-8859-1 locale, \xa0 is printable
+.....
+

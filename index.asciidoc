@@ -20,6 +20,11 @@ assert.h
 --------
 link:010_assert.html[assert]
 
+complex.h
+---------
+link:012a_cacos.html[cacos]   |
+
+
 ctype.h
 -------
 link:020_isalnum.html[isalnum]   |

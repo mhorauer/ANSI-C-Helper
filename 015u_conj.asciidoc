@@ -1,0 +1,49 @@
+[[conj]]
+conj
+----
+
+NAME::
+conj - calculate the complex conjugate
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      conj  (double complex z);
+float complex       conjf (float complex z);
+long double complex conjl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The *conj()* function returns the complex conjugate value of `z`. That is the
+value obtained by changing the sign of the imaginary part.
+
+One has: `cabs(z) = csqrt(z * conj(z))`
+
+RETURN VALUE::
+The complex conjugate of `z`.
+
+SEE ALSO::
+<<cabs,cabs>>, <<csqrt,csqrt>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/conj.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm conj.c
+$ ./a.out
+1.000000-2.000000i
+.....
+
+

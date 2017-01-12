@@ -1,0 +1,49 @@
+[[cproj]]
+cproj
+-----
+
+NAME::
+cproj - project into Riemann Sphere
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double complex      cproj  (double complex z);
+float complex       cprojf (float complex z);
+long double complex cprojl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+These functions project a point in the plane onto the surface of a Riemann
+Sphere, the one-point compactification of the complex plane. Each finite point
+`z` projects to `z` itself. Every complex infinite value is projected to a
+single infinite value, namely to positive infinity on the real axis.
+
+RETURN VALUE::
+The projection of `z` on the Riemann sphere.
+
+SEE ALSO::
+<<cabs,cabs>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+----------------------
+include::src/cproj.c[]
+----------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cproj.c
+$ ./a.out
+inf+0.0i
+.....
+
+

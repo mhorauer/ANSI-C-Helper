@@ -1,0 +1,62 @@
+[[ispunct]]
+ispunct
+-------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int ispunct   (char c);
+int ispunct_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is a punctuation character in the current C
+locale. The default C locale classifies the characters
+`!"#$%&'()*+,-./:;<=>?@[\]^_{|}~`` as punctuation.
+
+The behavior is undefined if the value of `c` is not representable as 
+`unsigned char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character is a punctuation character, zero otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ispunct1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall ispunct1.c
+$ ./a.out 
+ispunct (_) YES
+ispunct (`) YES
+ispunct (a) NO
+ispunct (b) NO
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/ispunct2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall ispunct2.c
+$ ./a.out 
+In the default C locale, \xd7 is not punctuation
+In ISO-8859-1 locale, \xd7 is punctuation
+.....
+
+

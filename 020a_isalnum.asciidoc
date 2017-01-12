@@ -1,0 +1,69 @@
+[[isalnum]]
+isalnum
+-------
+
+[source,c]
+---------------------
+#include <ctype.h> 
+
+int isalnum   (char c);
+int isalnum_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is an alphanumeric character as classified by the 
+current C locale. In the default locale, the following characters are 
+alphanumeric:
+
+* digits (0123456789)
+* uppercase letters (ABCDEFGHIJKLMNOPQRSTUVWXYZ)
+* lowercase letters (abcdefghijklmnopqrstuvwxyz)
+
+The behavior is undefined if the value of `c` is not representable as 
+`unsigned char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character is an alphanumeric character, 0 otherwise.
+
+
+SEE ALSO::
+<<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>, <<isxdigit,isxdigit>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isalnum1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isalnum1.c
+$ ./a.out 
+isalnum (-) NO
+isalnum (.) NO
+isalnum (/) NO
+isalnum (0) YES
+isalnum (1) YES
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isalnum2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isalnum2.c
+$ ./a.out 
+isalnum('\xdf') in default C locale returned 0
+isalnum('\xdf') in ISO-8859-1 locale returned 1
+.....
+
+
+
+

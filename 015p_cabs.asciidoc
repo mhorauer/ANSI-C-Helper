@@ -1,0 +1,47 @@
+[[cabs]]
+cabs
+----
+
+NAME::
+cabs - compute the absolute value of a complex number
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+double      cabs  (double complex z);
+float       cabsf (float complex z);
+long double cabsl (long double complex z);
+---------------------
+
+CONFORMING TO::
+C99
+
+DESCRIPTION::
+The *cabs()* function returns the absolute value of the complex number `z`. 
+The result is a real number.
+
+RETURN VALUE::
+Returns the absolute value of `z`.
+
+SEE ALSO::
+<<abs,abs>>, <<cimag,cimag>>, <<hypot,hypot>>, <<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/cabs.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm cabs.c
+$ ./a.out
+2.236068
+.....
+
+

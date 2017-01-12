@@ -1,0 +1,99 @@
+[[cacos]]
+cacos
+-----
+
+NAME::
+cacos - complex arc cosine
+
+SYNOPSIS::
+
+[source,c]
+---------------------
+#include <complex.h>
+
+#define imaginary _Imaginary
+#define complex   _Complex
+
+#define Imaginary_I
+#define _Complex_I
+#define I
+
+#define CMPLX(x, y) ((double complex)((double)(x) + \
+                    _Imaginary_I * (double) (y)))
+#define CMPLXF(x, y) ((float complex)((float)(x) + \
+                    _Imaginary_I * (float) (y)))
+#define CMPLXL(x, y) ((long double complex)((long double)(x) + \
+                    _Imaginary_I * (long double) (y)))
+---------------------
+
+CONFORMING TO::
+C11
+
+DESCRIPTION::
+Complex numbers are numbers of the form `z = a+b*I`, where `a` and `b` are real
+numbers and `I = sqrt(-1)`, so that `I*I = -1`.
+
+There are other ways to represent that number.The pair `(a,b)` of real numbers
+may be viewed as a point in the plane, given by X- and Y-coordinates. This same
+point may also be described by giving the pair of real numbers `(r,phi)`, where
+`r` is the distance to the origin O, and `phi` the angle between the X-axis and
+the line Oz. Now `z = r*exp(I*phi) = r*(cos(phi)+I*sin(phi))`.
+
+The basic operations are defined on `z = a+b*I` and `w = c+d*I` as:
+
+addition: `z+w = (a+c) + (b+d)*I`
+
+multiplication: `z*w = (a*c - b*d) + (a*d + b*c)*I`
+
+division: `z/w = ((a*c + b*d)/(c*c + d*d)) + ((b*c - a*d)/(c*c + d*d))*I`
+
+Nearly all math function have a complex counterpart but there are some
+complex-only functions.
+
+The macros CMPLX return a complex number composed of real as the real part and
+imag as the imaginary part.
+
+The returned value is suitable for use as an initializer for variables with
+static or thread storage duration, but only if real and imag are also suitable.
+
+RETURN VALUE::
+A complex number composed of real and imag as the real and imaginary parts.
+
+SEE ALSO::
+<<complex,complex>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/complex1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm complex1.c
+$ ./a.out
+__STDC_NO_COMPLEX__ is undefined.
+__STDC_IEC_559_COMPLEX__ is defined.
+I = 0.0+1.0i
+sizeof(I) = 8
+sizeof(_Complex_I) = 8
+z = 1.0+2.0i
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/complex2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall -lm complex2.c
+$ ./a.out
+-1.000000 + 0.000000 * i
+.....
+

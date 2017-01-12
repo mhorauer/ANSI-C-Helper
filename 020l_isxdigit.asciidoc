@@ -1,0 +1,59 @@
+[[isxdigit]]
+isxdigit
+--------
+
+[source,c]
+---------------------
+#include <ctype.h>
+
+int isxdigit   (char c);
+int isxdigit_l (int c, locale_t locale);
+---------------------
+
+DESCRIPTION::
+Checks if the given character is a hexadecimal numeric character 
+(`0123456789abcdefABCDEF`) or is classified as a hexadecimal character.
+
+The behavior is undefined if the value of `c` is not representable as `unsigned
+char` and is not equal to `EOF`.
+
+RETURN VALUE::
+Non-zero value if the character is an hexadecimal numeric character, zero 
+otherwise.
+
+SEE ALSO::
+<<isalnum,isalnum>>, <<isalpha,isalpha>>, <<isblank,isblank>>, <<iscntrl,iscntrl>>, <<isdigit,isdigit>>, <<isgraph,isgraph>>, <<islower,islower>>, <<isprint,isprint>>, <<ispunct,ispunct>>, <<isspace,isspace>>, <<isupper,isupper>>
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isxdigit1.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isxdigit1.c
+$ ./a.out 
+isxdigit (e) YES
+isxdigit (f) YES
+isxdigit (g) NO
+isxdigit (h) NO
+.....
+
+EXAMPLE::
+
+[source,c]
+---------------------
+include::src/isxdigit2.c[]
+---------------------
+
+OUTPUT::
+
+.....
+$ gcc -Wall isxdigit2.c
+$ ./a.out 
+0123456789ABCDEFabcdef
+.....
+
