@@ -1,7 +1,8 @@
 ANSI-C-Helper
 =============
 
-WARNING: This repo and the examples herein are no longer maintained. Use http://www.devdocs.io[http://www.devdocs.io] instead.
+[WARNING] 
+This repo and the examples herein are no longer maintained. Use http://www.devdocs.io[http://www.devdocs.io] instead.
 
 This C-Helper provides a description of most ANSI-C functions along with small usage examples. This collection is intended for beginners.
 
